@@ -1,0 +1,117 @@
+/*------------ Common */
+li{
+    list-style: none;
+}
+a:hover, a:active, a:visited{
+    text-decoration: none;
+}
+.clearfix{
+    clear: both;
+}
+*{
+	box-sizing: border-box;
+}
+/* End Common------------  */
+.fbox-icon{
+	float: left;
+	margin-right: 4px;
+}
+.feature-box p{
+	font-size: 12px;
+}
+.feature-box{
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.policies{
+	border-bottom: solid 1px #dddddd;
+}
+.block_title{
+	text-align: center;
+	border-bottom: solid 1px #dddddd;
+}
+.product-title {
+	text-align: center;
+}
+.product-title h3 p{
+	font-size: 15px;
+	color: black;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.colection ul{
+	margin-top: 5px;
+	text-align: center;
+}
+.colection ul li{
+	display: inline;
+	margin-right: 25px;
+	font-size: 15px;
+}
+.colection ul li a{
+	color: black;
+}
+.colection{
+	margin-top: 50px;
+}
+.colection  ul{
+	margin-bottom: 20px;
+}
+
+.product-title h3{
+
+}
+.product-price ins a{
+	color: red;
+}
+.product-price ins{
+	text-decoration: none;
+	color: red;
+	font-weight: 700;
+}
+.product-price{
+	text-align: center;
+}
+.product-image img{
+	max-width: 100%;
+	height: auto;
+}
+
+.interactive_img{
+	z-index: 0;
+}
+.interactive_overlay {
+    padding: 50px;
+    padding-top: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.btn_see_all{
+	margin-top: 40px;
+	border: solid 1px grey;
+	padding: 5px;
+	text-align: center;
+}
+.btn_see_all a{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.interactive_overlay3 {
+    padding: 50px;
+    padding-top: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.brand_title{
+	text-align: center;
+	margin: 20px;
+}
+.brand_content img{
+	padding-left: 13px;
+}
