@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="shopfashion.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
   </head>
   <body>
-
-    <?php 
+  <?php  
       include 'header.php';
-    ?>
-
+  ?>
+      
     <section id="slider" class="clearfix">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
