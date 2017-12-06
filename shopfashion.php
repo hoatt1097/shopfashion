@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="shopfashion.css">
-    <link rel="stylesheet" type="text/css" href="header.css">
   </head>
   <body>
   <?php  
@@ -121,11 +120,15 @@
         <div class="row">
           <div class="col-xs-12 index_col_products">
             <div class="row">
-
               <div class="product_single col-xs-6 col-md-3">
                 <div class="product product_one clearfix ">
                   <div class="product-image">
                     <img src="images/xanh-1-0636086650350562651.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="sale-flash">- 66%</div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -146,6 +149,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/trang-1-0636054082543242809.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -166,6 +173,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/tim-1-0636010025286033752.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -186,6 +197,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/den-1-0636008271386029189.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -206,6 +221,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/do-1-0636207801668764682.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -226,6 +245,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/xanhsoc-1-0635935674125854622.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -246,6 +269,10 @@
                 <div class="product product_one clearfix">
                   <div class="product-image">
                     <img src="images/hong-1-cm.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -266,6 +293,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/xanh-1-0636011521638009955.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -285,6 +316,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/xanh-1-0636030480335378891.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -304,6 +339,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/do-1-0636046279689386571.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -323,6 +362,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/xanh-2-0636028970049926215.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -342,6 +385,10 @@
                 <div class="product">
                   <div class="product-image">
                     <img src="images/trang-1-0636046279710446608.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -383,6 +430,10 @@
             <div class="interactive_banner">
               <div class="interactive_img">
                 <img src="images/thoi-trang-nam-cao-cap.jpg" alt="">
+                <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
               </div>
               <div class="interactive_overlay">
                 <div class="">
@@ -406,6 +457,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -426,6 +481,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/thoi-trang-nam/vest-trang-basic-129-7f1803aa-954e-4399-b18f-7ba3782f70d7.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -446,6 +505,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/thoi-trang-nam/quan-au-mau-den-ke-soc-117.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -466,6 +529,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/thoi-trang-nam/so-mi-trang-cham-den-nho-tinh-te-321.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -486,6 +553,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/thoi-trang-nam/so-mi-xam-cham-bi-chim-316.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -506,6 +577,10 @@
                 <div class="product ">
                   <div class="product-image">
                     <img src="images/thoi-trang-nam/so-mi-xanh-tim-hoa-tiet-tron-306.jpg" alt="">
+                    <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
@@ -547,6 +622,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/that-lung-da-khoa-tron-cham-khac-noi-226.png" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -567,6 +646,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/that-lung-da-khoa-van-ma-vang-230-ff0c1375-f337-4d21-b8b8-bb2e91787170.png" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -587,6 +670,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/2016-Top-10-Brand-Carnival-Automatical-Mechanical.jpg" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -607,6 +694,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/giay-da-tay-nam.jpg" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -647,6 +738,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/giay-cao-got-ho-mui-de-vuong-nu-xinh-1m4G3-OIk1B3.jpg" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -667,6 +762,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/tui-xach-nu-svn.jpg" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -687,6 +786,10 @@
                   <div class="product ">
                     <div class="product-image">
                       <img src="images/phu-kien/vi-nu-da-that-nucelle-070363-11-1-jpeg.jpg" alt="">
+                      <div class="quick_action clearfix">
+                      <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
+                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                    </div>
                     </div>
                     <div class="product-desc">
                           <div class="product-title">
@@ -753,7 +856,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    </script>
+    <script src="js/shopfashion.js"></script>
   </body>
 </html>

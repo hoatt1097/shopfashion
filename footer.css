@@ -39,9 +39,11 @@ a:hover, a:active, a:visited{
     background-color: #00c5bb;
 }
 .input-group-btn{
-
+    width: auto;
 }
-
+.input-group {
+    display: block !important;
+}
 .subscribe_group_left .form_subscribe{
     float: right;
 }

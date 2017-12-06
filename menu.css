@@ -12,20 +12,22 @@ a:hover, a:active, a:visited{
 	box-sizing: border-box;
 }
 /* End Common------------  */
-.fbox-icon{
-	float: left;
-	margin-right: 4px;
+.info {
+	display: inline;
 }
-.feature-box p{
-	font-size: 12px;
+.info p{
+	display: inline-block !important;
+	margin-bottom: 30px;
+	margin-top: 8px;
 }
-.feature-box{
-	margin-top: 30px;
-	margin-bottom: 20px;
+.sort {
+	width: 130px !important;
+	display: inline-block !important;
 }
-.policies{
-	border-bottom: solid 1px #dddddd;
+.text-right p {
+	display: inline-block;
 }
+
 .block_title{
 	text-align: center;
 	border-bottom: solid 1px #dddddd;
@@ -163,4 +165,82 @@ a:hover, a:active, a:visited{
 }
 .brand_content img{
 	padding-left: 13px;
+}
+
+/*-----------Category & sidebar------------*/
+.filter_group .widget_links h4 {
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.filter_group .widget_links ul label {
+    font-weight: 400;
+    text-transform: none;
+    margin-bottom: 0;
+    vertical-align: bottom;
+    font-size: 14px;
+    float: left;
+}
+label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #555;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.filter_group .widget_links h4 {
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.filter_group a i {
+    float: right;
+    line-height: 22px;
+}
+.filter_group .widget_links {
+    padding: 10px 10px 0 10px;
+}
+.filter_group .widget_links {
+    margin-top: 10px;
+    border-top: 1px dotted #EEE;
+}
+.filter_group .widget_links ul label {
+    font-weight: 400;
+    text-transform: none;
+    margin-bottom: 0;
+    vertical-align: bottom;
+}
+/*sidebar*/
+div.sidebar h4 a {
+    color: #444;
+}
+.spost .entry-image, .spost .entry-image a, .spost .entry-image img, .spost .entry-image i {
+    width: 48px;
+    float: left;
+}
+.spost .entry-title h4, .mpost .entry-title h4 {
+    font-weight: 300;
+    margin: 0;
+    font-size: 14px;
+}
+.entry-meta li ins {
+    font-weight: 300;
+    text-decoration: none;
+    color: #00c5bb !important;
+}
+.entry-meta li {
+    float: left;
+    font-size: 13px;
+    line-height: 14px;
+    margin: 0 10px 5px 0;
+    color: #999;
+    font-style: italic;
+}
+.spost, .mpost {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #E5E5E5;
 }
