@@ -20,6 +20,9 @@
       include 'header.php';
   ?>
     <div class="container">
+      <div class="collection_banner">
+        <img src="//bizweb.dktcdn.net/100/160/934/themes/599978/assets/col_all_banner.jpg?1512385957126" alt="Tất cả sản phẩm">
+      </div>
       <div class="tech_store_index_col_1 colection">
         <div class="row">
           <div class="col-xs-9 index_col_products">
@@ -337,7 +340,7 @@
                 </div>
                 <div id="filter_group" class="panel-collapse collapse in">
                   <!-- BEGIN: Vendor filter -->
-                  <div class="widget_links clearfix product-filter-group product-filter--by-THƯƠNG HIỆU">
+                  <div class="group1 widget_links clearfix product-filter-group product-filter--by-THƯƠNG HIỆU">
                     <a href="" data-toggle="collapse"><h4>THƯƠNG HIỆU<i class="fa-angle-down fa"></i></h4></a>
                     <ul id="filter_group_1" class="panel-collapse collapse in filter_list">
                       <li class="product-filter-item product-filter-item--check-box ">
@@ -590,6 +593,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/shopfashion.js"></script>
+    <script src="js/menu.js"></script>
   </body>
 </html>

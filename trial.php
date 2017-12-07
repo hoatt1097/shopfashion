@@ -1,299 +1,67 @@
-<div class="sidebar-widgets-wrap">
-  <div class="">
-
-
-    <!-- sidebar collection 1 -->
-    
-<div class="widget clearfix">
-  
-  <div class="widget_title">
-    <h4><a href="/vay-dam">SẢN PHẨM MỚI</a></h4>
-  </div>
-  <div class="widget_content">
-    
-    <div class="spost clearfix">
-      <div class="entry-image">
-        <a href="/dam-lenin-4-tui-thuong-hieu-khanh-linh"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636086650350562651.jpg?v=1491039262493" alt="Đầm lenin 4 túi thương hiệu Khánh Linh"></a>
-      </div>
-      <div class="entry-c">
-        <div class="entry-title">
-          <h4><a href="/dam-lenin-4-tui-thuong-hieu-khanh-linh">Đầm lenin 4 túi thương hiệu Khánh Linh</a></h4>
-        </div>
-        <ul class="entry-meta">
-          <li class="color">
-         
-
- 
-   
-  
-     
-    
-
-
-  
-    
-     
-     
-    
-      
-  <ins>380.000₫ </ins>
-  
- 
-          </li>
-        </ul>
-      </div>
+<div class="col-md-4 col-xs-6 pd_desc_wrapper">
+  <div class="product-desc">
+    <div class="page_title">
+      <h1 itemprop="name">
+        Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô
+      </h1>
+      <span class="sku">Mã SP: 59816515454_1</span> 
+      <span class="product_vendor">
+        Thương hiệu:
+        <a href="/vendors?query=TWIN" title="TWIN">TWIN</a>
+      </span>
     </div>
-    
-    <div class="spost clearfix">
-      <div class="entry-image">
-        <a href="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/trang-1-0636054082543242809.jpg?v=1491021115430" alt="Đầm Đuôi Cá Form Suông Màu Trắng TP61"></a>
-      </div>
-      <div class="entry-c">
-        <div class="entry-title">
-          <h4><a href="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la">Đầm Đuôi Cá Form Suông Màu Trắng TP61</a></h4>
-        </div>
-        <ul class="entry-meta">
-          <li class="color">
-         
-
- 
-   
-  
-     
-    
-
-
-  
-    
-     
-     
-    
-      
-  <ins>159.000₫ </ins>
-  
- 
-          </li>
-        </ul>
-      </div>
+    <div class="pd_sale_wrapper clearfix">
+      <div class="product-price">
+        <ins>320.000₫</ins> <!----> <!---->
+      </div> 
+      <div class="clear"></div> 
+      <div class="line"></div> 
+      <form method="post" id="" action="">
+        <input type="hidden" name="variantId" value="9974267"> 
+        <div class="row">
+          <div class="col-xs-12 options_picker" style="position: relative;">
+            <h6 class="options_header">Màu sắc</h6>
+            <ul>
+              <li class="selected">
+                <span>đỏ</span>
+              </li>
+              <li class="">
+                <span>hồng</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 options_picker" style="position: relative;">
+            <h6 class="options_header">Kích thước</h6> 
+            <ul>
+              <li class="selected">
+                <span>s</span>
+              </li>
+              <li class="">
+                <span>m</span>
+              </li>
+              <li class="">
+                <span>l</span>
+              </li>
+              <li class="">
+                <span>xl</span>
+              </li>
+            </ul>
+          </div>
+        </div> 
+        <div class="quantity_title">
+          <label class="nomargin">Số lượng: </label>
+        </div> 
+        <div class="quantity clearfix product-quantity">
+          <input type="button" value="-" class="minus"> 
+          <input type="text" id="product_quantity" min="1" name="quantity" value="1" title="Qty" size="4" class="qty"> 
+          <input type="button" value="+" class="plus">
+        </div> 
+        <div class="clear"></div> 
+        <button type="submit" data-role="addtocart" class="pd_page_popup button col-xs-12 buynow buynow_detail">
+            MUA NGAY
+            <span style="font-size: 12px;">Giao tận nơi hoặc nhận ở cửa hàng</span>
+        </button>
+      </form>
     </div>
-    
-    <div class="spost clearfix">
-      <div class="entry-image">
-        <a href="/dam-day-han-quoc-hoa-tim-dinh-nut"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/tim-1-0636010025286033752.jpg?v=1491020711473" alt="Đầm dây Hàn Quốc hoa tím đính nút"></a>
-      </div>
-      <div class="entry-c">
-        <div class="entry-title">
-          <h4><a href="/dam-day-han-quoc-hoa-tim-dinh-nut">Đầm dây Hàn Quốc hoa tím đính nút</a></h4>
-        </div>
-        <ul class="entry-meta">
-          <li class="color">
-         
-
- 
-   
-  
-     
-    
-
-
-  
-    
-     
-     
-    
-      
-  <ins>135.000₫ </ins>
-  
- 
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-    <!-- end recent product -->
-
-    <!-- most popular -->
-    
-<div class="widget clearfix">
-  
-  <div class="widget_title">
-    <h4><a href="/do-mac-nha">SẢN PHẨM NỔI BẬT</a></h4>
-  </div>
-  <div class="widget_content">
-    
-    <div class="spost clearfix">
-      <div class="entry-image">
-        <a href="/do-bo-mac-nha-cham-bi"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/hong-1-0636160126097674967.jpg?v=1491038895137" alt="Đồ bộ mặc nhà chấm bi"></a>
-      </div>
-      <div class="entry-c">
-        <div class="entry-title">
-          <h4><a href="/do-bo-mac-nha-cham-bi">Đồ bộ mặc nhà chấm bi</a></h4>
-        </div>
-        <ul class="entry-meta">
-          <li class="color">
-         
-
- 
-   
-  
-     
-    
-
-
-  
-    
-     
-     
-    
-      
-  <ins>320.000₫ </ins>
-  
-
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="spost clearfix">
-      <div class="entry-image">
-        <a href="/bo-mac-nha-nutica-lai-cach-dieu-qn-tn-mau-do"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/do-1-0636207801668764682.jpg?v=1491038668820" alt="Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô"></a>
-      </div>
-      <div class="entry-c">
-        <div class="entry-title">
-          <h4><a href="/bo-mac-nha-nutica-lai-cach-dieu-qn-tn-mau-do">Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô</a></h4>
-        </div>
-        <ul class="entry-meta">
-          <li class="color">
-         
-
- 
-   
-  
-     
-    
-
-
-  
-    
-     
-     
-    
-      
-  <ins>320.000₫ </ins>
-  
-
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="spost clearfix">
-      <div class="entry-image">
-        <a href="/set-do-thun-quan-lung-paris-xanh-reu-034-09"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636044503903011567.jpg?v=1491036342063" alt="Set đồ thun quần lửng Paris xanh rêu 034-09"></a>
-      </div>
-      <div class="entry-c">
-        <div class="entry-title">
-          <h4><a href="/set-do-thun-quan-lung-paris-xanh-reu-034-09">Set đồ thun quần lửng Paris xanh rêu 034-09</a></h4>
-        </div>
-        <ul class="entry-meta">
-          <li class="color">
-         
-
- 
-   
-  
-     
-    
-
-
-  
-    
-     
-     
-    
-      
-  <ins>320.000₫ </ins>
-  
-
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-    <!-- end most popular -->
-
-    <!-- recent view -->
-    
-<div class="widget clearfix sidebar_viewed_products_wrapper">
-  <div class="widget_title">
-    <h4>SẢN PHẨM VỪA XEM</h4>
-  </div>
-  <div id="sidebar_viewed_products" class="widget-last-view widget_content">
-  
-  <div class="spost clearfix">
-    <div class="entry-image">
-      <a href="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/trang-1-0636054082543242809.jpg" alt="Đầm Đuôi Cá Form Suông Màu Trắng TP61"></a>
-  </div>
-    <div class="entry-c">
-      <div class="entry-title">
-        <h4><a href="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la">Đầm Đuôi Cá Form Suông Màu Trắng TP61</a></h4>
-  </div>
-      <ul class="entry-meta">
-        <li class="color">
-          <ins>159.000₫</ins>
-          <del></del> 
-          <ins><a href="" pd_sold_out="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la" class="pd_no_price contact_for_pd"></a></ins>
-  </li>
-  </ul>
-  </div>
-  </div>
-
-  <div class="spost clearfix">
-    <div class="entry-image">
-      <a href="/dam-lenin-4-tui-thuong-hieu-khanh-linh"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636086650350562651.jpg" alt="Đầm lenin 4 túi thương hiệu Khánh Linh"></a>
-  </div>
-    <div class="entry-c">
-      <div class="entry-title">
-        <h4><a href="/dam-lenin-4-tui-thuong-hieu-khanh-linh">Đầm lenin 4 túi thương hiệu Khánh Linh</a></h4>
-  </div>
-      <ul class="entry-meta">
-        <li class="color">
-          <ins>380.000₫</ins>
-          <del></del> 
-          <ins><a href="" pd_sold_out="/dam-lenin-4-tui-thuong-hieu-khanh-linh" class="pd_no_price contact_for_pd"></a></ins>
-  </li>
-  </ul>
-  </div>
-  </div>
-</div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  EGA.plugin.setViewedProducts({
-    location_wrapper: '.sidebar_viewed_products_wrapper',
-    template: '#sidebar_viewed_template', 
-    location: '#sidebar_viewed_products',
-    limit: 3,
-    img_url: 'small'
-  })
-})
-</script>
-
-    <!-- end recent view -->
-
-    <!-- sidebar banner -->
-    
-<div class="widget clearfix">
-  <a href="/pages/magazine">
-    <img alt="Váy đầm" src="//bizweb.dktcdn.net/100/160/934/themes/599978/assets/sidebar_banner.jpg?1512385957126"></a>
-</div>
-
-    <!-- end sidebar banner -->
   </div>
 </div>

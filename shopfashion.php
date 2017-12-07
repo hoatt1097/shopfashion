@@ -126,14 +126,14 @@
                     <img src="images/xanh-1-0636086650350562651.jpg" alt="">
                     <div class="quick_action clearfix">
                       <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
-                      <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
+                      <a href="product.php" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
                     </div>
                     <div class="sale-flash">- 66%</div>
                   </div>
                   <div class="product-desc">
                         <div class="product-title">
                           <h3 itemprop="name">
-                            <a href="#" title="Đầm lenin 4 túi thương hiệu Khánh Linh - Màu xanh">
+                            <a href="product.php" title="Đầm lenin 4 túi thương hiệu Khánh Linh - Màu xanh">
                             <p>Đầm lenin 4 túi thương hiệu Khánh Linh - Màu xanh</p>
                             </a>
                           </h3>
