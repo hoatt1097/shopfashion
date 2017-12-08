@@ -89,13 +89,14 @@ img {
     text-align: center;
     height: 32px;
 }
-.quantity .plus, .quantity .minus {
+.plus,.minus {
     border: 1px solid #dedede;
     height: 34px;
     width: 17px;
     text-align: center;
     line-height: 15px;
     background-color: #fff;
+    padding-left: 3px !important;
 }
 .button {
     display: inline-block;
@@ -145,6 +146,10 @@ img {
 .nomargin {
     display: inline-block;
 } 
+.options_picker ul li.selected {
+    border-color: #e42127;
+    background: url(//bizweb.dktcdn.net/100/160/934/themes/599978/assets/bg_checked.png?1512648257321) no-repeat right bottom;
+}
 /*END: Product info*/
 
 /*BEGIN: Policies_wrapper*/
@@ -172,10 +177,31 @@ img {
 .pd_policies.style_2>ul>li .policies_descrip {
     float: left;
     color: #666;
-    font-size: 12px;
 }
 .pd_policies.style_2>ul>li {
     padding: 10px 0;
     border-bottom: 1px solid #eee;
 }
 /*END: Policies_wrapper*/
+
+/* BEGIN: infomation product */
+.nav-style {
+    border-top: 2px solid #00c5bb !important;
+    background: #eee !important;
+    border-bottom: 1px solid #ddd !important;
+}
+.tab_product .nav-tabs>li.active a {
+    border-top: 3px solid #00c5bb;
+}
+.col_md_80 {
+    margin-top: 30px;
+}
+.tab_product .tab-content {
+    border: 1px solid #e7e7e7;
+    border-top: 0;
+    padding: 20px;
+    min-height: 200px;
+}
+p {
+    font-size: 16px;
+}

@@ -42,7 +42,7 @@
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">THỜI TRANG NỮ <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                       <li><a href="#">Váy đầm</a></li>
+                       <li><a href="menu.php">Váy đầm</a></li>
                        <li class="divider"></li>
                        <li><a href="#">Đồ mặc nhà</a></li>
                        <li class="divider"></li>
@@ -62,9 +62,9 @@
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHỤ KIỆN  <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                       <li><a href="#">NỮ</a></li>
+                       <li><a href="#">Phụ kiện nữ</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">NAM</a></li>
+                       <li><a href="#">Phụ kiện nam</a></li>
 
                    </ul>
                 </li>
@@ -109,6 +109,8 @@
           </div>
         </div>          
       </header>
+      <div class="clear"></div> 
+      <div class="line"></div> 
     <!--Header ============================================= -->
     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

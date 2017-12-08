@@ -108,7 +108,7 @@
         </div>
         <ul>
           <li>
-            <a href="#" title="">Váy đầm</a>
+            <a href="" title="">Váy đầm</a>
           </li>
           <li>
             <a href="#" title="">Áo khoác nữ</a>

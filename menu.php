@@ -28,7 +28,7 @@
           <div class="col-xs-9 index_col_products">
             <div class="row">
               <div class="row info">
-                <p class="col-xs-8">Có 12 sản phẩm</p>
+                <p class="col-xs-8" id="amount_product"></p>
                 <div class="text-right col-xs-4">
                   <p>Sắp xếp theo: </p>
                   <select class="form-control sort" onchange="sortby(this)">
@@ -341,7 +341,7 @@
                 <div id="filter_group" class="panel-collapse collapse in">
                   <!-- BEGIN: Vendor filter -->
                   <div class="group1 widget_links clearfix product-filter-group product-filter--by-THƯƠNG HIỆU">
-                    <a href="" data-toggle="collapse"><h4>THƯƠNG HIỆU<i class="fa-angle-down fa"></i></h4></a>
+                    <a href="" data-toggle="collapse"><h4 class="group_1">THƯƠNG HIỆU<i class="fa-angle-down fa"></i></h4></a>
                     <ul id="filter_group_1" class="panel-collapse collapse in filter_list">
                       <li class="product-filter-item product-filter-item--check-box ">
                         <a href="javascript:void(0)">
@@ -357,7 +357,7 @@
 
                   <!-- BEGIN: Type filter -->
                   <div class="widget_links clearfix product-filter-group product-filter--by-LOẠI SẢN PHẨM">
-                    <a href="" data-toggle="collapse"><h4>LOẠI SẢN PHẨM<i class="fa-angle-down fa"></i></h4></a>
+                    <a href="" data-toggle="collapse"><h4 class="group_2">LOẠI SẢN PHẨM<i class="fa-angle-down fa"></i></h4></a>
                     <ul id="filter_group_2" class="panel-collapse collapse in filter_list">
                       <li class="product-filter-item product-filter-item--check-box">
                         <a href="">
@@ -374,8 +374,8 @@
                   <!-- BEGIN: Price filter -->
                   
                   <div class="widget_links clearfix product-filter-group product-filter--by-price">
-                    <a href="" data-toggle="collapse"><h4>KHOẢNG GIÁ<i class="fa-angle-down fa"></i></h4></a>
-                    <ul id="filter_group_4" class="panel-collapse collapse in filter_list"> 
+                    <a href="" data-toggle="collapse"><h4 class="group_3">KHOẢNG GIÁ<i class="fa-angle-down fa"></i></h4></a>
+                    <ul id="filter_group_3" class="panel-collapse collapse in filter_list"> 
                       <li class="product-filter-item product-filter-item--check-box">
                         <a href="">
                           <label>
@@ -421,36 +421,15 @@
                   
                   <!-- END: Price filter -->
 
-                  <!-- BEGIN: Tag_Custom_1 filter -->
-
-                  <div class="widget_links clearfix hidden product-filter-group product-filter--by-size">
-                    <a href="" data-toggle="collapse"><h4>KÍCH THƯỚC<i class="fa-angle-down fa"></i></h4></a>
-                    <ul id="filter_group_5" class="panel-collapse collapse in filter_list">
-                    </ul>
-                  </div>
-                  
-                  <!-- END: Tag_Custom_1 filter -->
-
                   <!-- BEGIN: Tag_Custom_2 filter -->
                   <div class="widget_links clearfix  product-filter-group product-filter--by-chatlieu">
-                    <a href="" data-toggle="collapse"><h4>CHẤT LIỆU<i class="fa-angle-down fa"></i></h4></a>
-                    <ul id="filter_group_6" class="panel-collapse collapse in filter_list"> 
+                    <a href="" data-toggle="collapse"><h4 class="group_4">CHẤT LIỆU<i class="fa-angle-down fa"></i></h4></a>
+                    <ul id="filter_group_4" class="panel-collapse collapse in filter_list"> 
                       <li class="product-filter-item product-filter-item--check-box"><a href=""><label><input type="checkbox" class="chatlieu"> Thun </label></a></li>     
                     </ul>
                   </div>
                   
                   <!-- END: Tag_Custom_2 filter -->
-
-                  <!-- BEGIN: Tag_Custom_3 filter -->
-
-                  <div class="widget_links clearfix hidden product-filter-group product-filter--by-xuatxu">
-                    <a href="" data-toggle="collapse"><h4>XUẤT XỨ<i class="fa-angle-down fa"></i></h4></a>
-                    <ul id="filter_group_7" class="panel-collapse collapse in filter_list">
-                      <li class="product-filter-item product-filter-item--check-box"><a href=""><label><input type="checkbox" class="xuatxu" > Việt Nam </label></a></li>               
-                    </ul>
-                  </div>
-                
-                  <!-- END: Tag_Custom_3 filter -->
                 </div>
               </div>
             </div>
