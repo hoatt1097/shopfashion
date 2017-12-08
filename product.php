@@ -1,4 +1,30 @@
+<?php 
+  include 'database.php';
+  $dt = new Database;
+  $image_id = $_GET['id'];
+  $dt -> select("SELECT image_link FROM image WHERE id = $image_id ");
+  while( $r = $dt->fetch() )
+  {
+    $image_link = $r["image_link"];
+    $image_link = explode(",", $image_link);
+  }
+  $dt -> select("SELECT * FROM product WHERE id = $image_id ");
+  while( $r = $dt->fetch() )
+  {
+    $id = $r["id"];
+    $name = $r["name"];
+    $price = $r["price"];
+    if($price == "null")
+    {
+      $price = "Liên hệ mua hàng";
+    }
+    $brand = $r["brand"];
 
+    $color = $r["color"];
+    $color = explode(",", $color);
+    $status = $r["status"];
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,40 +53,27 @@
             <div class="slider-wrap">
               <div class="pd_slide nopadding">
                 <div class="slide">
-                  <img itemprop="photos" src="//bizweb.dktcdn.net/thumb/large/100/160/934/products/hong-1-cm-b133088-910ff768-5136-44ca-b60f-e3130b51a92b-81e43008-f926-4ed0-8c8b-73a5ef99459b-6323461a-615d-4900-b6da-4c6367c15224-7fd9deb8-b219-4335-a242-a09b40f88e3c.jpg" alt="">
+                  <img itemprop="photos" src="<?=$image_link[0]?>" alt="">
                 </div>
               </div> 
               <div class="pd_slide_thumb owl-carousel owl-theme ega-product-img-carousel owl-loaded owl-drag">
                 <div class="owl-stage-outer">
                   <div class="owl-stage">
-                    <div class="owl-item active" style="width: 82.4px;">
+
+                    <?php
+                      for($i=0;  $i < count($image_link); $i = $i + 1)
+                      { 
+                    ?>
+                      <div class="owl-item active" style="width: 82.4px;">
                       <div class="slide">
                         <div class="img">
-                          <img class="ega-product-img" alt="" index="0" src="//bizweb.dktcdn.net/thumb/large/100/160/934/products/do-1-0636207801668764682.jpg">
+                          <img class="ega-product-img" alt="" index="0" src="<?=$image_link[$i]?>">
                         </div>
                       </div>
                     </div>
-                    <div class="owl-item active" style="width: 82.4px;">
-                      <div class="slide">
-                        <div class="img">
-                          <img class="ega-product-img" alt="" index="1" src="//bizweb.dktcdn.net/thumb/large/100/160/934/products/do-2-1636207801670012684.jpg">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="owl-item active" style="width: 82.4px;">
-                      <div class="slide">
-                        <div class="img">
-                          <img class="ega-product-img" alt="" index="2" src="//bizweb.dktcdn.net/thumb/large/100/160/934/products/do-3-2636207801671104686.jpg">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="owl-item active" style="width: 82.4px;">
-                      <div class="slide">
-                        <div class="img">
-                          <img class="ega-product-img" alt="" index="3" src="//bizweb.dktcdn.net/thumb/large/100/160/934/products/do-4-3636207801672664689.jpg">
-                        </div>
-                      </div>
-                    </div>
+                    <?php
+                      }
+                    ?>
                   </div>
                 </div>
                 <div class="owl-dots disabled"></div>
@@ -73,17 +86,17 @@
           <div class="product-desc">
             <div class="page_title">
               <h1 itemprop="name">
-                Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô
+                <?=$name?>
               </h1>
-              <span class="sku">Mã SP: 59816515454_1</span> 
+              <span class="sku">Mã SP: <?=$id?></span> 
               <span class="product_vendor">
                 Thương hiệu:
-                <a href="/vendors?query=TWIN" title="TWIN">TWIN</a>
+                <a href="" title="<?=$brand?>"><?=$brand?></a>
               </span>
             </div>
             <div class="pd_sale_wrapper clearfix">
               <div class="product-price">
-                <ins>320.000₫</ins> <!----> <!---->
+                <ins><?=$price?></ins> <!----> <!---->
               </div> 
               <div class="clear"></div> 
               <div class="line"></div> 
@@ -93,12 +106,27 @@
                   <div class="col-xs-12 options_picker color" style="position: relative;">
                     <h6 class="options_header">Màu sắc</h6>
                     <ul>
-                      <li class="selected">
-                        <span>đỏ</span>
-                      </li>
-                      <li class="">
-                        <span>hồng</span>
-                      </li>
+                      <?php
+                        for($i=0;  $i < count($color); $i = $i + 1)
+                        { 
+                          if($i == 0)
+                          {
+                      ?>
+                            <li class="selected">
+                              <span><?=$color[$i]?></span>
+                            </li>
+                      <?php
+                          }
+                          else
+                          {
+                      ?>
+                            <li class="">
+                              <span><?=$color[$i]?></span>
+                            </li>
+                      <?php
+                        }
+                      }
+                      ?>
                     </ul>
                   </div>
                   <div class="col-xs-12 options_picker size" style="position: relative;">
@@ -128,10 +156,27 @@
                   <input type="button" value="+" class="plus">
                 </div> 
                 <div class="clear"></div> 
-                <button type="submit" data-role="addtocart" class="pd_page_popup button col-xs-12 buynow buynow_detail">
-                    MUA NGAY
-                    <span style="font-size: 12px;">Giao tận nơi hoặc nhận ở cửa hàng</span>
-                </button>
+                <?php
+                  if($status != 0)
+                  {
+                ?>
+                    <button type="submit" data-role="addtocart" class="pd_page_popup button col-xs-12 buynow buynow_detail">
+                        MUA NGAY
+                        <span style="font-size: 12px;">Giao tận nơi hoặc nhận ở cửa hàng</span>
+                    </button>
+                <?php
+                  }
+                  else
+                  {
+                ?>
+                    <button type="submit" data-role="addtocart" class="pd_page_popup button col-xs-12 buynow buynow_detail">
+                        CHÁY HÀNG
+                        <span style="font-size: 12px;">Liên hệ sau</span>
+                    </button>
+                <?php    
+                  }
+                ?>
+                
               </form>
             </div>
           </div>

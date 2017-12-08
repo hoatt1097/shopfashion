@@ -1,15 +1,16 @@
 $(document).ready(function() {
   $(".product-image").hover(function(){
-    var uuid = generateUUID();
     $(".quick_action", this).toggle();
   });
+
+  $(".product-title a").click(function(){
+    var image_id =  $(this).attr("itemprop");
+    $(this).attr('href', 'product.php?id=' + image_id);
+  })
+  
+  $(".btn-quicklook").click(function(){
+    var image_id =  $(this).attr("itemprop");
+    $(this).attr('href', 'product.php?id=' + image_id);
+  })
+
 });
-function generateUUID() {
-  var d = new Date().getTime();
-  var uuid = 'xxxxx'.replace(/[xy]/g, function(c) {
-    var r = (d + Math.random()*16)%16 | 0;
-    d = Math.floor(d/16);
-    return (c=='x' ? r : (r&0x3|0x8)).toString(16);
-  });
-  return uuid;
-}       
