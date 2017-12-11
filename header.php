@@ -31,53 +31,58 @@
              <ul class="nav navbar-nav">
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">SẢN PHẨM <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                       <li><a href="#">Sản phẩm nổi bật</a></li>
+                    <ul class="dropdown-menu category">
+                       <li><a href="#" itemprop="111">Sản phẩm nổi bật</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Sản phẩm mới</a></li>
+                       <li><a href="#" itemprop="111">Sản phẩm mới</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Sản phẩm khuyến mãi</a></li>
+                       <li><a href="#" itemprop="Sản phẩm khuyến mãi">Sản phẩm khuyến mãi</a></li>
                    </ul>
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">THỜI TRANG NỮ <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                       <li><a href="menu.php">Váy đầm</a></li>
+                    <ul class="dropdown-menu category">
+                       <li><a href="" itemprop="1">Tất cả</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Đồ mặc nhà</a></li>
+                       <li><a href="" itemprop="4">Váy đầm</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Áo khoác nữ</a></li>
+                       <li><a href="" itemprop="5">Đồ mặc nhà</a></li>
+                       <li class="divider"></li>
+                       <li><a href="" itemprop="6">Áo khoác nữ</a></li>
                    </ul>
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">THỜI TRANG NAM <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                       <li><a href="#">Áo thun nam</a></li>
+                    <ul class="dropdown-menu category">
+                       <li><a href="" itemprop="2">Tất cả</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Quần Jean nam</a></li>
+                       <li><a href="#" itemprop="7">Áo thun nam</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Áo Vest nam</a></li>
+                       <li><a href="#" itemprop="8">Quần Jean nam</a></li>
+                       <li class="divider"></li>
+                       <li><a href="#" itemprop="9">Áo Vest nam</a></li>
                    </ul>
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHỤ KIỆN  <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                       <li><a href="#">Phụ kiện nữ</a></li>
+                    <ul class="dropdown-menu category">
+                       <li><a href="" itemprop="3">Tất cả</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Phụ kiện nam</a></li>
-
+                       <li><a href="#" itemprop="10">Phụ kiện nam</a></li>
+                       <li class="divider"></li>
+                       <li><a href="#" itemprop="11">Phụ kiện nữ</a></li>
                    </ul>
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TẠP CHÍ <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                       <li><a href="#">Thời trang</a></li>
+                    <ul class="dropdown-menu category">
+                       <li><a href="#" itemprop="">Thời trang</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Sống khỏe</a></li>
+                       <li><a href="#" itemprop="">Sống khỏe</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Girl</a></li>
+                       <li><a href="#" itemprop="">Girl</a></li>
                        <li class="divider"></li>
-                       <li><a href="#">Đời sống gia đình</a></li>
+                       <li><a href="#" itemprop="">Đời sống gia đình</a></li>
                    </ul>
                 </li>
                 <li>
@@ -102,6 +107,7 @@
                  </li>
                  <li>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/icon/shop-cart-icon.png" alt="" style="width: 22px"></a>
+                      <span class="top_cart_qty">0</span>
                  </li>
               </ul>
             </div>
@@ -115,6 +121,7 @@
     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/header.js"></script>
+    
   </body>
 </html>

@@ -13,4 +13,9 @@ $(document).ready(function() {
     $(this).attr('href', 'product.php?id=' + image_id);
   })
 
+  $(".colection ul li a").click(function(){
+    var id_menu =  $(this).attr("itemprop");
+    $(this).attr('href', 'category.php?id=' + id_menu);
+  })
+
 });

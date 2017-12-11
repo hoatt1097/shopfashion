@@ -111,21 +111,22 @@
         </div>
         <ul>
           <li>
-            <a href="" title="">Váy đầm</a>
+            <a href="" title="" itemprop="4">Váy đầm</a>
           </li>
           <li>
-            <a href="#" title="">Áo khoác nữ</a>
+            <a href="#" title="" itemprop="6">Áo khoác nữ</a>
           </li>
           <li>
-            <a href="#" title="">Đồ mặc nhà</a>
+            <a href="#" title="" itemprop="5">Đồ mặc nhà</a>
           </li>
         </ul>
         <div class="row">
           <div class="col-xs-12 index_col_products">
             <div class="row">
               <?php
+                $i = 0;
                 $dt -> select("SELECT * FROM product WHERE category_id = 4 or category_id = 5 or category_id = 6 ");
-                while( $r = $dt->fetch() )
+                while( $r = $dt->fetch())
                 {
                   $name = $r["name"];
                   $price = $r["price"];
@@ -136,6 +137,8 @@
                   $link = $r["image_link"];  
                   $sale = $r["sale"];
                   $image_id = $r["image_id"];
+                  if($i < 12)
+                  {
               ?>
 
               <div class="product_single col-xs-6 col-md-3">
@@ -169,7 +172,9 @@
                   </div>
                 </div>
               </div>
-              <?php              
+              <?php    
+                  $i = $i + 1;
+                  }          
                 }
               ?>
             </div>
@@ -183,13 +188,13 @@
         </div>
         <ul>
           <li>
-            <a href="#" title="">Áo thun nam</a>
+            <a href="#" title="" itemprop="7">Áo thun nam</a>
           </li>
           <li>
-            <a href="#" title="">Quần Jean nam</a>
+            <a href="#" title="" itemprop="8">Quần Jean nam</a>
           </li>
           <li>
-            <a href="#" title="">Áo vest nam</a>
+            <a href="#" title="" itemprop="9">Áo vest nam</a>
           </li>
         </ul>
         <div class="row">
@@ -210,7 +215,7 @@
                     </h2>
                     <p class="">Thời trang nam cao cấp, quyến rũ và cá tính</p>
                     <div class="btn_see_all">
-                     <a href="" >Xem tất cả</a>
+                     <a href="category.php?id=2" >Xem tất cả</a>
                     </div>
                   </div>
                 </div>
@@ -220,6 +225,7 @@
         <div class="col-xs-12 col-sm-12 col-md-9 index_col_products">
           <div class="row">
             <?php
+                $j = 0;
                 $dt -> select("SELECT * FROM product WHERE category_id = 7 or category_id = 8 or category_id = 9 ");
                 while( $r = $dt->fetch() )
                 {
@@ -231,6 +237,9 @@
                   }
                   $link = $r["image_link"];  
                   $sale = $r["sale"];
+                  $image_id = $r["image_id"];
+                  if( $j < 6 )
+                  {
               ?>
 
               <div class="product_single col-xs-6 col-md-4">
@@ -264,7 +273,9 @@
                   </div>
                 </div>
               </div>
-              <?php              
+              <?php   
+                  $j = $j + 1;
+                  }           
                 }
               ?>
             
@@ -279,10 +290,10 @@
         </div>
         <ul>
           <li>
-            <a href="#" title="">Phụ kiện nam</a>
+            <a href="#" title="" itemprop="10">Phụ kiện nam</a>
           </li>
           <li>
-            <a href="#" title="">Phụ kiện nữ</a>
+            <a href="#" title="" itemprop="11">Phụ kiện nữ</a>
           </li>
         </ul>
         <div class="row">
@@ -290,6 +301,7 @@
             <div class="row">
               
               <?php
+                $k = 0;
                 $dt -> select("SELECT * FROM product WHERE category_id = 10 or category_id = 11 ");
                 while( $r = $dt->fetch() )
                 {
@@ -301,6 +313,8 @@
                   }
                   $link = $r["image_link"];  
                   $sale = $r["sale"];
+                  if( $k < 8)
+                  {
               ?>
 
               <div class="product_single col-xs-6 col-md-3">
@@ -334,7 +348,9 @@
                   </div>
                 </div>
               </div>
-              <?php              
+              <?php   
+                    $k = $k + 1;                  
+                  }           
                 }
               ?>
 
@@ -354,7 +370,7 @@
                     </h2>
                     <p class="">Hợp với thời trang cao cấp, tạo cho bạn thêm tự tin, tỏa sáng</p>
                     <div class="btn_see_all">
-                     <a href="" >Xem tất cả</a>
+                     <a href="category.php?id=3" >Xem tất cả</a>
                     </div>
                   </div>
                 </div>

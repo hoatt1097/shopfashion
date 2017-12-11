@@ -81,13 +81,12 @@
               <div class="">
                 <h4 class="">Giới thiệu</h4>
                 <ul class="widget_content" style="display: block;">
-                  <li><a href="/collections/all">Sản phẩm</a></li>
-                  <li><a href="/vay-dam">Váy đầm</a></li>
-                  <li><a href="/do-mac-nha">Đồ mặc nhà</a></li>
-                  <li><a href="/do-the-thao-nu">Đồ thể thao</a></li>
-                  <li><a href="/ao-khoac">Áo khoác</a></li>
-                  <li><a href="/magazine">Tạp chí</a></li>
-                  <li><a href="/dep">Blog</a></li>
+                  <li><a href="category.php?id=all">Tất cả sản phẩm</a></li>
+                  <li><a href="category.php?id=1">Thời trang nữ</a></li>
+                  <li><a href="category.php?id=2">Thời trang nam</a></li>
+                  <li><a href="category.php?id=3">Phụ kiện</a></li>
+                  <li><a href="">Tạp chí</a></li>
+                  <li><a href="">Blog</a></li>
                 </ul>
               </div>
             </div>
