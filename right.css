@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+#right ul {
+  background: #ffffff;
+  width: 250px;
+  padding: 0px 0px 0px 0px;
+  list-style-type: none;
+  text-align: left;
+}
+#right li {
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0px 0px 0px 20px;
+}
+#right li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+#right li:hover {
+  background: #CDE2CD;
+}

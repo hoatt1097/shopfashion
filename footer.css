@@ -14,8 +14,8 @@ a:hover, a:active, a:visited{
 
     /*-------------- Subscribe_group_left*/
 
-.row i{
-    font-size: 25px;
+.social-icon i{
+    font-size: 25px !important;
 }
 .subscribe_group_left{
     float: left;
@@ -58,17 +58,16 @@ a:hover, a:active, a:visited{
 
 .social-icon{
     margin:  25px;
-    //background-color: #00c5bb;
-    
-}
-.social-icon i{
+    background-color: #00c5bb;
     font-size: 30px;
+    
 }
 
     /* End Subscribe_group_right --------------*/
 
 /* End Subscribe_group --------------*/
 /*=====================> Footer */
+
 #footer {
     margin-top: 10px;
     position: relative;

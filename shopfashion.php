@@ -129,11 +129,17 @@
                 while( $r = $dt->fetch())
                 {
                   $name = $r["name"];
-                  $price = $r["price"];
-                  if( $r["price"] == "null" )
+
+                  $symbol = 'đ';
+                  $symbol_thousand = '.';
+                  $decimal_place = 0;
+                  $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
+
+                  if( $r["price"] == "0" )
                   {
                     $price = "Liên hệ mua hàng";
-                  }
+                  }  
+                  
                   $link = $r["image_link"];  
                   $sale = $r["sale"];
                   $image_id = $r["image_id"];
@@ -201,7 +207,7 @@
           <div class="hidden-xs hidden-sm col-md-3 index_col_banner_wrap left">
             <div class="interactive_banner">
               <div class="interactive_img">
-                <img src="images/thoi-trang-nam-cao-cap.jpg" alt="">
+                <img src="images/thoi-trang-nam-cao-cap-1.jpg" alt="">
                 <div class="quick_action clearfix">
                       <a href="" title="Lựa chọn"  class="btn-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
                       <a href="" title="Xem nhanh" class="btn-quicklook"><i class="fa fa-eye"></i></a>
@@ -215,7 +221,7 @@
                     </h2>
                     <p class="">Thời trang nam cao cấp, quyến rũ và cá tính</p>
                     <div class="btn_see_all">
-                     <a href="category.php?id=2" >Xem tất cả</a>
+                     <a href="category.php?id=2&sortby=default" >Xem tất cả</a>
                     </div>
                   </div>
                 </div>
@@ -230,7 +236,10 @@
                 while( $r = $dt->fetch() )
                 {
                   $name = $r["name"];
-                  $price = $r["price"];
+                  $symbol = 'đ';
+                  $symbol_thousand = '.';
+                  $decimal_place = 0;
+                  $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
                   if( $r["price"] == "null" )
                   {
                     $price = "Liên hệ mua hàng";
@@ -306,7 +315,10 @@
                 while( $r = $dt->fetch() )
                 {
                   $name = $r["name"];
-                  $price = $r["price"];
+                  $symbol = 'đ';
+                  $symbol_thousand = '.';
+                  $decimal_place = 0;
+                  $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
                   if( $r["price"] == "null" )
                   {
                     $price = "Liên hệ mua hàng";
@@ -370,7 +382,7 @@
                     </h2>
                     <p class="">Hợp với thời trang cao cấp, tạo cho bạn thêm tự tin, tỏa sáng</p>
                     <div class="btn_see_all">
-                     <a href="category.php?id=3" >Xem tất cả</a>
+                     <a href="category.php?id=3&sortby=default" >Xem tất cả</a>
                     </div>
                   </div>
                 </div>

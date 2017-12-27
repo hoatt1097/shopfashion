@@ -31,60 +31,120 @@
         <div class="row">
           <div class="col-xs-9 index_col_products">
             <div class="row">
+
               <div class="row info">
-                <p class="col-xs-7" id="amount_product"></p>
+                <p class="col-xs-8" id="amount_product"></p>
                 <div class="text-right col-xs-4">
                   <p>Sắp xếp theo: </p>
-                  <select class="form-control sort" onchange="sortby(this)">
-                    <option value="default">Mặc định</option>
+                  <?php
+                      $sort = $_GET['sortby'];
+                      switch ($sort) {
+                        case 'price-asc':
+                          $option = "Giá tăng dần";
+                          break;
+                        case 'price-desc':
+                          $option = "Giá giảm dần";
+                          break;
+                        case 'name-asc':
+                          $option = "Từ A-Z";
+                          break;
+                        case 'name-desc':
+                          $option = "Từ Z-A";
+                          break;
+                        default:
+                          $option = "Mặc định";
+                          break;
+                      }
+                    ?>
+                  <select class="form-control sort" onchange="sortby(<?=$_GET['id']?>)">
+                    <option value="" selected disabled hidden><?=$option?></option>
+                    <option value="default-0">Mặc định</option>
                     <option value="price-asc">Giá tăng dần</option>
                     <option value="price-desc">Giá giảm dần</option>
-                    <option value="alpha-asc">Từ A-Z</option>
-                    <option value="alpha-desc">Từ Z-A</option>
-                    <option value="created-desc">Mới đến cũ</option>
-                    <option value="created-asc">Cũ đến mới</option>
+                    <option value="name-asc">Từ A-Z</option>
+                    <option value="name-desc">Từ Z-A</option>
                   </select>
                 </div>
-                <button class="col-xs-1 btnsort">Xem</button>
               </div>
 
               <?php
                 $menu_id = $_GET['id'];
-                switch ($menu_id)
+                $data = $_GET['sortby'];
+                $sortby = explode('-',$data);
+                if($sortby[0]=='default')
                 {
+                  switch ($menu_id)
+                  {
 
-                   case 1:
-                   $dt -> select("SELECT * FROM product WHERE category_id = 4 or category_id = 5 or category_id = 6");
-                   break;
+                     case 1:
+                     $dt -> select("SELECT * FROM product WHERE category_id = 4 or category_id = 5 or category_id = 6");
+                     break;
 
-                   case 2:
-                  $dt -> select("SELECT * FROM product WHERE category_id = 7 or category_id = 8 or category_id = 9");
-                   break;
+                     case 2:
+                    $dt -> select("SELECT * FROM product WHERE category_id = 7 or category_id = 8 or category_id = 9");
+                     break;
 
-                   case 3:
-                   $dt -> select("SELECT * FROM product WHERE category_id = 11 or category_id = 10");
-                   break;
+                     case 3:
+                     $dt -> select("SELECT * FROM product WHERE category_id = 11 or category_id = 10");
+                     break;
 
-                   case 'Sản phẩm khuyến mãi':
-                   $dt -> select("SELECT * FROM product WHERE sale > 0");
-                   break;
+                     case 'Sản phẩm khuyến mãi':
+                     $dt -> select("SELECT * FROM product WHERE sale > 0");
+                     break;
 
-                   case 'all':
-                   $dt -> select("SELECT * FROM product");
-                   break;
+                     case 'all':
+                     $dt -> select("SELECT * FROM product");
+                     break;
 
-                  default:
-                   $dt -> select("SELECT * FROM product WHERE category_id = $menu_id");
-                   break;
+                    default:
+                     $dt -> select("SELECT * FROM product WHERE category_id = $menu_id");
+                     break;
+                  }
+                }
+                else
+                {
+                  switch ($menu_id)
+                  {
+
+                     case 1:
+                     $dt -> select("SELECT * FROM product WHERE category_id = 4 or category_id = 5 or category_id = 6 ORDER BY $sortby[0] $sortby[1]");
+                     break;
+
+                     case 2:
+                    $dt -> select("SELECT * FROM product WHERE category_id = 7 or category_id = 8 or category_id = 9 ORDER BY $sortby[0] $sortby[1]");
+                     break;
+
+                     case 3:
+                     $dt -> select("SELECT * FROM product WHERE category_id = 11 or category_id = 10 ORDER BY $sortby[0] $sortby[1]");
+                     break;
+
+                     case 'Sản phẩm khuyến mãi':
+                     $dt -> select("SELECT * FROM product WHERE sale > 0 ORDER BY $sortby[0] $sortby[1]");
+                     break;
+
+                     case 'all':
+                     $dt -> select("SELECT * FROM product ORDER BY $sortby[0] $sortby[1]");
+                     break;
+
+                    default:
+                     $dt -> select("SELECT * FROM product WHERE category_id = $menu_id ORDER BY $sortby[0] $sortby[1]");
+                     break;
+                  }
                 }
                   while( $r = $dt->fetch() )
                   {
                     $name = $r["name"];
-                    $price = $r["price"];
-                    if( $r["price"] == "null" )
+
+                    $symbol = 'đ';
+                    $symbol_thousand = '.';
+                    $decimal_place = 0;
+                    $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
+
+                    if( $r["price"] == "0" )
                     {
                       $price = "Liên hệ mua hàng";
                     }
+
                     $link = $r["image_link"];  
                     $sale = $r["sale"];
                     $image_id = $r["image_id"];
@@ -126,6 +186,7 @@
               ?>
             </div>
           </div>
+
           <div id="collection_sidebar" class="nobottommargin sidebar right col-md-3 col-xs-12">
           <!-- BEGIN: panel -->
             <div class="panel-group filter_group">
@@ -212,7 +273,7 @@
                         <a href="">
                           <label>
                             <input type="checkbox">
-                            500.000₫ - 1000.000₫
+                            500.000₫-1000.000₫
                           </label>
                         </a>
                       </li>
@@ -256,15 +317,15 @@
                     
                     <div class="spost clearfix">
                       <div class="entry-image">
-                        <a href="/dam-lenin-4-tui-thuong-hieu-khanh-linh"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636086650350562651.jpg?v=1491039262493" alt="Đầm lenin 4 túi thương hiệu Khánh Linh"></a>
+                        <a href="product.php?id=1"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636086650350562651.jpg?v=1491039262493" alt="Đầm lenin 4 túi thương hiệu Khánh Linh"></a>
                       </div>
                       <div class="entry-c">
                         <div class="entry-title">
-                          <h4><a href="/dam-lenin-4-tui-thuong-hieu-khanh-linh">Đầm lenin 4 túi thương hiệu Khánh Linh</a></h4>
+                          <h4><a href="product.php?id=1">Đầm lenin 4 túi thương hiệu Khánh Linh</a></h4>
                         </div>
                         <ul class="entry-meta">
                           <li class="color">
-                             <ins>380.000₫ </ins>
+                             <ins>Liên hệ mua hàng</ins>
                           </li>
                         </ul>
                       </div>
@@ -272,15 +333,15 @@
                     
                     <div class="spost clearfix">
                       <div class="entry-image">
-                        <a href="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/trang-1-0636054082543242809.jpg?v=1491021115430" alt="Đầm Đuôi Cá Form Suông Màu Trắng TP61"></a>
+                        <a href="product.php?id=2"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/trang-1-0636054082543242809.jpg?v=1491021115430" alt="Đầm Đuôi Cá Form Suông Màu Trắng TP61"></a>
                       </div>
                       <div class="entry-c">
                         <div class="entry-title">
-                          <h4><a href="/dam-suong-tay-lo-hoa-tiet-tam-giac-xanh-la">Đầm Đuôi Cá Form Suông Màu Trắng TP61</a></h4>
+                          <h4><a href="product.php?id=2">Đầm Đuôi Cá Form Suông Màu Trắng TP61</a></h4>
                         </div>
                         <ul class="entry-meta">
                           <li class="color">
-                            <ins>159.000₫ </ins>
+                            <ins>315.000₫ </ins>
                           </li>
                         </ul>
                       </div>
@@ -288,15 +349,15 @@
                     
                     <div class="spost clearfix">
                       <div class="entry-image">
-                        <a href="/dam-day-han-quoc-hoa-tim-dinh-nut"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/tim-1-0636010025286033752.jpg?v=1491020711473" alt="Đầm dây Hàn Quốc hoa tím đính nút"></a>
+                        <a href="product.php?id=3"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/tim-1-0636010025286033752.jpg?v=1491020711473" alt="Đầm dây Hàn Quốc hoa tím đính nút"></a>
                       </div>
                       <div class="entry-c">
                         <div class="entry-title">
-                          <h4><a href="/dam-day-han-quoc-hoa-tim-dinh-nut">Đầm dây Hàn Quốc hoa tím đính nút</a></h4>
+                          <h4><a href="product.php?id=3">Đầm dây Hàn Quốc hoa tím đính nút</a></h4>
                         </div>
                         <ul class="entry-meta">
                           <li class="color">
-                            <ins>135.000₫ </ins>
+                            <ins>199.000₫ </ins>
                           </li>
                         </ul>
                       </div>
@@ -317,11 +378,11 @@
                     
                     <div class="spost clearfix">
                       <div class="entry-image">
-                        <a href="/do-bo-mac-nha-cham-bi"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/hong-1-0636160126097674967.jpg?v=1491038895137" alt="Đồ bộ mặc nhà chấm bi"></a>
+                        <a href="product.php?id=5"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/hong-1-0636160126097674967.jpg?v=1491038895137" alt="Đồ bộ mặc nhà chấm bi"></a>
                       </div>
                       <div class="entry-c">
                         <div class="entry-title">
-                          <h4><a href="/do-bo-mac-nha-cham-bi">Đồ bộ mặc nhà chấm bi</a></h4>
+                          <h4><a href="product.php?id=5">Đồ bộ mặc nhà chấm bi</a></h4>
                         </div>
                         <ul class="entry-meta">
                           <li class="color">
@@ -333,15 +394,15 @@
                     
                     <div class="spost clearfix">
                       <div class="entry-image">
-                        <a href="/bo-mac-nha-nutica-lai-cach-dieu-qn-tn-mau-do"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/do-1-0636207801668764682.jpg?v=1491038668820" alt="Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô"></a>
+                        <a href="product.php?id=5"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/do-1-0636207801668764682.jpg?v=1491038668820" alt="Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô"></a>
                       </div>
                       <div class="entry-c">
                         <div class="entry-title">
-                          <h4><a href="/bo-mac-nha-nutica-lai-cach-dieu-qn-tn-mau-do">Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô</a></h4>
+                          <h4><a href="product.php?id=5">Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô</a></h4>
                         </div>
                         <ul class="entry-meta">
                           <li class="color">
-                            <ins>320.000₫ </ins>
+                            <ins>199.000₫ </ins>
                           </li>
                         </ul>
                       </div>
@@ -349,11 +410,11 @@
                     
                     <div class="spost clearfix">
                       <div class="entry-image">
-                        <a href="/set-do-thun-quan-lung-paris-xanh-reu-034-09"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636044503903011567.jpg?v=1491036342063" alt="Set đồ thun quần lửng Paris xanh rêu 034-09"></a>
+                        <a href="product.php?id=5"><img src="//bizweb.dktcdn.net/thumb/small/100/160/934/products/xanh-1-0636044503903011567.jpg?v=1491036342063" alt="Set đồ thun quần lửng Paris xanh rêu 034-09"></a>
                       </div>
                       <div class="entry-c">
                         <div class="entry-title">
-                          <h4><a href="/set-do-thun-quan-lung-paris-xanh-reu-034-09">Set đồ thun quần lửng Paris xanh rêu 034-09</a></h4>
+                          <h4><a href="product.php?id=5">Set đồ thun quần lửng Paris xanh rêu 034-09</a></h4>
                         </div>
                         <ul class="entry-meta">
                           <li class="color">

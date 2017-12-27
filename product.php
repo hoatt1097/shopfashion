@@ -13,8 +13,13 @@
   {
     $id = $r["id"];
     $name = $r["name"];
-    $price = $r["price"];
-    if($price == "null")
+    $price_=$r["price"];
+    $symbol = 'đ';
+    $symbol_thousand = '.';
+    $decimal_place = 0;
+    $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
+
+    if($r["price"] == "0")
     {
       $price = "Liên hệ mua hàng";
     }
@@ -88,7 +93,7 @@
               <h1 itemprop="name">
                 <?=$name?>
               </h1>
-              <span class="sku">Mã SP: <?=$id?></span> 
+              <span class="id_product">Mã SP: <?=$id?></span> 
               <span class="product_vendor">
                 Thương hiệu:
                 <a href="" title="<?=$brand?>"><?=$brand?></a>
@@ -96,12 +101,10 @@
             </div>
             <div class="pd_sale_wrapper clearfix">
               <div class="product-price">
-                <ins><?=$price?></ins> <!----> <!---->
+                <ins itemprop="<?=$price_?>"><?=$price?></ins> <!----> <!---->
               </div> 
               <div class="clear"></div> 
               <div class="line"></div> 
-              <form method="post" id="" action="">
-                <input type="hidden" name="variantId" value="9974267"> 
                 <div class="row">
                   <div class="col-xs-12 options_picker color" style="position: relative;">
                     <h6 class="options_header">Màu sắc</h6>
@@ -160,7 +163,7 @@
                   if($status != 0)
                   {
                 ?>
-                    <button type="" data-role="addtocart" class="pd_page_popup button col-xs-12 buynow buynow_detail">
+                    <button type="" data-role="addtocart" class="col-xs-12 button buynow">
                         MUA NGAY
                         <span style="font-size: 12px;">Giao tận nơi hoặc nhận ở cửa hàng</span>
                     </button>
@@ -169,15 +172,13 @@
                   else
                   {
                 ?>
-                    <button type="submit" data-role="addtocart" class="pd_page_popup button col-xs-12 buynow buynow_detail">
+                    <button type="" class="col-xs-12 btn_noproduct button">
                         CHÁY HÀNG
                         <span style="font-size: 12px;">Liên hệ sau</span>
                     </button>
                 <?php    
                   }
                 ?>
-                
-              </form>
             </div>
           </div>
         </div>

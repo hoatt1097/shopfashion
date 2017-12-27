@@ -1,3 +1,8 @@
+<?php
+  $dt -> select("SELECT COUNT(id) as count FROM cart");
+  $r = $dt->fetch();
+  $count = $r['count'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -105,9 +110,9 @@
                          <li><a href="register.php">Đăng ký</a></li>
                      </ul>
                  </li>
-                 <li>
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/icon/shop-cart-icon.png" alt="" style="width: 22px"></a>
-                      <span class="top_cart_qty">0</span>
+                 <li class="cart">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="images/icon/shop-cart-icon.png" alt="" style="width: 22px"></a>
+                      <span class="top_cart_qty"><?=$count?></span>
                  </li>
               </ul>
             </div>

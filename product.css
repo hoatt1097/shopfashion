@@ -117,7 +117,7 @@ img {
     border: none;
     text-align: center;
 }
-.buynow {
+.buynow, .btn_noproduct{
     margin: 15px 0 0 0;
     font-size: 20px;
     color: #ffffff;
@@ -126,7 +126,7 @@ img {
     line-height: 1;
     padding: 12px 0;
 }
-.buynow span {
+.buynow span, .btn_noproduct span {
     font-size: 11px;
     display: block;
     margin-top: 8px;

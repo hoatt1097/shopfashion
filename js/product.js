@@ -5,6 +5,31 @@ $(document).ready(function() {
  	var addSelectedSize = $(".size ul li");
  	addSelected(addSelectedColor);
  	addSelected(addSelectedSize);
+
+ 	$('.buynow').click(function (){
+		var id_product = $('.id_product').text();
+		var color_choose= $('.color ul li[class=selected] span').text();
+		var size_choose = $('.size ul li[class=selected] span').text();
+		var amount =$(".qty").val();
+		var price =$(".product-price ins").attr("itemprop");
+	    $.ajax({
+	        url : "add-cart.php",
+	        type : 'post',
+	        dataType : 'text',
+	        data : {
+	            "id_product"  	: id_product,
+	            "color_choose" 	: color_choose,
+	            "size_choose"	: size_choose,
+	            "amount"		: amount,
+	            "price"		: price
+	        },
+	        success : function(result) {
+	        	alert(result);
+	        	window.location.replace("cart.php");
+	  		}
+	    });
+	});
+
 });
 function changeImage(){
 	$(".ega-product-img").click(function(){
