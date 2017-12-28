@@ -1,4 +1,7 @@
-
+<?php 
+  include 'database.php';
+  $dt = new Database;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,9 +13,10 @@
     <title>Login Page</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="huong-dan-tinh-size.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/css/footer.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <style type="text/css" media="screen"> 
         .page_title h1{ 

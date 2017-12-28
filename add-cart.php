@@ -22,7 +22,7 @@ function max_cartid(){
   $price = $_POST["price"];
   $sum_price = $price * $amount;
 
-  $dt -> select("SELECT COUNT(product_id) as count FROM cart WHERE product_id = $id_product ");
+  $dt -> select("SELECT COUNT(product_id) as count FROM cart WHERE product_id = $id_product AND size_choose='$size_choose' AND color_choose='$color_choose'");
   $r = $dt->fetch();
   $count = $r['count'];
   if( $count != 0)

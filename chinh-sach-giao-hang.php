@@ -1,6 +1,7 @@
-
-Warning: PHP Startup: Unable to load dynamic library 'C:\xampp\php\ext\php_mysql.dll' - The specified module could not be found.
- in Unknown on line 0
+<?php 
+  include 'database.php';
+  $dt = new Database;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

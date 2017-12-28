@@ -61,12 +61,40 @@
           height: auto;
           border: 2px solid #EEE;
       }
+      .breadcrumb > li > h1 {
+        font-size: 13px !important;
+        font-weight: normal !important;
+        display: inline-block !important;
+        text-transform: none !important;
+        margin-bottom: 0px !important;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .breadcrumb {
+        background-color: white !important;
+      }
+
     </style>
   </head>
   <body>
   <?php  
       include 'header.php';
   ?>
+  <section id="page-title">
+    <div class="container clearfix">
+      <ol class="breadcrumb col-md-6 col-sm-6">
+        <li itemscope="">
+          <a href="shopfashion.php" title="Trang chủ">Trang chủ</a>
+        </li>
+        
+        <li class="active">
+          <h1 title="Giỏ hàng">Giỏ hàng</h1>
+        </li>
+        
+      </ol>
+    </div>
+  </section>
+  <section class="have_cart">
     <div class="container clearfix">
       <div class="">
           <div class="table-responsive">
@@ -157,22 +185,25 @@
           </div>
           <div class="row clearfix">
             <div class="col-xs-12 col-sm-6">
-                <a style="display: block; line-height: 45px; font-size: 16px;" href="/collections/all">
+                <a style="display: block; line-height: 45px; font-size: 16px;" href="shopfashion.php">
                   <i class="fa fa-reply"></i>
                   Tiếp tục mua hàng</a>
               </div>
             <div class="col-sm-6 col-xs-12">
-              <button name="update" class="button fright">
-                <i class="fa fa-refresh"></i> Cập nhật giỏ hàng
-              </button>
-              <button class="cart_checkout_btn button fright" title="Tiến hành đặt hàng" type="button">
+              <button class="cart_checkout_btn button fright btnpay" title="Tiến hành đặt hàng" type="button">
                 <i class="fa fa-money"></i>THANH TOÁN
               </button>
             </div>
           </div>
       </div>
-</div>
-
+  </div>
+</section>
+<section class="none_cart">
+  <div class="container clearfix">
+    <p>Không có sản phẩm nào trong giỏ hàng</p>
+    <a href="shopfashion.php"><i class="fa fa-undo"></i> Tiếp tục mua hàng</a>
+  </div>
+</section>
   <?php
     include 'footer.php';
   ?>
@@ -206,6 +237,20 @@
           var image_id =  $(this).attr("itemprop");
           $(this).attr('href', 'product.php?id=' + image_id);
         })
+        $(".btnpay").click(function(){
+          document.location.replace("pay.php");
+        });
+        var count = $(".top_cart_qty").text();
+        if(count==0)
+        {
+          $(".none_cart").show();
+          $(".have_cart").hide();
+        }
+        else
+        {
+          $(".none_cart").hide();
+          $(".have_cart").show();
+        }
 
       });
     </script>
