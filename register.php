@@ -1,3 +1,7 @@
+<?php 
+  include 'database.php';
+  $dt = new Database;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,48 +81,45 @@
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-6">
-                <form accept-charset="UTF-8" action="/account/login" id="customer_login" method="post">
-                
                   <div class="form-group">
                     <label for="login-form-lastname">Họ:
                       <span class="required require_symbol">*</span>
                     </label>
-                    <input id="login-form-lastname" name="lastname" value="" class="input-sm form-control" type="text" required>
+                    <input id="lastname" name="lastname" value="" class="input-sm form-control" type="text" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="login-form-firstname">Tên:
+                    <label for="firstname">Tên:
                       <span class="required require_symbol">*</span>
                     </label>
-                    <input id="login-form-firstname" name="firstname" value="" class="input-sm form-control" type="text" required>
+                    <input id="firstname" name="firstname" value="" class="input-sm form-control" type="text" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="login-form-email">Email:
+                    <label for="email">Email:
                       <span class="required require_symbol">*</span>
                     </label>
-                    <input id="login-form-email" name="email" value="" class="input-sm form-control" type="email" required>
+                    <input id="email" name="email" value="" class="input-sm form-control" type="email" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="login-form-password">Mật khẩu:
+                    <label for="password">Mật khẩu:
                       <span class="required require_symbol">*</span>
                     </label>
-                    <input id="login-form-password" name="password" value="" class="input-sm form-control" type="password" required>
+                    <input id="password" name="password" value="" class="input-sm form-control" type="password" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="login-form-repassword">Nhắc lại mật khẩu:
+                    <label for="repassword">Nhắc lại mật khẩu:
                       <span class="required require_symbol">*</span>
                     </label>
-                    <input id="login-form-repassword" name="repassword" value="" class="input-sm form-control" type="password" required>
+                    <input id="repassword" name="repassword" value="" class="input-sm form-control" type="password" required>
                   </div>
 
                   <div class="form-group">
-                    <button class="button button-black nomargin" id="login-form-submit" name="login-form-submit" type="submit" value="login">Đăng ký</button>
+                    <button class="button button-black nomargin btnregister" name="login-form-submit" value="login">Đăng ký</button>
                   </div>
                   <!--</form>-->
-                </form>
               </div>
 
             </div>
@@ -136,8 +137,35 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#customer_login")[0].reset();
-          });  
+          $(".btnregister").click(function(){
+            var lastname = $("#lastname").val();
+            var firstname = $("#firstname").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var repassword = $("#repassword").val();
+            if(repassword!=password)
+            {
+              alert("Repassword not is correct");
+            }
+            $.ajax({
+              url: 'login-register.php',
+              type: 'post',
+              dataType: 'text',
+              data: {
+                "lastname": lastname,
+                "firstname": firstname,
+                "email": email,
+                "password": password,
+                "flagRegister": 1,
+                "flagLogin": 0
+              },
+              success: function(result){
+                alert(result);
+                window.location.replace("shopfashion.php");
+              }
+            });
+          });
+        });  
     </script>
   </body>
 </html>

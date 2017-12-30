@@ -1,6 +1,9 @@
 <?php 
   include 'database.php';
   $dt = new Database;
+  $dt2 = new Database;
+  $dt3 = new Database;
+  $dt4 = new Database;
   $image_id = $_GET['id'];
   $dt -> select("SELECT image_link FROM image WHERE id = $image_id ");
   while( $r = $dt->fetch() )
@@ -45,6 +48,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/css/product.css">
+    <link rel="stylesheet" type="text/css" href="css/css/comment.css">
   </head>
   <body>
   <?php  
@@ -312,10 +316,71 @@
                 <p>- Trường hợp không đủ các điều kiện trên thì quyền quyết định đổi, trả hàng thuộc về EGA Underwear.vn</p>
               </div>
               
-              <div role="tabpanel" class="tab-pane" id="tab-3">
-                 
-                  
-                <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://developers.facebook.com/docs/plugins" data-width="100%" data-numposts="1" fb-xfbml-state="rendered"><span style="height: 446px;"><iframe id="f2cd3fe4313a68" name="f2cbde6cfd958e" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="https://www.facebook.com/plugins/comments.php?api_key=&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FlY4eZXm_YWu.js%3Fversion%3D42%23cb%3Df399d5b9160a4b4%26domain%3Dega-fashion-magazine.bizwebvietnam.net%26origin%3Dhttps%253A%252F%252Fega-fashion-magazine.bizwebvietnam.net%252Ff37fff3c2adee44%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins&amp;locale=en_US&amp;numposts=1&amp;sdk=joey&amp;version=v2.11&amp;width=100%25" style="border: none; overflow: hidden; height: 446px; width: 100%;"></iframe></span></div>
+              <div role="tabpanel" class="tab-pane" id="tab-3">       
+                 <form method='POST' action="cmt-submit.php?id=<?php echo $id; ?>">
+                  <textarea cols='60' rows='2' name='txtcomment' class='txtcomment' placeholder='Vui lòng nhập bình luận ở đây...' style='padding-left: 10px;'></textarea><br>
+                  <button type='submit' name='cmt-submit'>Bình luận</button>
+                  </form>
+                  <?php
+                  $dt->select("select * from comment where idproduct = '$id'");
+                  while ($r=$dt->fetch()){
+                    $idcmt = $r['idcmt'];
+                      $iduser = $r['iduser'];
+                    $date = $r['datecmt'];
+                    $comment = $r['comment'];
+                            $dt2 -> select("select * from user where iduser = $iduser");
+                    if($r = $dt2->fetch()){
+                      $firstname = $r['firstname'];
+                      $lastname = $r['lastname'];
+                    }
+                    ?>
+                  <div class='row'>
+                    <div id="comment">
+                    <img src="<?php echo 'images/avatar.png'  ?>" width="50" height="50" style="float:left; margin-left: 20px; margin-top: 15px;"/>
+                    <div id='inCmt'>
+                    <?php
+                      echo "<br><b>$firstname $lastname</b>";
+                      echo "<br>$comment";
+                      echo "<br><small>$date</small>";
+                      ?>
+                      </div>
+                      <form method='POST' action="rep-submit.php?id=<?php echo $id; ?>&idcmt=<?php echo $idcmt; ?>">
+                        <textarea cols='53' rows='1' name='txtreply' class='txtreply' placeholder='Vui lòng nhập phản hồi ở đây...' style='margin-left: 70px; padding-left: 10px;'></textarea><br>
+                        <button type='submit' name='rep-submit' style="margin-left: 70px;">Trả lời</button>
+                        </form>
+                      <?php
+                      $dt3->select("select * from reply where idcmt = '$idcmt'");
+                      while ($r=$dt3->fetch()){
+                        $idrep = $r['idrep'];
+                          $iduser2 = $r['iduser'];
+                        $date2 = $r['daterep'];
+                        $reply = $r['reply'];
+                                $dt4 -> select("select * from user where iduser = $iduser2");
+                        if($r = $dt4->fetch()){
+                          $firstname2 = $r['firstname'];
+                          $lastname2 = $r['lastname'];
+                        }
+                      ?>
+                        <div class='row' style="margin-left: 45px;">
+                        <small><div id="reply">
+                          <img src="<?php echo 'images/avatar.png'  ?>" width="50" height="50" style="float:left; margin-left: 20px; margin-top: 10px;"/>
+                          <div id='inRep'>
+                            <?php
+                            echo "<br><b>$firstname2 $lastname2</b>";
+                            echo "<br>$reply";
+                            echo "<br><small>$date2</small>";
+                            ?>
+                          </div>
+                      </div></small>
+                        </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+                  </div>
+                  <?php
+                  }
+                  ?>
                 
 
               </div>

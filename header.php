@@ -80,14 +80,14 @@
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TẠP CHÍ <b class="caret"></b></a>
-                    <ul class="dropdown-menu category">
-                       <li><a href="#" itemprop="">Thời trang</a></li>
+                    <ul class="dropdown-menu">
+                       <li><a href="tapchi-thoitrang.php" itemprop="">Thời trang</a></li>
                        <li class="divider"></li>
-                       <li><a href="#" itemprop="">Sống khỏe</a></li>
+                       <li><a href="tapchi-songkhoe.php" itemprop="">Sống khỏe</a></li>
                        <li class="divider"></li>
-                       <li><a href="#" itemprop="">Girl</a></li>
+                       <li><a href="tapchi-thoitrang.php" itemprop="">Girl</a></li>
                        <li class="divider"></li>
-                       <li><a href="#" itemprop="">Đời sống gia đình</a></li>
+                       <li><a href="tapchi-thoitrang.php" itemprop="">Đời sống gia đình</a></li>
                    </ul>
                 </li>
                 <li>
@@ -104,10 +104,15 @@
                  </li>
                  <li>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/icon/user.png" alt="" style="width: 17px"></a>
-                      <ul class="dropdown-menu">
+                      <ul class="dropdown-menu not-session">
                          <li><a href="login.php">Đăng nhập</a></li>
                          <li class="divider"></li>
                          <li><a href="register.php">Đăng ký</a></li>
+                     </ul>
+                     <ul class="dropdown-menu have-session" style="display: none">
+                         <li><a href=""></a></li>
+                         <li class="divider"></li>
+                         <li><a href="">Đăng xuất</a></li>
                      </ul>
                  </li>
                  <li class="cart">

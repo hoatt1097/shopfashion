@@ -1,3 +1,7 @@
+<?php 
+  include 'database.php';
+  $dt = new Database;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
