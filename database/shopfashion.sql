@@ -1,4 +1,11 @@
-use shopfashion;
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 29, 2018 at 05:20 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -14,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `shopfashion`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `idadmin` int(10) NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`idadmin`, `email`, `password`, `name`) VALUES
+(1, 'admin@gmail.com', 'admin', 'admin'),
+(2, 'hoat1097@gmail.com', '123', 'Trần Thiện Hòa'),
+(3, 'khoa01997@gmail.com', '123', 'Huỳnh Văn Khoa'),
+(4, 'vy@gmail.com', '123', 'Lê Hoàng Vỹ Vỹ');
 
 -- --------------------------------------------------------
 
@@ -60,9 +90,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `color_choose`, `size_choose`, `amount`, `sum_price`) VALUES
-(0, 7, 'Hồng', 's', 1, 129000),
-(1, 1, 'Xanh', 's', 1, 0),
-(2, 16, 'Xám', 's', 1, 600000);
+(0, 4, 'Đen', 's', 1, 299000);
 
 -- --------------------------------------------------------
 
@@ -88,7 +116,8 @@ INSERT INTO `comment` (`idcmt`, `iduser`, `comment`, `datecmt`, `idproduct`) VAL
 (3, 1, 'Thanks ad ^^', '2017-12-26 01:13:59', 1),
 (4, 1, 'test', '2017-12-28 20:26:31', 1),
 (0, 1, 'alo', '2017-12-29 23:53:14', 1),
-(0, 1, 'het mat roi', '2017-12-29 23:53:58', 3);
+(0, 1, 'het mat roi', '2017-12-29 23:53:58', 3),
+(0, 1, '', '2018-05-27 19:24:27', 2);
 
 -- --------------------------------------------------------
 
@@ -259,22 +288,33 @@ CREATE TABLE `user` (
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `firstname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `lastname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `lastlogin` date NOT NULL,
+  `datebirth` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`iduser`, `email`, `password`, `firstname`, `lastname`) VALUES
-(-1, 'hoa@gmail.com', 'qư', 'Thiện Hòa', 'Trần'),
-(0, 'hoa@gmail.com', 'hoa', 'hoa', 'hoa'),
-(1, 'hoatt1097@gmail.com', 'thienhoa', 'thien', 'hoa'),
-(2, 'hoaiphu@gmail.com', '123', 'Hoài ', 'Phú');
+INSERT INTO `user` (`iduser`, `email`, `password`, `firstname`, `lastname`, `lastlogin`, `datebirth`) VALUES
+(6, 'hoa@gmail.com', 'thienhoa', 'Thiện Hòa', 'Trần', '2018-06-04', '1997-02-09'),
+(7, 'vana@gmail.com', 'van1', 'Văn A', 'Nguyễn', '2018-05-10', '1998-10-09'),
+(8, 'thien@gmail.com', 'tthienhoa', 'Thiện B', 'Trần', '2018-05-26', '1998-05-21'),
+(9, 'khoavan@gmail.com', 'vankhoa', 'Văn Khoa', 'Nguyễn', '2018-05-31', '1997-05-16'),
+(10, 'vy@gmail.com', 'vy', 'Hoàng Vỹ Vỹ', 'Lê', '2018-05-23', '1997-05-03'),
+(11, 'chauvan@gmail.com', 'vanchau', 'Văn Châu', 'Đoàn', '2018-05-18', '1995-05-15'),
+(12, 'phucld@gmail.com', 'ohuclol', 'Hoàng Phúc', 'Ứng', '2018-05-17', '1990-05-08');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`idadmin`);
 
 --
 -- Indexes for table `bangtin`
