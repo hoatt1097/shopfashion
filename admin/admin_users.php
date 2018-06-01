@@ -133,9 +133,9 @@
             data : {
                 "id_remove"    : id_remove
             },
-            success : function(result) {
-              alert(result);
-              window.location.replace("cart.php");
+            success : function() {
+              alert("Xóa User thành công");
+              window.location.replace("../cart.php");
             }
           });
         });

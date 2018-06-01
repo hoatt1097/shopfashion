@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2018 at 05:01 PM
+-- Generation Time: Jun 01, 2018 at 06:52 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -111,6 +111,53 @@ INSERT INTO `comment` (`idcmt`, `iduser`, `comment`, `datecmt`, `idproduct`) VAL
 (0, 1, 'alo', '2017-12-29 23:53:14', 1),
 (0, 1, 'het mat roi', '2017-12-29 23:53:58', 3),
 (0, 1, '', '2018-05-27 19:24:27', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cthd`
+--
+
+CREATE TABLE `cthd` (
+  `sohd` int(11) NOT NULL,
+  `idsanpham` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `mau` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `size` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cthd`
+--
+
+INSERT INTO `cthd` (`sohd`, `idsanpham`, `soluong`, `mau`, `size`) VALUES
+(0, 4, 1, 'Đen', 's'),
+(0, 13, 2, 'Xanh', 'xl');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hoadon`
+--
+
+CREATE TABLE `hoadon` (
+  `sohd` int(11) NOT NULL,
+  `ngay` datetime NOT NULL,
+  `nhanvien` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `khachhang` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sodienthoai` varchar(100) NOT NULL,
+  `diachi` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `tienship` varchar(100) NOT NULL,
+  `VAT` varchar(100) NOT NULL DEFAULT '0.1',
+  `giatri` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`sohd`, `ngay`, `nhanvien`, `khachhang`, `sodienthoai`, `diachi`, `tienship`, `VAT`, `giatri`) VALUES
+(0, '2018-06-01 23:50:15', 'admin', 'Trần Thiện Hòa', '01657790513', 'Quận 9', '5899000', '0.1', '5899000');
 
 -- --------------------------------------------------------
 
@@ -322,6 +369,18 @@ ALTER TABLE `bangtin`
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `cthd`
+--
+ALTER TABLE `cthd`
+  ADD PRIMARY KEY (`sohd`,`idsanpham`);
+
+--
+-- Indexes for table `hoadon`
+--
+ALTER TABLE `hoadon`
+  ADD PRIMARY KEY (`sohd`);
 
 --
 -- Indexes for table `image`

@@ -5,6 +5,4 @@
 
   $dt -> command("DELETE FROM user WHERE iduser = $id_remove");
 
-  $result = "Xóa thành công";
-  echo($result);
 ?>

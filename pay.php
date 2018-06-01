@@ -324,7 +324,7 @@
                     <span class="total-line-name pull-left">
                         Tổng cộng
                     </span>
-                    <span class="money sum_price"><?=$sum_price_built_vnd?></span>
+                    <span class="money sum_price" itemprop="<?=$sum_price_built?>"><?=$sum_price_built_vnd?></span>
                 </div>
             </div>
           </div>
@@ -344,7 +344,7 @@
           <div class="shop logo logo--left ">
             <h1 class="shop__name">
                 <a href="/">
-                    Thiện Hòa Fashion
+                    Fashion
                 </a>
             </h1>
           </div>
@@ -480,7 +480,40 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
+
         $(".btn-checkout").click(function(){
+          var email = $("#email").val();
+          var name = $("#name").val();
+          var phone = $("#phone").val();
+          var address = $("#address").val();
+          var sum_price = $(".sum_price").attr("itemprop");
+          if(email==""||name==""||phone==""||address=="")
+          {
+            alert("Caution! Please fill out infomation.");
+          }
+          else{
+            $.ajax({
+            url : "add-hoadon.php",
+            type : 'post',
+            dataType : 'text',
+            data : {
+                "name"    : name,
+                "phone"    : phone,
+                "address"    : address,
+                "sum_price"    : sum_price
+            },
+            success : function() {
+              alert("Xin chúc mừng " + name + " đã đặt hàng tại shop thành công.\nThông tin người đặt hàng:\nEmail: "+email+"\nTên: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nTổng tiền: "+sum_price );
+              alert("Quay về trang chủ");
+              window.location.replace("shopfashion.php");
+            }
+          });
+
+          }
+          
+        });
+
+        /*$(".btn-checkout").click(function(){
           var email = $("#email").val();
           var name = $("#name").val();
           var phone = $("#phone").val();
@@ -494,7 +527,9 @@
             alert("Xin chúc mừng " + name + " đã đặt hàng tại shop thành công.\nThông tin người đặt hàng:\nEmail: "+email+"\nTên: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nTổng tiền: "+sum_price );
           }
 
-        });
+        });*/
+
+
       });
     </script>
 </body>

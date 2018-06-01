@@ -65,6 +65,9 @@
         font-weight: 600;
         margin-right: 5px;  
       }
+      .red {
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -213,11 +216,11 @@
                             </div>
                             <div class="row title">
                               <span class="span1"> Mô tả: </span> 
-                              <span class="span2"><?=$descrition?> cái</span>
+                              <span class="span2"><?=$descrition?></span>
                             </div>
                             <div class="row title">
                               <span class="span1"> Số lượng tồn kho: </span> 
-                              <span class="span2"><?=$amount?> cái</span>
+                              <span class="span2 "><?=$amount?> cái</span>
                             </div>
                             <div class="row title">
                               <span class="span1"> Nhà cung cấp: </span> 
@@ -264,6 +267,7 @@
 
             }
           }); 
+
         });
 
         var i = $(".amount").text();
@@ -279,6 +283,7 @@
         document.getElementById("mydialog" + i).close();
       }
 
+      
     </script>
   </body>
 </html>

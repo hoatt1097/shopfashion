@@ -25,7 +25,6 @@ $(document).ready(function() {
 	        },
 	        success : function(result) {
 	        	alert(result);
-	        	window.location.replace("cart.php");
 	  		}
 	    });
 	});
