@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2018 at 06:52 PM
+-- Generation Time: Jun 04, 2018 at 03:23 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -119,20 +119,24 @@ INSERT INTO `comment` (`idcmt`, `iduser`, `comment`, `datecmt`, `idproduct`) VAL
 --
 
 CREATE TABLE `cthd` (
+  `id` int(11) NOT NULL,
   `sohd` int(11) NOT NULL,
   `idsanpham` int(11) NOT NULL,
   `soluong` int(11) NOT NULL,
   `mau` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `size` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `size` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sum_price` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cthd`
 --
 
-INSERT INTO `cthd` (`sohd`, `idsanpham`, `soluong`, `mau`, `size`) VALUES
-(0, 4, 1, 'Đen', 's'),
-(0, 13, 2, 'Xanh', 'xl');
+INSERT INTO `cthd` (`id`, `sohd`, `idsanpham`, `soluong`, `mau`, `size`, `sum_price`) VALUES
+(0, 0, 4, 4, 'Đen', 's', '1196000'),
+(2, 0, 11, 3, 'Xanh chấm bi', 'xl', '750000'),
+(1, 0, 14, 1, 'Đen', 's', '600000'),
+(3, 1, 4, 1, 'Đen', 's', '299000');
 
 -- --------------------------------------------------------
 
@@ -157,7 +161,8 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`sohd`, `ngay`, `nhanvien`, `khachhang`, `sodienthoai`, `diachi`, `tienship`, `VAT`, `giatri`) VALUES
-(0, '2018-06-01 23:50:15', 'admin', 'Trần Thiện Hòa', '01657790513', 'Quận 9', '5899000', '0.1', '5899000');
+(0, '2018-06-02 12:38:42', 'admin', 'Trần Thiện Hòa', '01657790513', 'Quận 9, tp HCM', '40000', '0.1', '2546000'),
+(1, '2018-06-04 08:16:43', 'admin', 'xxx', 'xxx', 'xxx', '40000', '0.1', '299000');
 
 -- --------------------------------------------------------
 
@@ -195,6 +200,30 @@ INSERT INTO `image` (`id`, `image_link`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nhacungcap`
+--
+
+CREATE TABLE `nhacungcap` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `loai` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `diachi` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sonodu` varchar(100) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nhacungcap`
+--
+
+INSERT INTO `nhacungcap` (`id`, `name`, `loai`, `diachi`, `sonodu`) VALUES
+(3, 'Công ti dịch vụ Trần Thiện Hòa', 'NCC', 'B133, Tăng Nhơn Phú B, Quận 9, TP.HCM', '100000000'),
+(4, 'Công ti phân phối miền Nam', 'KH', 'KCX Linh Trung, quận Thủ Đức, TP.HCM', '12300000'),
+(1, 'Công ty thời trang shopfashion', 'KH', 'B133, Tăng Bạch Hổ, quận Tân Bình, TP.HCM', '54000000'),
+(2, 'Công ty TNHH PT2000', 'NCC', '253 Võ Văn Ngân, Quận Thủ Đức, TP.HCM', '3000000');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nhomtin`
 --
 
@@ -216,6 +245,28 @@ INSERT INTO `nhomtin` (`idnhom`, `tennhom`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phieuchi`
+--
+
+CREATE TABLE `phieuchi` (
+  `stt` int(11) NOT NULL,
+  `magd` varchar(100) NOT NULL,
+  `ngay` datetime NOT NULL,
+  `tencuahang` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `tengiaodich` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `giatri` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `phieuchi`
+--
+
+INSERT INTO `phieuchi` (`stt`, `magd`, `ngay`, `tencuahang`, `tengiaodich`, `giatri`) VALUES
+(1, 'GD.001', '2018-06-30 01:00:00', 'Công ty thời trang shopfashion', 'Mua hàng', '54000000');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -233,7 +284,7 @@ CREATE TABLE `product` (
   `image_id` int(10) NOT NULL,
   `image_link` varchar(100) NOT NULL,
   `date_input` date NOT NULL DEFAULT '2018-06-30',
-  `supplier` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Công ty ABC Fashion'
+  `supplier` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -241,31 +292,31 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `brand`, `color`, `price`, `status`, `amount`, `sale`, `descrition`, `category_id`, `image_id`, `image_link`, `date_input`, `supplier`) VALUES
-(1, 'Đầm lenin 4 túi thương hiệu Khánh Linh - Màu xanh', 'TWIN', 'Xanh', 0, 1, 2, 70, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 1, 'images/product/thoi-trang-nu/xanh-1-0636086650350562651.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(2, 'Đầm Đuôi Cá Form Suông Màu Trắng TP61', 'The fashion', 'Trắng,Xanh', 315000, 0, 0, 10, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 2, 'images/product/thoi-trang-nu/trang-1-0636054082543242809.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(3, 'Đầm dây Hàn Quốc hoa tím đính nút', 'Spandex', 'Tím', 199000, 1, 0, 0, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 3, 'images/product/thoi-trang-nu/tim-1-0636010025286033752.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(4, 'Đầm công sở xòe nhấn eo sát nách', 'The fashion', 'Đen', 299000, 1, 23, 0, 'Đầm công sở xòe nhấn eo sát nách thiết kế thanh lịch, mang đến phong cách trẻ trung, sang trọng cho chị em phụ nữ.\r\nKiểu dáng form hơi xòe nhẹ tôn lên vóc dáng cân đối, cổ tròn tay sát nách, ở phần thân chít eo tạo điểm nhấn nổi bật cho trang phục.\r\nKhóa kéo nổi sau lưng được thiết kế chắc chắn, cho bạn nữ thoải mái vận động khi diện đầm nơi công sở hoặc lúc dạo phố.\r\nChất liệu thun nhũ mát mẻ, tạo cảm giác dễ chịu khi mặc.\r\nXuất xứ: Việt Nam', 4, 4, 'images/product/thoi-trang-nu/den-1-0636008271386029189.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(5, 'Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô', 'The fashion', 'Đỏ', 199000, 1, 0, 0, 'Size M: Dài 93; Vai 35; Ngực 80; Eo nhún 50\r\nSize L: Dài 94; Vai 36; Ngực 82; Eo nhún 52\r\nSize XL: Dài 95; Vai 37; Ngực 84; Eo nhún 54 \r\nBST Thời trang sành điệu VNXK cao cấp được thiết kế thời trang, duyên dáng với những chân váy sành điệu, trẻ trung, những chiếc áo kiểu nền nã, hiện đại thực sự là lựa chọn hoàn hảo cho các cô nàng thanh lịch. Được may từ chất liệu vải mềm mịn, thoáng mát, các sản phẩm được tạo nên form dáng chuẩn và đem tới gu thẩm mỹ riêng cho bạn gái mỗi khi diện. Nhanh tay để chọn ngay cho mình bộ trang phục ưng ý nhất nào các nàng!', 5, 5, 'images/product/thoi-trang-nu/do-1-0636207801668764682.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(6, 'Đồ mặc nhà Jumsuit cổ V sọc xanh Twins', 'Spandex', 'Xanh,Đỏ', 350000, 1, 33, 0, 'Thiết kế trẻ trung, màu sắc tươi mới mang đến bạn gái diện mạo gọn gàng và năng động ngay cả khi ở nhà.\r\nKiểu dáng đơn giản, form lửng thoải mái, tạo cho bạn sự khỏe khoắn, trẻ trung.\r\nHọa tiết tinh tế và đẹp mắt đem lại sự đáng yêu, duyên dáng.\r\nChất liệu: cotton thoáng mát, bạn dễ dàng làm việc nhà hay hoạt động một cách tự nhiên, thoải mái.\r\nXuất xứ: Việt Nam.', 5, 6, 'images/product/thoi-trang-nu/xanhsoc-1-0635935674125854622.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(7, 'Đồ mặc nhà áo tay con, quần short - Sọc hồng KIR24116/12147', 'Spandex', 'Hồng', 129000, 1, 23, 0, 'Thiết kế trẻ trung, màu sắc tươi mới mang đến bạn gái diện mạo gọn gàng và năng động ngay cả khi ở nhà.\r\nKiểu dáng đơn giản, form lửng thoải mái, tạo cho bạn sự khỏe khoắn, trẻ trung.\r\nHọa tiết tinh tế và đẹp mắt đem lại sự đáng yêu, duyên dáng.\r\nChất liệu: cotton thoáng mát, bạn dễ dàng làm việc nhà hay hoạt động một cách tự nhiên, thoải mái.\r\nXuất xứ: Việt Nam.', 5, 7, 'images/product/thoi-trang-nu/hong-1-cm.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(8, 'Jumsuit cổ V sọc xanh Twins', 'The fashion', 'Xanh', 99000, 0, 34, 0, 'BST Thời trang sành điệu VNXK cao cấp được thiết kế thời trang, duyên dáng với những chân váy sành điệu, trẻ trung, những chiếc áo kiểu nền nã, hiện đại thực sự là lựa chọn hoàn hảo cho các cô nàng thanh lịch. Được may từ chất liệu vải mềm mịn, thoáng mát, các sản phẩm được tạo nên form dáng chuẩn và đem tới gu thẩm mỹ riêng cho bạn gái mỗi khi diện. Nhanh tay để chọn ngay cho mình bộ trang phục ưng ý nhất nào các nàng!', 5, 8, 'images/product/thoi-trang-nu/xanh-1-0636011521638009955.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(9, 'Áo khoác kiểu bóng chày in hình cô gái màu xanh', 'Spandex', 'Xanh', 150000, 1, 56, 30, 'Thiết kế trẻ trung, khỏe khoắn, form áo vừa vặn, sản phẩm sẽ là chiếc áo khoác lý tưởng mang đến bạn sự thoải mái, dễ chịu mỗi khi mặc.\r\nVừa có tác dụng giúp bạn che bớt ánh nắng, khói bụi khi đi ra ngoài vừa giữ ấm vào buổi tối.\r\nKiểu áo có mũ, tay dài bo tiện dụng giúp bảo vệ làn da và mái tóc cho bạn gái.\r\nÁo có khóa kéo chắc chắn phối túi hai bên cá tính tạo nên vẻ ngoài trẻ trung.\r\nChất liệu: vải nỉ.\r\nXuất xứ: Việt Nam', 6, 9, 'images/product/thoi-trang-nu/xanh-1-0636030480335378891.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(10, 'Áo khoác nỉ in chữ ADIDAS màu đỏ', 'Vascara', 'Đỏ', 350000, 1, 34, 0, 'Thiết kế trẻ trung, khỏe khoắn, form áo vừa vặn, sản phẩm sẽ là chiếc áo khoác lý tưởng mang đến bạn sự thoải mái, dễ chịu mỗi khi mặc.\r\nVừa có tác dụng giúp bạn che bớt ánh nắng, khói bụi khi đi ra ngoài vừa giữ ấm vào buổi tối.\r\nKiểu áo có mũ, tay dài bo tiện dụng giúp bảo vệ làn da và mái tóc cho bạn gái.\r\nÁo có khóa kéo chắc chắn phối túi hai bên cá tính tạo nên vẻ ngoài trẻ trung.\r\nChất liệu: vải nỉ.\r\nXuất xứ: Việt Nam', 6, 10, 'images/product/thoi-trang-nu/do-1-0636046279689386571.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(11, 'Áo khoác thun cotton chấm bi màu xanh', 'Spandex', 'Xanh chấm bi', 250000, 1, 0, 0, 'Thiết kế trẻ trung, khỏe khoắn, form áo vừa vặn, sản phẩm sẽ là chiếc áo khoác lý tưởng mang đến bạn sự thoải mái, dễ chịu mỗi khi mặc.\r\nVừa có tác dụng giúp bạn che bớt ánh nắng, khói bụi khi đi ra ngoài vừa giữ ấm vào buổi tối.\r\nKiểu áo có mũ, tay dài bo tiện dụng giúp bảo vệ làn da và mái tóc cho bạn gái.\r\nÁo có khóa kéo chắc chắn phối túi hai bên cá tính tạo nên vẻ ngoài trẻ trung.\r\nChất liệu: vải nỉ.\r\nXuất xứ: Việt Nam', 6, 11, 'images/product/thoi-trang-nu/xanh-2-0636028970049926215.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(12, 'Vest xanh vân vuông', 'Vascara', 'Xanh', 2800000, 1, 54, 0, '', 9, 12, 'images/product/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(13, 'Vest xanh vân vuông', 'Spandex', 'Xanh', 2800000, 1, 0, 0, '', 9, 13, 'images/product/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(14, 'Quần Âu màu đen kẻ sọc', 'Vascara', 'Đen,Nâu', 600000, 1, 43, 0, '', 8, 14, 'images/product/thoi-trang-nam/quan-au-mau-den-ke-soc-117.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(15, 'Sơ mi trắng', 'Spandex', 'Trắng', 600000, 1, 43, 0, '', 7, 15, 'images/product/thoi-trang-nam/so-mi-trang-cham-den-nho-tinh-te-321.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(16, 'Sơ mi xám chấm bi chìm', 'Spandex', 'Xám,Xanh', 600000, 1, 43, 0, '', 7, 16, 'images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(17, 'Sơ mi dài tay xanh navy lịch lãm', 'Spandex', 'Xanh', 600000, 1, 0, 0, '', 7, 17, 'images/product/thoi-trang-nam/so-mi-xanh-tim-hoa-tiet-tron-306.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(18, 'Thắt lưng da khóa tròn chạm khắc nổi', 'The fashion', 'Đà', 600000, 1, 53, 0, '', 10, 18, 'images/product/phu-kien/that-lung-da-khoa-tron-cham-khac-noi-226.png', '2018-06-30', 'Công ty ABC Fashion'),
-(19, 'Thắt lưng da khóa vân mạ vàng', 'Nice', '', 600000, 1, 535, 0, '', 10, 19, 'images/product/phu-kien/that-lung-da-khoa-van-ma-vang-230-ff0c1375-f337-4d21-b8b8-bb2e91787170.png', '2018-06-30', 'Công ty ABC Fashion'),
-(20, 'Đồng hồ Carnival phong cách châu Âu', 'Nice', '', 300000, 1, 54, 0, '', 10, 20, 'images/product/phu-kien/2016-Top-10-Brand-Carnival-Automatical-Mechanical.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(21, 'Giày tây nam', 'Nice', '', 1800000, 1, 54, 0, '', 10, 21, 'images/product/phu-kien/giay-da-tay-nam.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(22, 'Giày tây nam cao cấp', 'Nice', '', 2800000, 1, 21, 0, '', 10, 22, 'images/product/phu-kien/images.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(23, 'Giày cao gót mũi đế vương nữ xinh', 'Spandex', '', 900000, 1, 21, 0, '', 11, 23, 'images/product/phu-kien/giay-cao-got-ho-mui-de-vuong-nu-xinh-1m4G3-OIk1B3.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(24, 'Túi xách thời trang nữ', 'Spandex', '', 1600000, 1, 0, 0, '', 11, 24, 'images/product/phu-kien/tui-xach-nu-svn.jpg', '2018-06-30', 'Công ty ABC Fashion'),
-(25, 'Ví thời trang nữ', 'The fashion', 'Xanh dương', 900000, 1, 0, 20, '', 11, 25, 'images/product/phu-kien/vi-nu-da-that-nucelle-070363-11-1-jpeg.jpg', '2018-06-30', 'Công ty ABC Fashion');
+(1, 'Đầm lenin 4 túi thương hiệu Khánh Linh - Màu xanh', 'TWIN', 'Xanh', 0, 1, 2, 70, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 1, 'images/product/thoi-trang-nu/xanh-1-0636086650350562651.jpg', '2018-06-30', ''),
+(2, 'Đầm Đuôi Cá Form Suông Màu Trắng TP61', 'The fashion', 'Trắng,Xanh', 315000, 0, 0, 10, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 2, 'images/product/thoi-trang-nu/trang-1-0636054082543242809.jpg', '2018-06-30', ''),
+(3, 'Đầm dây Hàn Quốc hoa tím đính nút', 'Spandex', 'Tím', 199000, 1, 0, 0, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 3, 'images/product/thoi-trang-nu/tim-1-0636010025286033752.jpg', '2018-06-30', ''),
+(4, 'Đầm công sở xòe nhấn eo sát nách', 'The fashion', 'Đen', 299000, 1, 23, 0, 'Đầm công sở xòe nhấn eo sát nách thiết kế thanh lịch, mang đến phong cách trẻ trung, sang trọng cho chị em phụ nữ.\r\nKiểu dáng form hơi xòe nhẹ tôn lên vóc dáng cân đối, cổ tròn tay sát nách, ở phần thân chít eo tạo điểm nhấn nổi bật cho trang phục.\r\nKhóa kéo nổi sau lưng được thiết kế chắc chắn, cho bạn nữ thoải mái vận động khi diện đầm nơi công sở hoặc lúc dạo phố.\r\nChất liệu thun nhũ mát mẻ, tạo cảm giác dễ chịu khi mặc.\r\nXuất xứ: Việt Nam', 4, 4, 'images/product/thoi-trang-nu/den-1-0636008271386029189.jpg', '2018-06-30', ''),
+(5, 'Bộ mặc nhà Nutica lai cách điệu QN-TN màu đô', 'The fashion', 'Đỏ', 199000, 1, 0, 0, 'Size M: Dài 93; Vai 35; Ngực 80; Eo nhún 50\r\nSize L: Dài 94; Vai 36; Ngực 82; Eo nhún 52\r\nSize XL: Dài 95; Vai 37; Ngực 84; Eo nhún 54 \r\nBST Thời trang sành điệu VNXK cao cấp được thiết kế thời trang, duyên dáng với những chân váy sành điệu, trẻ trung, những chiếc áo kiểu nền nã, hiện đại thực sự là lựa chọn hoàn hảo cho các cô nàng thanh lịch. Được may từ chất liệu vải mềm mịn, thoáng mát, các sản phẩm được tạo nên form dáng chuẩn và đem tới gu thẩm mỹ riêng cho bạn gái mỗi khi diện. Nhanh tay để chọn ngay cho mình bộ trang phục ưng ý nhất nào các nàng!', 5, 5, 'images/product/thoi-trang-nu/do-1-0636207801668764682.jpg', '2018-06-30', ''),
+(6, 'Đồ mặc nhà Jumsuit cổ V sọc xanh Twins', 'Spandex', 'Xanh,Đỏ', 350000, 1, 33, 0, 'Thiết kế trẻ trung, màu sắc tươi mới mang đến bạn gái diện mạo gọn gàng và năng động ngay cả khi ở nhà.\r\nKiểu dáng đơn giản, form lửng thoải mái, tạo cho bạn sự khỏe khoắn, trẻ trung.\r\nHọa tiết tinh tế và đẹp mắt đem lại sự đáng yêu, duyên dáng.\r\nChất liệu: cotton thoáng mát, bạn dễ dàng làm việc nhà hay hoạt động một cách tự nhiên, thoải mái.\r\nXuất xứ: Việt Nam.', 5, 6, 'images/product/thoi-trang-nu/xanhsoc-1-0635935674125854622.jpg', '2018-06-30', ''),
+(7, 'Đồ mặc nhà áo tay con, quần short - Sọc hồng KIR24116/12147', 'Spandex', 'Hồng', 129000, 1, 23, 0, 'Thiết kế trẻ trung, màu sắc tươi mới mang đến bạn gái diện mạo gọn gàng và năng động ngay cả khi ở nhà.\r\nKiểu dáng đơn giản, form lửng thoải mái, tạo cho bạn sự khỏe khoắn, trẻ trung.\r\nHọa tiết tinh tế và đẹp mắt đem lại sự đáng yêu, duyên dáng.\r\nChất liệu: cotton thoáng mát, bạn dễ dàng làm việc nhà hay hoạt động một cách tự nhiên, thoải mái.\r\nXuất xứ: Việt Nam.', 5, 7, 'images/product/thoi-trang-nu/hong-1-cm.jpg', '2018-06-30', ''),
+(8, 'Jumsuit cổ V sọc xanh Twins', 'The fashion', 'Xanh', 99000, 0, 34, 0, 'BST Thời trang sành điệu VNXK cao cấp được thiết kế thời trang, duyên dáng với những chân váy sành điệu, trẻ trung, những chiếc áo kiểu nền nã, hiện đại thực sự là lựa chọn hoàn hảo cho các cô nàng thanh lịch. Được may từ chất liệu vải mềm mịn, thoáng mát, các sản phẩm được tạo nên form dáng chuẩn và đem tới gu thẩm mỹ riêng cho bạn gái mỗi khi diện. Nhanh tay để chọn ngay cho mình bộ trang phục ưng ý nhất nào các nàng!', 5, 8, 'images/product/thoi-trang-nu/xanh-1-0636011521638009955.jpg', '2018-06-30', ''),
+(9, 'Áo khoác kiểu bóng chày in hình cô gái màu xanh', 'Spandex', 'Xanh', 150000, 1, 56, 30, 'Thiết kế trẻ trung, khỏe khoắn, form áo vừa vặn, sản phẩm sẽ là chiếc áo khoác lý tưởng mang đến bạn sự thoải mái, dễ chịu mỗi khi mặc.\r\nVừa có tác dụng giúp bạn che bớt ánh nắng, khói bụi khi đi ra ngoài vừa giữ ấm vào buổi tối.\r\nKiểu áo có mũ, tay dài bo tiện dụng giúp bảo vệ làn da và mái tóc cho bạn gái.\r\nÁo có khóa kéo chắc chắn phối túi hai bên cá tính tạo nên vẻ ngoài trẻ trung.\r\nChất liệu: vải nỉ.\r\nXuất xứ: Việt Nam', 6, 9, 'images/product/thoi-trang-nu/xanh-1-0636030480335378891.jpg', '2018-06-30', ''),
+(10, 'Áo khoác nỉ in chữ ADIDAS màu đỏ', 'Vascara', 'Đỏ', 350000, 1, 34, 0, 'Thiết kế trẻ trung, khỏe khoắn, form áo vừa vặn, sản phẩm sẽ là chiếc áo khoác lý tưởng mang đến bạn sự thoải mái, dễ chịu mỗi khi mặc.\r\nVừa có tác dụng giúp bạn che bớt ánh nắng, khói bụi khi đi ra ngoài vừa giữ ấm vào buổi tối.\r\nKiểu áo có mũ, tay dài bo tiện dụng giúp bảo vệ làn da và mái tóc cho bạn gái.\r\nÁo có khóa kéo chắc chắn phối túi hai bên cá tính tạo nên vẻ ngoài trẻ trung.\r\nChất liệu: vải nỉ.\r\nXuất xứ: Việt Nam', 6, 10, 'images/product/thoi-trang-nu/do-1-0636046279689386571.jpg', '2018-06-30', ''),
+(11, 'Áo khoác thun cotton chấm bi màu xanh', 'Spandex', 'Xanh chấm bi', 250000, 1, 0, 0, 'Thiết kế trẻ trung, khỏe khoắn, form áo vừa vặn, sản phẩm sẽ là chiếc áo khoác lý tưởng mang đến bạn sự thoải mái, dễ chịu mỗi khi mặc.\r\nVừa có tác dụng giúp bạn che bớt ánh nắng, khói bụi khi đi ra ngoài vừa giữ ấm vào buổi tối.\r\nKiểu áo có mũ, tay dài bo tiện dụng giúp bảo vệ làn da và mái tóc cho bạn gái.\r\nÁo có khóa kéo chắc chắn phối túi hai bên cá tính tạo nên vẻ ngoài trẻ trung.\r\nChất liệu: vải nỉ.\r\nXuất xứ: Việt Nam', 6, 11, 'images/product/thoi-trang-nu/xanh-2-0636028970049926215.jpg', '2018-06-30', ''),
+(12, 'Vest xanh vân vuông', 'Vascara', 'Xanh', 2800000, 1, 54, 0, '', 9, 12, 'images/product/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127.jpg', '2018-06-30', ''),
+(13, 'Vest xanh vân vuông', 'Spandex', 'Xanh', 2800000, 1, 0, 0, '', 9, 13, 'images/product/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127.jpg', '2018-06-30', ''),
+(14, 'Quần Âu màu đen kẻ sọc', 'Vascara', 'Đen,Nâu', 600000, 1, 43, 0, '', 8, 14, 'images/product/thoi-trang-nam/quan-au-mau-den-ke-soc-117.jpg', '2018-06-30', ''),
+(15, 'Sơ mi trắng', 'Spandex', 'Trắng', 600000, 1, 43, 0, '', 7, 15, 'images/product/thoi-trang-nam/so-mi-trang-cham-den-nho-tinh-te-321.jpg', '2018-06-30', ''),
+(16, 'Sơ mi xám chấm bi chìm', 'Spandex', 'Xám,Xanh', 600000, 1, 43, 0, '', 7, 16, 'images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316.jpg', '2018-06-30', ''),
+(17, 'Sơ mi dài tay xanh navy lịch lãm', 'Spandex', 'Xanh', 600000, 1, 0, 0, '', 7, 17, 'images/product/thoi-trang-nam/so-mi-xanh-tim-hoa-tiet-tron-306.jpg', '2018-06-30', ''),
+(18, 'Thắt lưng da khóa tròn chạm khắc nổi', 'The fashion', 'Đà', 600000, 1, 53, 0, '', 10, 18, 'images/product/phu-kien/that-lung-da-khoa-tron-cham-khac-noi-226.png', '2018-06-30', ''),
+(19, 'Thắt lưng da khóa vân mạ vàng', 'Nice', '', 600000, 1, 535, 0, '', 10, 19, 'images/product/phu-kien/that-lung-da-khoa-van-ma-vang-230-ff0c1375-f337-4d21-b8b8-bb2e91787170.png', '2018-06-30', ''),
+(20, 'Đồng hồ Carnival phong cách châu Âu', 'Nice', '', 300000, 1, 54, 0, '', 10, 20, 'images/product/phu-kien/2016-Top-10-Brand-Carnival-Automatical-Mechanical.jpg', '2018-06-30', ''),
+(21, 'Giày tây nam', 'Nice', '', 1800000, 1, 54, 0, '', 10, 21, 'images/product/phu-kien/giay-da-tay-nam.jpg', '2018-06-30', ''),
+(22, 'Giày tây nam cao cấp', 'Nice', '', 2800000, 1, 21, 0, '', 10, 22, 'images/product/phu-kien/images.jpg', '2018-06-30', ''),
+(23, 'Giày cao gót mũi đế vương nữ xinh', 'Spandex', '', 900000, 1, 21, 0, '', 11, 23, 'images/product/phu-kien/giay-cao-got-ho-mui-de-vuong-nu-xinh-1m4G3-OIk1B3.jpg', '2018-06-30', ''),
+(24, 'Túi xách thời trang nữ', 'Spandex', '', 1600000, 1, 0, 0, '', 11, 24, 'images/product/phu-kien/tui-xach-nu-svn.jpg', '2018-06-30', ''),
+(25, 'Ví thời trang nữ', 'The fashion', 'Xanh dương', 900000, 1, 0, 20, '', 11, 25, 'images/product/phu-kien/vi-nu-da-that-nucelle-070363-11-1-jpeg.jpg', '2018-06-30', '');
 
 -- --------------------------------------------------------
 
@@ -374,7 +425,7 @@ ALTER TABLE `cart`
 -- Indexes for table `cthd`
 --
 ALTER TABLE `cthd`
-  ADD PRIMARY KEY (`sohd`,`idsanpham`);
+  ADD PRIMARY KEY (`sohd`,`idsanpham`,`id`) USING BTREE;
 
 --
 -- Indexes for table `hoadon`
@@ -389,10 +440,23 @@ ALTER TABLE `image`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `nhacungcap`
+--
+ALTER TABLE `nhacungcap`
+  ADD PRIMARY KEY (`name`);
+
+--
 -- Indexes for table `nhomtin`
 --
 ALTER TABLE `nhomtin`
   ADD PRIMARY KEY (`idnhom`);
+
+--
+-- Indexes for table `phieuchi`
+--
+ALTER TABLE `phieuchi`
+  ADD PRIMARY KEY (`magd`),
+  ADD KEY `acb` (`tencuahang`);
 
 --
 -- Indexes for table `product`
@@ -427,6 +491,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+
+--
+-- Constraints for table `phieuchi`
+--
+ALTER TABLE `phieuchi`
+  ADD CONSTRAINT `acb` FOREIGN KEY (`tencuahang`) REFERENCES `nhacungcap` (`name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

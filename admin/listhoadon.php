@@ -1,7 +1,7 @@
 <?php 
   include 'database.php';
   $dt = new Database;
-  $product = $_GET['product'];
+  $dx = new Database;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@
       }
       .mydialog {
         width: 90%; 
-        height: 400px;
+        height: 600px;
         border: 1px dotted black;  
         overflow-y: auto;
       }
@@ -67,6 +67,26 @@
       }
       .red {
         color: red;
+      }
+
+
+      /*dialog*/
+      .info_shop p{
+        margin: 0px;
+      }
+      .col-md-1 {
+
+      }
+      .cthd-row {
+        border: solid 1px grey;
+      }
+      .a {
+        border-right: solid 1px grey;
+        height: 40px;
+        text-align: center;
+      }
+      .cthd {
+        padding: 0 10px;
       }
     </style>
   </head>
@@ -123,118 +143,160 @@
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Danh sách sản phẩm</h2>
-                <a class="add-user" title="Add user" href="admin_adduser.php">
-                  <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
-                  Thêm sản phẩm
-                </a>
+                <h2>Danh sách hóa đơn</h2>
               </div>
               <div class="content-content vertical-menu">
                 <table>
                   <tr>
-                    <th>Stt</th>
-                    <th>Tên</th>
-                    <th>Nhãn hiệu/màu</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Giảm giá</th>
-                    <th>Ảnh</th>
-                    <th>Ngày nhập</th>
+                    <th>Số HD</th>
+                    <th>Ngày tạo</th>
+                    <th>Nhân viên</th>
+                    <th>Khách hàng</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Phí giao hàng</th>
+                    <th>Giá trị</th>
                     <th>Chỉnh sửa</th>
                   </tr>
               <?php
                 $i = 0;
-                if($product == "allproduct")
-                {
-                    $dt -> select("SELECT * FROM product");
-                }                
-                if($product == "empty"){
-                  $dt -> select("SELECT * FROM product WHERE amount = 0 ");
-                }
+                $dt -> select("SELECT * FROM hoadon");
                 while( $r = $dt->fetch())
                 {
                   $i = $i + 1;
-                  $id = $r["id"];
-                  $name = $r["name"];
-                  $brand = $r["brand"];
-                  $color = $r["color"];
+                  $sohd = $r["sohd"];
+                  $ngay = $r["ngay"];
+                  $nhanvien = $r["nhanvien"];
+                  $khachhang = $r["khachhang"];
+                  $sodienthoai = $r["sodienthoai"];
+                  $diachi = $r["diachi"];
 
                   $symbol = 'đ';
                   $symbol_thousand = '.';
                   $decimal_place = 0;
-                  $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
-                  if( $r["price"] == "0" )  
-                  {
-                    $price = "Liên hệ mua hàng";
-                  }  
+                  $phigiaohang = number_format($r["tienship"], $decimal_place, '', $symbol_thousand).$symbol; 
+                  $giatri = number_format($r["giatri"], $decimal_place, '', $symbol_thousand).$symbol; 
 
-                  $status = $r["status"];
-                  $amount = $r["amount"];
-                  $sale = $r["sale"];
-                  $descrition = $r["descrition"];
-                  $image_link = $r["image_link"];
-                  $date_input = $r["date_input"];
-                  $supplier = $r["supplier"];
-                  $mydialog = "mydialog".$i;
+                  $thanhtoan = intval(strval($r["giatri"]+40000));
+                  $thanhtoan = number_format($thanhtoan, $decimal_place, '', $symbol_thousand).$symbol; 
+
+                  $mydialog = "mydialog".$sohd;
+
               ?>
                   <tr>
-                    <td><?=$i?></td>
-                    <td><?=$name?></td>
-                    <td><?=$brand?>/<?=$color?></td>
-                    <td><?=$price?></td>
-                    <td><?=$amount?></td>
-                    <td><?=$sale?>%</td>
-                    <td><img src="../<?=$image_link?>"></td>
-                    <td><?=$date_input?></td>
+                    <td><?=$sohd?></td>
+                    <td><?=$ngay?></td>
+                    <td><?=$nhanvien?></td>
+                    <td><?=$khachhang?></td>
+                    <td><?=$sodienthoai?></td>
+                    <td><?=$diachi?></td>
+                    <td><?=$phigiaohang?></td>
+                    <td><?=$giatri?></td>
                     <td style="text-align: center;">
-                      <li onclick = "showdialog(<?=$i?>)" class="showdialog"><a title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                      <li><a href="admin_edituser.php?id=<?=$r["id"]?>" title="Edit" class="edit" itemprop="<?=$r["iduser"]?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
+                      <li onclick = "showdialog(<?=$sohd?>)" class="showdialog"><a title="Chi tiết hóa đơn"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                       <li><a href="" title="<?=$product?>" class="remove" itemprop="<?=$r["id"]?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                     </td>
                   </tr> 
                   <div>
-                    <dialog id="<?="$mydialog"?>" class="mydialog">
-                        <button onclick = "closedialog(<?=$i?>)" style="float:right">Close</button>
-                        <center><h1><b>Thông tin sản phẩm</b></h1></center>
+                    <dialog id="<?="$mydialog"?>" class="mydialog" style="top:1px;">
+                        <button onclick = "closedialog(<?=$sohd?>)" style="float:right">Close</button>
+                        <div class="info_shop">
+                          <b>Shop thời trang ShopFashion</b>
+                          <p>Trường đại học Công Nghệ Thông Tin</p>
+                          <p>Điện thoại: 0165.779.0513</p>
+                        </div>
+                        <center><h1><b>Phiếu bán hàng</b></h1></center>
                         <div class="row">
-                          <div class="col-md-7" style="padding-left: 40px">
-                            <div class="row title">
-                              <span class="span1"> Tên sản phẩm: </span> 
-                              <span class="span2"><?=$name?></span>
+                          <div class="col-md-6"></div>
+                          <div class="col-md-6">
+                            <div class="">
+                              <span class="span1"> Số hóa đơn: </span> 
+                              <span class="span2"><?=$sohd?></span>
                             </div>
-                            <div class="row title">
-                              <span class="span1"> Nhãn hiệu/Màu: </span> 
-                              <span class="span2"><?=$brand?>/<?=$color?></span>
+                            <div class="">
+                              <span class="span1"> Ngày: </span> 
+                              <span class="span2"><?=$ngay?></span>
                             </div>
-                            <div class="row title">
-                              <span class="span1"> Giá: </span> 
-                              <span class="span2"><?=$price?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Giảm giá: </span> 
-                              <span class="span2"><?=$sale?>%</span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Mô tả: </span> 
-                              <span class="span2"><?=$descrition?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Số lượng tồn kho: </span> 
-                              <span class="span2 "><?=$amount?> cái</span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Nhà cung cấp: </span> 
-                              <span class="span2"><?=$supplier?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Ngày nhập hàng: </span> 
-                              <span class="span2"><?=$date_input?></span>
-                            </div>
-                          </div>
-                          <div class="col-md-5 dialog_image">
-                            <img src="../<?=$image_link?>">
                           </div>
                         </div>
+                        <div class="info_shop">
+                            <div class="">
+                              <span class="span1"> Khách hàng: </span> 
+                              <span class="span2"><?=$khachhang?></span>
+                            </div>
+                            <div class="">
+                              <span class="span1"> Địa chỉ: </span> 
+                              <span class="span2"><?=$diachi?></span>
+                            </div>
+                            <div class="">
+                              <span class="span1"> Số điện thoại: </span> 
+                              <span class="span2"><?=$sodienthoai?></span>
+                            </div>
+                            <div class="">
+                              <span class="span1"> Nhân viên: </span> 
+                              <span class="span2"><?=$nhanvien?></span>
+                            </div>
+                            <div class="">
+                              <span class="span1"> Chi tiết hóa đơn: </span> 
+                            </div>
+                        </div>
+                        <div class="cthd">
+                          <div class="row cthd-row">
+                            <div class="col-md-1 a"><b>STT</b></div>     
+                            <div class="col-md-3 a"><b>Tên hàng</b></div>
+                            <div class="col-md-1 a"><b>SL</b></div>  
+                            <div class="col-md-2 a"><b>Đơn giá</b></div>  
+                            <div class="col-md-2 a"><b>Tổng cộng</b></div>
+                            <div class="col-md-1 a"><b>Ghi chú</b></div> 
+                            <div class="col-md-2 a"><b>Thành tiền</b></div>      
+                          </div>
+                        <?php 
+                          $t = 0;
+                          $dx -> select("SELECT * FROM cthd,product WHERE cthd.idsanpham = product.id AND cthd.sohd = $sohd");
+                          while( $r = $dx->fetch())
+                          {
+                            $t += 1;
+                            $soluong = $r["soluong"];
+                            $mau = $r["mau"];
+                            $sum_price = number_format($r["sum_price"], $decimal_place, '', $symbol_thousand).$symbol; 
+                            $name = $r["name"];
+                            $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol; 
+
+                        ?>
+                          <div class="row cthd-row">
+                            <div class="col-md-1 a"><?=$t?></div>     
+                            <div class="col-md-3 a"><?=$name?></div>
+                            <div class="col-md-1 a"><?=$soluong?> Cái</div>  
+                            <div class="col-md-2 a"><?=$price?></div>  
+                            <div class="col-md-2 a"><?=$sum_price?></div>
+                            <div class="col-md-1 a">.....</div>  
+                            <div class="col-md-2 a"><?=$sum_price?></div>      
+                          </div>
+                        <?php
+                          }
+                        ?>
+                          <div class="row cthd-row">
+                            <div class="col-md-6 "></div>
+                            <div class="col-md-4 a"><b>Tổng cộng: </b></div>     
+                            <div class="col-md-2 a"><?=$giatri?></div>
+                          </div>
+                          <div class="row cthd-row">
+                            <div class="col-md-6 "></div>
+                            <div class="col-md-4 a"><b>Phí vận chuyển(Nếu có): </b></div>  
+                            <div class="col-md-2 a">40.000đ</div>
+                          </div>
+                          <div class="row cthd-row">
+                            <div class="col-md-6 "></div>
+                            <div class="col-md-4 a"><b>Thanh toán: </b></div>     
+                            <div class="col-md-2 a"><?=$thanhtoan?></div>
+                          </div>
+                        </div>
+
+                        <div class="row " style="margin-bottom: 50px; padding-top: 20px">
+                            <div class="col-md-6" style="text-align: center;"><i>Chữ kí khách hàng</i></div>
+                            <div class="col-md-6" style="text-align: center;"><i>Chữ kí cửa hàng</i></div>     
+                        </div>
+                        
                     </dialog>
                   </div>
               <?php
@@ -270,17 +332,17 @@
 
         });
 
-        var i = $(".amount").text();
-        $(".content-content").before("<p>Danh sách có " + i + " sản phẩm</p>");
+        var i = parseInt($(".amount").text());
+        $(".content-content").before("<p>Danh sách có " + i + " hóa đơn</p>");
 
       }); 
 
-      function showdialog(i){
-        document.getElementById("mydialog" + i).show();
+      function showdialog(sohd){
+        document.getElementById("mydialog" + sohd).show();
       }
       
-      function closedialog(i){
-        document.getElementById("mydialog" + i).close();
+      function closedialog(sohd){
+        document.getElementById("mydialog" + sohd).close();
       }
 
       

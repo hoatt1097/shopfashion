@@ -94,7 +94,7 @@
                     <button class="button button-black nomargin" id="login-form-submit" name="login-form-submit" type="submit" value="login">Đăng nhập</button>
                     <div class="fright text-right">
                       <a href="#" style="display:block;" onclick="showRecoverPasswordForm();return false;">Quên mật khẩu?</a>
-                      <a href="/account/register" style="display:block;">Chưa có tài khoản? Đăng ký</a>
+                      <a href="register.php" style="display:block;">Chưa có tài khoản? Đăng ký</a>
                     </div>
                   </div>
                   <!--</form>-->

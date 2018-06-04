@@ -1,3 +1,7 @@
+<?php 
+  include 'database.php';
+  $dt = new Database;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,22 +10,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/jquery-3.2.1.min.js
 ">
-    <title>Admin_user</title>
+    <title>Admin_users</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="admin_adduser.css">
+    <link rel="stylesheet" type="text/css" href="admin_users.css">
     <link rel="stylesheet" type="text/css" href="common.css">
+
     <style type="text/css" media="screen">
       
     </style>
   </head>
   <body>
       <header class="container-fluid">
-        <div class="row">
-            <h2>Administrator Page</h2>
+        <div class="row"> 
+            <h2>Quản lý admin</h2>
               <div class="row login_logout" >
                 <a class="login" title="Account" href="#">
                   <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
@@ -42,7 +47,7 @@
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý người dùng</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="admin_users.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Users</a>
-                    <li><a class="list-group-item roles child" href="admin_roles.html"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Admin</a>
+                    <li><a class="list-group-item roles child" href="listadmin.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Admin</a>
                   </ul>
                 </li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý sản phẩm</a>
@@ -67,35 +72,57 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> 
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Users</h2>
-                <h4>Add new user</h4>
+                <h2>Danh sách nhà cung cấp</h2>
+                <a class="add-user" title="Add user" href="admin_adduser.php">
+                  <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+                  Thêm nhà cung cấp
+                </a>
               </div>
               <div class="content-content">
-                <form action="#" id="adduser">
-                  <label>Fisrtname</label>
-                  <input type="text" id="firstname" name="firstname">
+                <table>
+                  <tr>
+                    <th>ID</th>
+                    <th>Tên nhà cung cấp</th>
+                    <th>Loại</th>
+                    <th>Địa chỉ</th>
+                    <th>Số dư nợ</th>
+                    <th>Chỉnh sửa</th>
+                  </tr>
+              <?php
+                $dt -> select("SELECT * FROM nhacungcap");
+                while( $r = $dt->fetch())
+                {
+                  $id = $r["id"];
+                  $name = $r["name"];
+                  $loai = $r["loai"];
+                  $diachi = $r["diachi"];
 
-                  <label>Lastname</label>
-                  <input type="text" id="lastname" name="lastname">
-
-                  <label>Old password</label>
-                  <input type="password" id="oldpassword" name="oldpassword">
-
-                  <label>New password</label>
-                  <input type="password" id="newpassword" name="newpassword">
-
-                  <label>Email</label>
-                   <input type="text" id="username" name="username">
-                  <div class="clearfix"></div>
-                  <div class="row add_cancel" style="text-align: right;">
-                    <input type="submit" value="Add" id="btnadd">
-                    <button class="btncancel">Cancel</button>
-                  </div>
-                </form>
+                  $symbol = 'đ';
+                  $symbol_thousand = '.';
+                  $decimal_place = 0;
+                  $sonodu = number_format($r["sonodu"], $decimal_place, '', $symbol_thousand).$symbol; 
+              ?>
+                  <tr>
+                    <td><?=$id?></td>
+                    <td><?=$name?></td>
+                    <td><?=$loai?></td>
+                    <td><?=$diachi?></td>
+                    <td><?=$sonodu?> VNĐ</td>
+                    <td>
+                      <li><a href="" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                      <li><a href="admin_edituser.php?id=<?=$r["iduser"]?>" title="Edit" class="edit" itemprop="<?=$r["iduser"]?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
+                      <li><a href="" title="Delete" class="remove" itemprop="<?=$r["iduser"]?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+                    </td>
+                  </tr>
+              <?php
+                }
+              ?>
+                  
+                </table>
               </div>
             </div>
           </div>
@@ -106,12 +133,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function(){
-        $("#adduser")[0].reset();
-        $(".btncancel").click(function(){
-          window.location.replace("admin_users.php");
-        });
-
+        
       }); 
     </script>
   </body>
-</html> 
+</html>

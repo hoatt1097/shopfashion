@@ -1,7 +1,7 @@
 <?php 
   include 'database.php';
   $dt = new Database;
-  $product = $_GET['product'];
+  $dx = new Database;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@
       }
       .mydialog {
         width: 90%; 
-        height: 400px;
+        height: 600px;
         border: 1px dotted black;  
         overflow-y: auto;
       }
@@ -67,6 +67,26 @@
       }
       .red {
         color: red;
+      }
+
+
+      /*dialog*/
+      .info_shop p{
+        margin: 0px;
+      }
+      .col-md-1 {
+
+      }
+      .cthd-row {
+        border: solid 1px grey;
+      }
+      .a {
+        border-right: solid 1px grey;
+        height: 40px;
+        text-align: center;
+      }
+      .cthd {
+        padding: 0 10px;
       }
     </style>
   </head>
@@ -107,13 +127,13 @@
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="admin_users.html" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo tồn</a>
                     <li><a class="list-group-item roles child" href="admin_roles.html" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo doanh thu</a  >
-                    <li><a class="list-group-item roles child" href="baocaocongno.php?id=all" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo công nợ</a  >
+                    <li><a class="list-group-item roles child" href="admin_roles.html" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo công nợ</a  >
                   </ul>
                 </li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý chung</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="list_ncc.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách nhà cung cấp</a>
-                    <li><a class="list-group-item users child" href="listhoadon.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách hóa đơn</a>
+                    <li><a class="list-group-item users child" href="list_ncc.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách hóa đơn</a>
                     <li><a class="list-group-item users child" href="list_phieuchi.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách phiếu chi</a>
                   </ul>
                 </li>
@@ -123,126 +143,102 @@
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Danh sách sản phẩm</h2>
-                <a class="add-user" title="Add user" href="admin_adduser.php">
-                  <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
-                  Thêm sản phẩm
-                </a>
+                <h2>Lập báo cáo công nợ</h2>
               </div>
+              <div>
+                <form class="form-inline">
+                  <label for="email">Tên nhà cung cấp:</label>
+                  <?php
+                      $id = $_GET['id'];
+                      if($id == "all"){
+                        $name ="Tất cả";
+                      }
+                      else
+                      {
+                         $dt -> select("SELECT * FROM nhacungcap WHERE id = $id");
+                          while( $r = $dt->fetch())
+                          {
+                            $id = $r["id"];
+                            $name = $r["name"];
+                          }
+                      }
+                  ?>
+                  <select class="form-control sort" onchange="sortby()">
+                      <option value="" selected disabled hidden><?=$name?></option>
+                      <option value="all" >Tất cả</option>
+                    <?php
+                      $dt -> select("SELECT * FROM nhacungcap");
+                      while( $r = $dt->fetch())
+                      {
+                        $id = $r["id"];
+                        $name = $r["name"];
+                        
+                    ?>
+                      <option value="<?=$id?>"><?=$name?></option>
+                    <?php
+                      }
+                    ?>
+                  </select> 
+                  <span class="btn btn-primary">Lập báo cáo</span>
+                </form>
+              </div>
+              </br>
               <div class="content-content vertical-menu">
                 <table>
                   <tr>
-                    <th>Stt</th>
-                    <th>Tên</th>
-                    <th>Nhãn hiệu/màu</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Giảm giá</th>
-                    <th>Ảnh</th>
-                    <th>Ngày nhập</th>
-                    <th>Chỉnh sửa</th>
+                    <th>ID</th>
+                    <th>Tên nhà cung cấp</th>
+                    <th>Loại</th>
+                    <th>Địa chỉ</th>
+                    <th>Số dư nợ</th>
                   </tr>
               <?php
-                $i = 0;
-                if($product == "allproduct")
+                $tongtien = 0;
+                $id = $_GET['id'];
+                $t = 0;
+                if($id=="all"){
+                  $dt -> select("SELECT * FROM nhacungcap");
+                }
+                else 
                 {
-                    $dt -> select("SELECT * FROM product");
-                }                
-                if($product == "empty"){
-                  $dt -> select("SELECT * FROM product WHERE amount = 0 ");
+                  $dt -> select("SELECT * FROM nhacungcap WHERE id = $id");
                 }
                 while( $r = $dt->fetch())
                 {
-                  $i = $i + 1;
                   $id = $r["id"];
                   $name = $r["name"];
-                  $brand = $r["brand"];
-                  $color = $r["color"];
+                  $loai = $r["loai"];
+                  $diachi = $r["diachi"];
 
                   $symbol = 'đ';
                   $symbol_thousand = '.';
                   $decimal_place = 0;
-                  $price = number_format($r["price"], $decimal_place, '', $symbol_thousand).$symbol;
-                  if( $r["price"] == "0" )  
-                  {
-                    $price = "Liên hệ mua hàng";
-                  }  
+                  $i = $r["sonodu"];
+                  $sonodu = number_format($r["sonodu"], $decimal_place, '', $symbol_thousand).$symbol;
 
-                  $status = $r["status"];
-                  $amount = $r["amount"];
-                  $sale = $r["sale"];
-                  $descrition = $r["descrition"];
-                  $image_link = $r["image_link"];
-                  $date_input = $r["date_input"];
-                  $supplier = $r["supplier"];
-                  $mydialog = "mydialog".$i;
+                  $tongtien = intval(strval($i + $tongtien));
+                  $t = $t + 1;
+                    
               ?>
                   <tr>
-                    <td><?=$i?></td>
+                    <td><?=$t?></td>
                     <td><?=$name?></td>
-                    <td><?=$brand?>/<?=$color?></td>
-                    <td><?=$price?></td>
-                    <td><?=$amount?></td>
-                    <td><?=$sale?>%</td>
-                    <td><img src="../<?=$image_link?>"></td>
-                    <td><?=$date_input?></td>
-                    <td style="text-align: center;">
-                      <li onclick = "showdialog(<?=$i?>)" class="showdialog"><a title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                      <li><a href="admin_edituser.php?id=<?=$r["id"]?>" title="Edit" class="edit" itemprop="<?=$r["iduser"]?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
-                      <li><a href="" title="<?=$product?>" class="remove" itemprop="<?=$r["id"]?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
-                    </td>
-                  </tr> 
-                  <div>
-                    <dialog id="<?="$mydialog"?>" class="mydialog">
-                        <button onclick = "closedialog(<?=$i?>)" style="float:right">Close</button>
-                        <center><h1><b>Thông tin sản phẩm</b></h1></center>
-                        <div class="row">
-                          <div class="col-md-7" style="padding-left: 40px">
-                            <div class="row title">
-                              <span class="span1"> Tên sản phẩm: </span> 
-                              <span class="span2"><?=$name?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Nhãn hiệu/Màu: </span> 
-                              <span class="span2"><?=$brand?>/<?=$color?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Giá: </span> 
-                              <span class="span2"><?=$price?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Giảm giá: </span> 
-                              <span class="span2"><?=$sale?>%</span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Mô tả: </span> 
-                              <span class="span2"><?=$descrition?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Số lượng tồn kho: </span> 
-                              <span class="span2 "><?=$amount?> cái</span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Nhà cung cấp: </span> 
-                              <span class="span2"><?=$supplier?></span>
-                            </div>
-                            <div class="row title">
-                              <span class="span1"> Ngày nhập hàng: </span> 
-                              <span class="span2"><?=$date_input?></span>
-                            </div>
-                          </div>
-                          <div class="col-md-5 dialog_image">
-                            <img src="../<?=$image_link?>">
-                          </div>
-                        </div>
-                    </dialog>
-                  </div>
+                    <td><?=$loai?></td>
+                    <td><?=$diachi?></td>
+                    <td><?=$sonodu?></td>
+                  </tr>
               <?php
                 }
               ?>
-                  
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><center><b>Tổng cộng: </b></center></td>
+                    <td><b><?php $tongtien = number_format($tongtien, $decimal_place, '', $symbol_thousand).$symbol;echo $tongtien?></b></td>
+                  </tr>
                 </table>
-                <p class="amount" style="display: none"><?=$i?></p>
+
               </div>
             </div>
           </div>
@@ -264,26 +260,23 @@
                 "id_remove"    : id_remove
             },
             success : function(result) {
-
             }
           }); 
-
         });
-
-        var i = $(".amount").text();
-        $(".content-content").before("<p>Danh sách có " + i + " sản phẩm</p>");
-
       }); 
 
-      function showdialog(i){
-        document.getElementById("mydialog" + i).show();
+      function showdialog(sohd){
+        document.getElementById("mydialog" + sohd).show();
       }
       
-      function closedialog(i){
-        document.getElementById("mydialog" + i).close();
+      function closedialog(sohd){
+        document.getElementById("mydialog" + sohd).close();
       }
 
-      
+      function sortby(){
+          var id = $(".sort").val();  
+          window.location.replace("baocaocongno.php?id="+ id );
+      }
     </script>
   </body>
 </html>

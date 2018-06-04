@@ -20,5 +20,6 @@ $(document).ready(function() {
 	var sortby = $(".sort").val();  
 	window.location.replace("category.php?id="+ id_menu + "&sortby="+ sortby);
   }
+  
 var body = $("html, body");
 body.stop().animate({scrollTop:500}, 500, 'swing', function() { });
