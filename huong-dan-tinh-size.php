@@ -38,16 +38,14 @@
           <h1>
             Hướng dẫn tính size
           </h1>
-        </div>
-        <p>Đồ lót không chỉ giúp giữ gìn vệ sinh mà còn là thời trang luôn được giới nữ quan tâm nhất. Việc lựa chọn đồ lót cũng tùy thuộc vào vóc dáng, cách ăn mặc và sở thích của mỗi người.</p>
+        </div><br>
+        <strong>Áo:</strong></p>
 
-        <p><strong>Áo lót:</strong></p>
-
-        <p>Chọn mua áo lót theo khổ người dựa trên chiều cao và các số đo, chọn mua theo màu sắc. Thường thì các hãng thời trang đồ lót phụ nữ phân chia kích cỡ áo lót ngực theo các cúp: A, B, C, D, E. Nhưng ở Việt Nam, chỉ sử dụng 2 cấp: A và B (A: quả nhỏ, B: quả to). Trong đó A tương ứng với vòng chân nhỏ, cúp ngực nhỏ; còn B tương ứng với vòng chân lớn, cúp ngực lớn.</p>
+        <p>Chọn mua áo  theo khổ người dựa trên chiều cao và các số đo, chọn mua theo màu sắc. Thường thì các hãng thời trang đồ ótl phụ nữ phân chia kích cỡ áo theo các cúp: A, B, C, D, E. Nhưng ở Việt Nam, chỉ sử dụng 2 cấp: A và B (A: quả nhỏ, B: quả to). Trong đó A tương ứng với vòng chân nhỏ, cúp ngực nhỏ; còn B tương ứng với vòng chân lớn.</p>
 
         <p>Cúp được tính theo cách sau: Cúp = Vòng ngực trên - vòng ngực dưới. Kết quả này sẽ xác định size A, B, C, D (A: 10cm; B: 13cm; C: 15cm; D: 18cm; E:20cm)...</p>
 
-        <p>Chúng ta có thể chọn áo lót theo cân nặng và chiều cao bằng cách như sau: Thông thường các hãng áo lót đang có trên thị trường Việt Nam có các cúp A và B với size phổ biến là 70 - 75 - 80.</p>
+        <p>Chúng ta có thể chọn áo  theo cân nặng và chiều cao bằng cách như sau: Thông thường các hãng áo đang có trên thị trường Việt Nam có các cúp A và B với size phổ biến là 70 - 75 - 80.</p>
 
         <p>Cách tính theo trọng lượng:</p>
 
@@ -64,14 +62,12 @@
         Với chiều cao trên 1m60 với cân nặng trên 55kg có thể ứng với các size: A80, A85, A90.</p>
 
         <p><br>
-        <strong>Quần lót:</strong></p>
-
-        <p>Chọn quần lót dựa vào số đo của vòng mông:</p>
+        <strong>Quần:</strong></p>
 
         <p>Vòng mông dưới 90cm: size M;<br>
         Vòng mông từ 90 - 98cm: size L;<br>
         Vòng mông trên 98cm: size XL<br>
-        Quần lót có nhiều loại từ các loại thường giá rẻ cho đến các loại cao cấp đắt tiền với rất nhiều màu sắc, chất liệu chủ yếu là cotton, ren, lụa... Nhiều phụ nữ thích mặc quần cotton cạp cao bởi nó tạo cảm giác kín đáo, thoải mái. Song hiện nay giới trẻ lại "chuộng" loại quần lót "dây" cạp nhất... thích hợp với trang phục jeans, váy ngắn...</p>
+        Quần có nhiều loại từ các loại thường giá rẻ cho đến các loại cao cấp đắt tiền với rất nhiều màu sắc, chất liệu chủ yếu là cotton, ren, lụa... Nhiều phụ nữ thích mặc quần cotton cạp cao bởi nó tạo cảm giác kín đáo, thoải mái. Song hiện nay giới trẻ lại "chuộng" loại quần "dây" cạp nhất... thích hợp với trang phục jeans, váy ngắn...</p>
       </div>
     </section>
     <?php 

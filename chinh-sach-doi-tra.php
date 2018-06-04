@@ -40,16 +40,16 @@
                 Chính sách đổi trả
             </h1>
         </div>
-        <p>EGA Underwear sẽ thực hiện việc đổi/trả hàng và hoàn tiền cho khách hàng trong những trường hợp sau.</p>
+        <p>Shopfashion sẽ thực hiện việc đổi/trả hàng và hoàn tiền cho khách hàng trong những trường hợp sau.</p>
 
-        <p><strong>Sản phẩm EGA Underwear giao không đúng đơn đặt hàng</strong><br>
+        <p><strong>Sản phẩm Shopfashion giao không đúng đơn đặt hàng</strong><br>
         Bạn nghĩ rằng sản phẩm giao cho bạn không đúng với đơn đặt hàng? Hãy liên hệ với chúng tôi càng sớm càng tốt, hệ thống của chúng tôi sẽ kiểm tra nếu hàng của bạn bị gửi nhầm. Trong trường hợp đó, chúng tôi sẽ thay thế đúng mặt hàng bạn yêu cầu (khi có hàng).</p>
 
         <p><strong>Sản phẩm mua rồi nhưng không ưng ý</strong><br>
-        Người mua có thể trả hàng khi không vừa ý trong vòng 7 ngày kể từ ngày nhận hàng, EGA Underwear.vn sẽ đổi sản phẩm cho khách. Sản phẩm muốn đổi hoặc trả yêu cầu phải là sản phẩm không có dấu hiệu đã qua sử dụng và còn nguyên tem, mác, nguyên đai kiện ban đầu</p>
+        Người mua có thể trả hàng khi không vừa ý trong vòng 7 ngày kể từ ngày nhận hàng, Shopfashion.vn sẽ đổi sản phẩm cho khách. Sản phẩm muốn đổi hoặc trả yêu cầu phải là sản phẩm không có dấu hiệu đã qua sử dụng và còn nguyên tem, mác, nguyên đai kiện ban đầu</p>
 
         <p><strong>Sản phẩm mua bị lỗi</strong><br>
-        Quý khách vui lòng kiểm tra sản phẩm trước khi thanh toán. Trong trường hợp sản phẩm bị hư hại trong quá trình vận chuyển, quý khách vui lòng từ chối và gửi lại sản phẩm cho EGA Underwear.vn. Đồng thời thông báo cho Trung tâm hỗ trợ khách hàng 0123456789, EGA Underwear.vn sẽ gửi cho quý khách mặt hàng thay thế.</p>
+        Quý khách vui lòng kiểm tra sản phẩm trước khi thanh toán. Trong trường hợp sản phẩm bị hư hại trong quá trình vận chuyển, quý khách vui lòng từ chối và gửi lại sản phẩm cho Shopfashion.vn. Đồng thời thông báo cho Trung tâm hỗ trợ khách hàng 0123456789, Shopfashion.vn sẽ gửi cho quý khách mặt hàng thay thế.</p>
 
         <p><strong>Điều kiện đổi trả hàng</strong></p>
 
@@ -63,7 +63,7 @@
 
         <p>- Khách hàng chịu chi phí vận chuyển cho việc đổi, trả hàng.</p>
 
-        <p>- Trường hợp không đủ các điều kiện trên thì quyền quyết định đổi, trả hàng thuộc về EGA Underwear.vn</p>
+        <p>- Trường hợp không đủ các điều kiện trên thì quyền quyết định đổi, trả hàng thuộc về Shopfashion.vn</p>
       </div>
     </section>
     <?php 

@@ -61,6 +61,9 @@
       .require_symbol {
           color: red !important;
       }
+      .divcenter { 
+        margin-top: 0px!important;
+       }
 
     </style>  
 

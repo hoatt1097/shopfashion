@@ -343,8 +343,8 @@
         <div class="main_header">
           <div class="shop logo logo--left ">
             <h1 class="shop__name">
-                <a href="/">
-                    Fashion
+                <a href="shopfashion.php">
+                    Shopfashion
                 </a>
             </h1>
           </div>

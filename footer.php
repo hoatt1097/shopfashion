@@ -19,7 +19,7 @@
       <div class="subscribe_group">
         <div class="row">
           <div class="subscribe_group_left">
-            <h5>
+            <h5 style="margin-top: 19px!important;">
               <i class="fa fa-envelope-o"></i>
               <span class="nocolor"> ĐĂNG KÍ NHẬN TIN KHUYẾN MÃI </span>
             </h5>
@@ -29,22 +29,13 @@
                 <span class="input-group-btn">
                   <button type="" class="btn ">
                     <i class="fa fa-paper-plane-o"></i>
+                    <a href="mailto:hoatt1097@gmail.com" style="color: black;">Gửi</a>
                   </button>
                 </span>
               </div>
             </form>
           </div>
-          <div class="subscribe_group_right">
-            <a href="#" title="" class="si-facebook social-icon">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a href="#" title="" class="si-gplus social-icon ">
-              <i class="fa fa-google-plus"></i>
-            </a>
-            <a href="#" title="" class="si-twitter social-icon">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -81,12 +72,12 @@
               <div class="">
                 <h4 class="">Giới thiệu</h4>
                 <ul class="widget_content" style="display: block;">
-                  <li><a href="category.php?id=all">Tất cả sản phẩm</a></li>
-                  <li><a href="category.php?id=1">Thời trang nữ</a></li>
-                  <li><a href="category.php?id=2">Thời trang nam</a></li>
-                  <li><a href="category.php?id=3">Phụ kiện</a></li>
-                  <li><a href="">Tạp chí</a></li>
-                  <li><a href="">Blog</a></li>
+                  <li><a href="shopfashion.php">Tất cả sản phẩm</a></li>
+                  <li><a href="category.php?id=1&sortby=default">Thời trang nữ</a></li>
+                  <li><a href="category.php?id=2&sortby=default">Thời trang nam</a></li>
+                  <li><a href="category.php?id=3&sortby=default">Phụ kiện</a></li>
+                  <li><a href="tapchi-thoitrang.php">Tạp chí</a></li>
+                  <li><a href="tapchi-thoitrang.php">Blog</a></li>
                 </ul>
               </div>
             </div>
@@ -118,7 +109,7 @@
       </div>
       <div class="copyright">
         <div class="container">
-          <p>Bản quyền thuộc về Trần Thiện Hòa</p>
+          <center><p>Copyright @2018-Trường đại học Công nghệ thông tin</p></center>
         </div>
       </div>
     </footer>

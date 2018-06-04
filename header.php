@@ -83,7 +83,7 @@
                     <ul class="dropdown-menu">
                        <li><a href="tapchi-thoitrang.php" itemprop="">Thời trang</a></li>
                        <li class="divider"></li>
-                       <li><a href="tapchi-songkhoe.php" itemprop="">Sống khỏe</a></li>
+                       <li><a href="newsdetail.php?idn=1&id=2" itemprop="">Sống khỏe</a></li>
                        <li class="divider"></li>
                        <li><a href="tapchi-thoitrang.php" itemprop="">Girl</a></li>
                        <li class="divider"></li>
@@ -91,7 +91,7 @@
                    </ul>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LIÊN HỆ </a>
+                    <a href="http://hoatt1097.pythonanywhere.com/about">LIÊN HỆ </a>
                     
                 </li>
               </ul>

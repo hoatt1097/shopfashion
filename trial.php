@@ -14,4 +14,6 @@ function max_cthd(){
     return max($array);
 }
 echo max_cthd() +1;
+
+$dt->command("INSERT INTO cthd VALUES ('id','$sohd', '$idsanpham', '$soluong', '$mau', '$size', '$sum_price')");
 ?>

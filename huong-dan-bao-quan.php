@@ -37,27 +37,27 @@
                 Hướng dẫn bảo quản
             </h1>
         </div>
-        <p>Cất đồ lót riêng quần áo khác, tốt nhất là để trong giấy lụa hay các loại vải khác. Nếu bạn để chúng trong ngăn kéo thì hãy dùng giấy hay vải phủ lại để ngăn gỗ tiếp xúc với chúng.</p>
+        <p>Cất đồ shop riêng quần áo khác, tốt nhất là để trong giấy lụa hay các loại vải khác. Nếu bạn để chúng trong ngăn kéo thì hãy dùng giấy hay vải phủ lại để ngăn gỗ tiếp xúc với chúng.</p>
 
-        <p>Mẹo giúp bảo quản đồ lót của bạn.</p>
+        <p>Mẹo giúp bảo quản đồ shop của bạn.</p>
 
-        <p>Nếu bạn muốn giữ màu sắc đồ lót lâu hơn, sau khi giặt lần đầu tiên, bạn hãy ngâm đồ lót trong giấm trắng mười phút rồi xả lại.<br>
-        Phơi khô đồ lót tự nhiên, không được phơi bằng lò sưởi, máy sấy quần áo hay máy sấy tóc, tránh phơi trực tiếp dưới ánh nắng mặt trời<br>
-        Không nên dùng thuốc tẩy trắng để làm trắng đồ lót, nó làm mất màu vải, làm màu đen trông như màu vàng. Hãy dùng bột giặt có chất tẩy trắng.<br>
-        Luôn đọc nhãn hướng dẫn sử dụng trên đồ lót.</p>
+        <p>Nếu bạn muốn giữ màu sắc đồ shop lâu hơn, sau khi giặt lần đầu tiên, bạn hãy ngâm đồ shop trong giấm trắng mười phút rồi xả lại.<br>
+        Phơi khô đồ shop tự nhiên, không được phơi bằng lò sưởi, máy sấy quần áo hay máy sấy tóc, tránh phơi trực tiếp dưới ánh nắng mặt trời<br>
+        Không nên dùng thuốc tẩy trắng để làm trắng đồ shop, nó làm mất màu vải, làm màu đen trông như màu vàng. Hãy dùng bột giặt có chất tẩy trắng.<br>
+        Luôn đọc nhãn hướng dẫn sử dụng trên đồ shop.</p>
 
-        <p><strong>Giặt đồ lót:</strong><br>
-        - Hãy giặt đồ lót trường xuyên và bảo quản trong các điều kiện hoàn hảo bởi vì khi bạn sử dụng thì mồ hôi và các vết bẩn trên sợi vải sẽ ảnh hưởng không tốt tới sức khoẻ của bạn.</p>
+        <p><strong>Giặt đồ shop:</strong><br>
+        - Hãy giặt đồ shop trường xuyên và bảo quản trong các điều kiện hoàn hảo bởi vì khi bạn sử dụng thì mồ hôi và các vết bẩn trên sợi vải sẽ ảnh hưởng không tốt tới sức khoẻ của bạn.</p>
 
-        <p>- Giặt đồ lót không nên ngâm lâu quá 5 phút</p>
+        <p>- Giặt đồ shop không nên ngâm lâu quá 5 phút</p>
 
         <p>- Không để nhiệt độ giặt vướt quá 30oC</p>
 
-        <p>- Phơi khô đồ lót cần tránh xa nguồn nhiệt trực tiếp như lò sưởi, bếp lửa và kể cả là ánh sáng mặt trời sẽ khiến cho đồ lót bị phai màu.</p>
+        <p>- Phơi khô đồ shop cần tránh xa nguồn nhiệt trực tiếp như lò sưởi, bếp lửa và kể cả là ánh sáng mặt trời sẽ khiến cho đồ shop bị phai màu.</p>
 
-        <p>- Không nên sấy đồ lót.</p>
+        <p>- Không nên sấy đồ shop.</p>
 
-        <p>Tốt hơn là giặt tay đồ lót của bạn, nhưng bạn có thể giặt máy cho nhanh, nhưng dù bằng cách nào thì bạn cũng phải chú ý đặc biệt đến chúng.</p>
+        <p>Tốt hơn là giặt tay đồ shop của bạn, nhưng bạn có thể giặt máy cho nhanh, nhưng dù bằng cách nào thì bạn cũng phải chú ý đặc biệt đến chúng.</p>
     </div>
     </section>
     <?php 

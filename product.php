@@ -322,7 +322,7 @@
                   <button type='submit' name='cmt-submit'>Bình luận</button>
                   </form>
                   <?php
-                  $dt->select("select * from comment where idproduct = '$id'");
+                  $dt->select("select * from comment where idproduct = $id");
                   while ($r=$dt->fetch()){
                     $idcmt = $r['idcmt'];
                       $iduser = $r['iduser'];

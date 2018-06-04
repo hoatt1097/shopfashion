@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2018 at 03:23 AM
+-- Generation Time: Jun 04, 2018 at 10:51 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -110,7 +110,8 @@ INSERT INTO `comment` (`idcmt`, `iduser`, `comment`, `datecmt`, `idproduct`) VAL
 (4, 1, 'test', '2017-12-28 20:26:31', 1),
 (0, 1, 'alo', '2017-12-29 23:53:14', 1),
 (0, 1, 'het mat roi', '2017-12-29 23:53:58', 3),
-(0, 1, '', '2018-05-27 19:24:27', 2);
+(0, 1, '', '2018-05-27 19:24:27', 2),
+(0, 1, 'gggg', '2018-06-04 12:21:52', 6);
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,19 @@ INSERT INTO `cthd` (`id`, `sohd`, `idsanpham`, `soluong`, `mau`, `size`, `sum_pr
 (0, 0, 4, 4, 'Đen', 's', '1196000'),
 (2, 0, 11, 3, 'Xanh chấm bi', 'xl', '750000'),
 (1, 0, 14, 1, 'Đen', 's', '600000'),
-(3, 1, 4, 1, 'Đen', 's', '299000');
+(6, 2, 5, 2, 'Đỏ', 'xl', '398000'),
+(5, 2, 6, 1, 'Xanh', 's', '350000'),
+(4, 2, 12, 2, 'Xanh', 'm', '5600000'),
+(7, 3, 3, 2, 'Tím', 's', '398000'),
+(8, 3, 5, 1, 'Đỏ', 's', '199000'),
+(9, 3, 10, 1, 'Đỏ', 's', '350000'),
+(14, 4, 7, 1, 'Hồng', 's', '129000'),
+(13, 4, 9, 1, 'Xanh', 'xl', '150000'),
+(12, 4, 10, 1, 'Đỏ', 's', '350000'),
+(10, 4, 12, 2, 'Xanh', 'xl', '5600000'),
+(11, 4, 14, 1, 'Đen', 'xl', '600000'),
+(16, 5, 6, 2, 'Xanh', 'l', '700000'),
+(15, 5, 11, 3, 'Xanh chấm bi', 's', '750000');
 
 -- --------------------------------------------------------
 
@@ -162,7 +175,10 @@ CREATE TABLE `hoadon` (
 
 INSERT INTO `hoadon` (`sohd`, `ngay`, `nhanvien`, `khachhang`, `sodienthoai`, `diachi`, `tienship`, `VAT`, `giatri`) VALUES
 (0, '2018-06-02 12:38:42', 'admin', 'Trần Thiện Hòa', '01657790513', 'Quận 9, tp HCM', '40000', '0.1', '2546000'),
-(1, '2018-06-04 08:16:43', 'admin', 'xxx', 'xxx', 'xxx', '40000', '0.1', '299000');
+(2, '2018-06-04 11:31:01', 'admin', 'Huỳnh Văn Khoa', '0192839202', 'Tân Bình', '40000', '0.1', '6348000'),
+(3, '2018-06-04 15:40:41', 'admin', 'Lê Hoàng Vỹ Vỹ', '0192839421', 'Suối Tiên, Quận 9, TP.HCM', '40000', '0.1', '947000'),
+(4, '2018-06-04 15:44:34', 'admin', 'Trường CNTT', '02800119923', 'Trường đại học công nghệ thông tin', '40000', '0.1', '6829000'),
+(5, '2018-06-04 15:46:19', 'admin', 'Đoàn Văn Châu', '010313', '231, Nguyễn Du', '40000', '0.1', '1450000');
 
 -- --------------------------------------------------------
 
@@ -218,7 +234,9 @@ CREATE TABLE `nhacungcap` (
 INSERT INTO `nhacungcap` (`id`, `name`, `loai`, `diachi`, `sonodu`) VALUES
 (3, 'Công ti dịch vụ Trần Thiện Hòa', 'NCC', 'B133, Tăng Nhơn Phú B, Quận 9, TP.HCM', '100000000'),
 (4, 'Công ti phân phối miền Nam', 'KH', 'KCX Linh Trung, quận Thủ Đức, TP.HCM', '12300000'),
+(5, 'Công ty may mặc thời trang Huỳnh Khoa', 'NCC', '23 Đồng Nai', '34000000'),
 (1, 'Công ty thời trang shopfashion', 'KH', 'B133, Tăng Bạch Hổ, quận Tân Bình, TP.HCM', '54000000'),
+(6, 'Công ty TNHH Adidas', 'NCC', '615, Nguyễn Du, quận Bình Thạnh, TP.HCM', '10000000'),
 (2, 'Công ty TNHH PT2000', 'NCC', '253 Võ Văn Ngân, Quận Thủ Đức, TP.HCM', '3000000');
 
 -- --------------------------------------------------------
@@ -262,7 +280,11 @@ CREATE TABLE `phieuchi` (
 --
 
 INSERT INTO `phieuchi` (`stt`, `magd`, `ngay`, `tencuahang`, `tengiaodich`, `giatri`) VALUES
-(1, 'GD.001', '2018-06-30 01:00:00', 'Công ty thời trang shopfashion', 'Mua hàng', '54000000');
+(1, 'GD.001', '2018-06-30 01:00:00', 'Công ty thời trang shopfashion', 'Mua hàng', '54000000'),
+(2, 'GD.002', '2018-06-30 01:59:00', 'Công ty TNHH Adidas', 'Nhập hàng', '14000000'),
+(3, 'GD.003', '2018-06-28 02:23:20', 'Công ty TNHH PT2000', 'Nhập quần', '20000000'),
+(4, 'GD.004', '2018-06-22 08:23:27', 'Công ty thời trang shopfashion', 'Nhập hàng', '2100000'),
+(5, 'GD.005', '2018-06-22 10:25:00', 'Công ty TNHH Adidas', 'Nhập hàng', '10000000');
 
 -- --------------------------------------------------------
 
@@ -392,6 +414,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`iduser`, `email`, `password`, `firstname`, `lastname`, `lastlogin`, `datebirth`) VALUES
+(1, 'abc@gmail.com', 'abc', 'Văn Linh', 'Phạm', '2018-06-14', '2000-06-13'),
+(2, 'chitrai@gmail.com', 'chitai', 'Trung Kiên', 'Trần', '2018-06-30', '1998-06-27'),
+(3, 'tuduyen@gmail.com', 'tuduyen', 'Nguyễn', 'Tú Duyên', '2018-06-14', '1990-06-19'),
+(4, 'ngocquy', 'ngoquy', 'Ngọc Quý', 'Phạm Thị', '2018-06-29', '1998-06-25'),
 (7, 'vana@gmail.com', 'van1', 'Văn A', 'Nguyễn', '2018-05-10', '1998-10-09'),
 (8, 'thien@gmail.com', 'tthienhoa', 'Thiện B', 'Trần', '2018-05-26', '1998-05-21'),
 (9, 'khoavan@gmail.com', 'vankhoa', 'Văn Khoa', 'Nguyễn', '2018-05-31', '1997-05-16'),
