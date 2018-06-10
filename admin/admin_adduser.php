@@ -21,7 +21,7 @@
   <body>
       <header class="container-fluid">
         <div class="row">
-            <h2>Administrator Page</h2>
+            <h2>Quản lý admin</h2>
               <div class="row login_logout" >
                 <a class="login" title="Account" href="#">
                   <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
@@ -38,11 +38,11 @@
           <div class="menu col-xs-3 col-sm-3 col-lg-3">
              <div class="list-group">
               <ul>
-                <li><a class="list-group-item" href="#" title="Homepage"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Trang chủ</a></li>
+                <li><a class="list-group-item" href="../shopfashion.php" title="Homepage"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Trang chủ</a></li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý người dùng</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="admin_users.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Users</a>
-                    <li><a class="list-group-item roles child" href="admin_roles.html"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Admin</a>
+                    <li><a class="list-group-item roles child" href="listadmin.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Admin</a>
                   </ul>
                 </li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý sản phẩm</a>
@@ -76,19 +76,22 @@
               </div>
               <div class="content-content">
                 <form action="#" id="adduser">
+                  <label>Email</label>
+                  <input type="text" id="firstname" name="firstname">
+
                   <label>Fisrtname</label>
                   <input type="text" id="firstname" name="firstname">
 
                   <label>Lastname</label>
                   <input type="text" id="lastname" name="lastname">
 
-                  <label>Old password</label>
+                  <label>Password</label>
                   <input type="password" id="oldpassword" name="oldpassword">
 
-                  <label>New password</label>
+                  <label>Re-password</label>  
                   <input type="password" id="newpassword" name="newpassword">
 
-                  <label>Email</label>
+                  <label>Ngày sinh</label>
                    <input type="text" id="username" name="username">
                   <div class="clearfix"></div>
                   <div class="row add_cancel" style="text-align: right;">

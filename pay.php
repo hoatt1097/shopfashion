@@ -338,6 +338,12 @@
             </div>
           </div>
         </div>
+
+        <!-- Thanh toán onlie -->
+        <div style="display: inline-flex;">
+          <a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)"><img src="https://www.nganluong.vn/css/newhome/img/button/safe-buy-2.png"border="0" /></a>
+          <a style="margin-left: 3px" target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-lg.png"border="0" /></a>
+        </div>
       </div>
       <div class="main" role="main">
         <div class="main_header">

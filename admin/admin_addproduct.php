@@ -1,7 +1,3 @@
-<?php 
-  include 'database.php';
-  $dt = new Database;
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/jquery-3.2.1.min.js
 ">
-    <title>Admin_users</title>
+    <title>Add product</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="admin_users.css">
+    <link rel="stylesheet" type="text/css" href="admin_adduser.css">
     <link rel="stylesheet" type="text/css" href="common.css">
-
     <style type="text/css" media="screen">
       
     </style>
   </head>
   <body>
       <header class="container-fluid">
-        <div class="row"> 
+        <div class="row">
             <h2>Quản lý admin</h2>
               <div class="row login_logout" >
                 <a class="login" title="Account" href="#">
@@ -47,7 +42,7 @@
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý người dùng</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="admin_users.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Users</a>
-                    <li><a class="list-group-item roles child" href="listadmin.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Admin</a>
+                    <li><a class="list-group-item roles child" href="admin_roles.html"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Admin</a>
                   </ul>
                 </li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý sản phẩm</a>
@@ -72,50 +67,44 @@
                 </li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Danh sách phiếu chi</h2>
+                <h2>Thêm sản phẩm</h2>
               </div>
               <div class="content-content">
-                <table>
-                  <tr>
-                    <th>STT</th>
-                    <th>Mã giao dịch</th>
-                    <th>Ngày, giờ</th>
-                    <th>Tên cửa hàng</th>
-                    <th>Tên giao dịch</th>
-                    <th>Giá trị</th>
-                  </tr>
-              <?php
-                $dt -> select("SELECT * FROM phieuchi");
-                while( $r = $dt->fetch())
-                {
-                  $stt = $r["stt"];
-                  $magd = $r["magd"];
-                  $ngay = $r["ngay"];
-                  $tencuahang = $r["tencuahang"];
-                  $tengiaodich = $r["tengiaodich"];
+                <form action="#" id="adduser">
+                  <label>Tên sản phẩm</label>
+                  <input type="text" id="firstname" name="firstname">
 
-                  $symbol = 'đ';
-                  $symbol_thousand = '.';
-                  $decimal_place = 0;
-                  $giatri = number_format($r["giatri"], $decimal_place, '', $symbol_thousand).$symbol; 
-              ?>
-                  <tr>
-                    <td><?=$stt?></td>
-                    <td><?=$magd?></td>
-                    <td><?=$ngay?></td>
-                    <td><?=$tencuahang?></td>
-                    <td><?=$tengiaodich?></td>
-                    <td><?=$giatri?></td>
-                  </tr>
-              <?php
-                }
-              ?>
-                  
-                </table>
+                  <label>Nhãn hiệu</label>
+                  <input type="text" id="lastname" name="lastname">
+
+                  <label>Giá</label>
+                  <input type="password" id="oldpassword" name="oldpassword">
+
+                  <label>Số lượng</label>  
+                  <input type="text" id="newpassword" name="newpassword">
+
+                  <label>Sale</label>  
+                  <input type="text" id="newpassword" name="newpassword">
+
+                  <label>Mô tả</label>  
+                  <input type="text" id="newpassword" name="newpassword">
+
+                  <label>Ngày nhập</label>  
+                  <input type="text" id="newpassword" name="newpassword">
+
+                  <label>Link sản phẩm</label>  
+                  <input type="text" id="newpassword" name="newpassword">
+
+                  <div class="clearfix"></div>
+                  <div class="row add_cancel" style="text-align: right;">
+                    <input type="submit" value="Add" id="btnadd">
+                    <button class="btncancel">Cancel</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -126,8 +115,12 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function(){
-        
+        $("#adduser")[0].reset();
+        $(".btncancel").click(function(){
+          window.location.replace("admin_users.php");
+        });
+
       }); 
     </script>
   </body>
-</html>
+</html> 

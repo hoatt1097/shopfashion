@@ -90,7 +90,7 @@
           <div class="menu col-xs-3 col-sm-3 col-lg-3">
              <div class="list-group">
               <ul>
-                <li><a class="list-group-item" href="#" title="Homepage"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Trang chủ</a></li>
+                <li><a class="list-group-item" href="../shopfashion.php" title="Homepage"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Trang chủ</a></li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý người dùng</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="admin_users.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Users</a>
@@ -124,7 +124,7 @@
             <div class="container">
               <div class="header-content">
                 <h2>Danh sách sản phẩm</h2>
-                <a class="add-user" title="Add user" href="admin_adduser.php">
+                <a class="add-user" title="Add user" href="admin_addproduct.php">
                   <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
                   Thêm sản phẩm
                 </a>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/jquery-3.2.1.min.js
 ">
-    <title>Admin_users</title>
+    <title>DS admin_users</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -43,7 +43,7 @@
           <div class="menu col-xs-3 col-sm-3 col-lg-3">
              <div class="list-group">
               <ul>
-                <li><a class="list-group-item" href="#" title="Homepage"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Trang chủ</a></li>
+                <li><a class="list-group-item" href="../shopfashion.php" title="Homepage"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Trang chủ</a></li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý người dùng</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="admin_users.php"><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Users</a>
@@ -76,7 +76,7 @@
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Users</h2>
+                <h2>Danh sách user</h2>
                 <a class="add-user" title="Add user" href="admin_adduser.php">
                   <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
                   Add user
