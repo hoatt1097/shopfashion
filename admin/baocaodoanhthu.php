@@ -2,6 +2,8 @@
   include 'database.php';
   $dt = new Database;
   $dx = new Database;
+  $month = $_GET['month'];
+  $year = $_GET['year'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,9 +127,9 @@
                 </li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Lập báo cáo</a>
                   <ul class="menu-usesmanagement" >
-                    <li><a class="list-group-item users child" href="admin_users.html" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo tồn</a>
-                    <li><a class="list-group-item roles child" href="admin_roles.html" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo doanh thu</a  >
-                    <li><a class="list-group-item roles child" href="admin_roles.html" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo công nợ</a  >
+                    <li><a class="list-group-item users child" href="baocaoton.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo tồn</a>
+                    <li><a class="list-group-item roles child" href="baocaodoanhthu.php?month=all&year=all" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo doanh thu</a  >
+                    <li><a class="list-group-item roles child" href="baocaocongno.php?id=all" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Báo cáo công nợ</a  >
                   </ul>
                 </li>
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý chung</a>
@@ -143,99 +145,129 @@
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Lập báo cáo công nợ</h2>
+                <h2>Báo cáo doanh thu</h2>
               </div>
               <div>
                 <form class="form-inline">
-                  <label for="email">Tên nhà cung cấp:</label>
-                  <?php
-                      $id = $_GET['id'];
-                      if($id == "all"){
-                        $name ="Tất cả";
-                      }
-                      else
-                      {
-                         $dt -> select("SELECT * FROM nhacungcap WHERE id = $id");
-                          while( $r = $dt->fetch())
-                          {
-                            $id = $r["id"];
-                            $name = $r["name"];
-                          }
-                      }
-                  ?>
-                  <select class="form-control sort" onchange="sortby()">
-                      <option value="" selected disabled hidden><?=$name?></option>
+                  <label for="email">Chọn tháng:</label>
+                  <select class="form-control month">
+                      <option value="" selected disabled hidden><?php if($month=="all"){echo("Tất cả");} else echo $month?></option>
                       <option value="all" >Tất cả</option>
-                    <?php
-                      $dt -> select("SELECT * FROM nhacungcap");
-                      while( $r = $dt->fetch())
-                      {
-                        $id = $r["id"];
-                        $name = $r["name"];
-                        
-                    ?>
-                      <option value="<?=$id?>"><?=$name?></option>
-                    <?php
-                      }
-                    ?>
+                      <option value="1" >1</option>
+                      <option value="2" >2</option>
+                      <option value="3" >3</option>
+                      <option value="4" >4</option>
+                      <option value="5" >5</option>
+                      <option value="6" >6</option>
+                      <option value="7" >7</option>
+                      <option value="8" >8</option>
+                      <option value="9" >9</option>
+                      <option value="10" >10</option>
+                      <option value="11" >11</option>
+                      <option value="12" >12</option>
                   </select> 
-                  <span class="btn btn-primary">Lập báo cáo</span>
+
+                  <label for="email" style="margin-left: 30px">Chọn năm :</label>
+                  <select class="form-control year">
+                      <option value="" selected disabled hidden><?php if($year=="all"){echo("Tất cả");} else echo $year?></option>
+                      <option value="all" >Tất cả</option>
+                      <option value="2018" >2018</option>
+                      <option value="2017" >2017</option>
+                      <option value="2016" >2016</option>
+                      <option value="2015" >2015</option>
+                      <option value="2014" >2014</option>
+                      <option value="2013" >2013</option>
+                  </select> 
+                  <span class="btn btn-primary" style="margin-left:20px"  onClick="sortby()">Xem</span>
                 </form>
               </div>
               </br>
               <div class="content-content vertical-menu">
                 <table>
                   <tr>
-                    <th>ID</th>
-                    <th>Tên nhà cung cấp</th>
-                    <th>Loại</th>
+                    <th>STT</th>
+                    <th style="width: 20px">Số HD</th>
+                    <th>Ngày tạo</th>
+                    <th>Nhân viên</th>
+                    <th>Khách hàng</th>
                     <th>Địa chỉ</th>
-                    <th>Số dư nợ</th>
+                    <th>Phí giao hàng</th>
+                    <th>Giá trị</th>
+                    <th>Tổng thu</th>
                   </tr>
               <?php
                 $tongtien = 0;
-                $id = $_GET['id'];
+                 $i = 0;
                 $t = 0;
-                if($id=="all"){
-                  $dt -> select("SELECT * FROM nhacungcap");
+                $index = 0; 
+                if($month=="all" && $year=="all"){
+                  $dt -> select("SELECT * FROM hoadon");
                 }
                 else 
                 {
-                  $dt -> select("SELECT * FROM nhacungcap WHERE id = $id");
+                  $dt -> select("SELECT * FROM hoadon WHERE MONTH(ngay) = {$month} AND YEAR(ngay)= {$year} ");
                 }
                 while( $r = $dt->fetch())
                 {
-                  $id = $r["id"];
-                  $name = $r["name"];
-                  $loai = $r["loai"];
+                  $i = $i + 1;
+                  $sohd = $r["sohd"];
+                  $ngay = $r["ngay"];
+                  $nhanvien = $r["nhanvien"];
+                  $khachhang = $r["khachhang"];
+                  $sodienthoai = $r["sodienthoai"];
                   $diachi = $r["diachi"];
 
                   $symbol = 'đ';
                   $symbol_thousand = '.';
                   $decimal_place = 0;
-                  $i = $r["sonodu"];
-                  $sonodu = number_format($r["sonodu"], $decimal_place, '', $symbol_thousand).$symbol;
+                  $phigiaohang = number_format($r["tienship"], $decimal_place, '', $symbol_thousand).$symbol; 
+                  $giatri = number_format($r["giatri"], $decimal_place, '', $symbol_thousand).$symbol; 
 
-                  $tongtien = intval(strval($i + $tongtien));
-                  $t = $t + 1;
+                  $tongthu = intval(strval($r["giatri"]+40000));
+                  $index = $tongthu;
+                  $tongthu = number_format($tongthu, $decimal_place, '', $symbol_thousand).$symbol; 
+
+                  $tongtien = intval(strval($index + $tongtien));
+
+                  $mydialog = "mydialog".$sohd;
+
                     
               ?>
                   <tr>
-                    <td><?=$t?></td>
-                    <td><?=$name?></td>
-                    <td><?=$loai?></td>
+                    <td><?=$i?></td>
+                    <td  style="width: 20px"><?=$sohd?></td>
+                    <td><?=$ngay?></td>
+                    <td><?=$nhanvien?></td>
+                    <td><?=$khachhang?></td>
                     <td><?=$diachi?></td>
-                    <td><?=$sonodu?></td>
+                    <td><?=$phigiaohang?></td>
+                    <td><?=$giatri?></td>
+                    <td><?=$tongthu?></td>
                   </tr>
               <?php
                 }
               ?>
-                <tr>
+                  <tr>
+                    <td></td>
+                    <td style="width: 20px"></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><center><b>Tổng cộng: </b></center></td>
-                    <td><b><?php $tongtien = number_format($tongtien, $decimal_place, '', $symbol_thousand).$symbol;echo $tongtien?></b></td>
+                    <td><b>
+                    <?php 
+                      if($i==0)
+                        {echo("0");} 
+                      else
+                      {
+                        $tongtien = number_format($tongtien, $decimal_place, '', $symbol_thousand).$symbol;
+                        echo $tongtien;
+                      }
+                    ?>
+                        
+                      </b></td>
                   </tr>
                 </table>
 
@@ -274,8 +306,9 @@
       }
 
       function sortby(){
-          var id = $(".sort").val();  
-          window.location.replace("baocaocongno.php?id="+ id );
+          var month = $(".month").val();  
+          var year = $(".year").val(); 
+          window.location.replace("baocaodoanhthu.php?month=" + month + "&year=" + year );
       }
     </script>
   </body>

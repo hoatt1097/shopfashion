@@ -1,6 +1,7 @@
 <?php 
   include 'database.php';
   $dt = new Database;
+  $dx = new Database;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/jquery-3.2.1.min.js
 ">
-    <title>DS admin_users</title>
+    <title>List product</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -20,7 +21,73 @@
     <link rel="stylesheet" type="text/css" href="common.css">
 
     <style type="text/css" media="screen">
-      
+      .vertical-menu {
+          width: 100%;
+          height: 600px;
+          overflow-y: auto;
+      }
+      th {
+        text-align: center;
+      }
+      td img {
+        max-width: 54px;
+        height: auto;
+      }
+      th:nth-child(2), td:nth-child(2) {
+        width: 20%;
+      }
+      th:nth-child(3), td:nth-child(3) {
+        width: 5%;
+      }
+
+      td img:hover {
+        max-width: 100px;
+        height: auto;
+      }
+      .showdialog:hover {
+        cursor: pointer;  
+      }
+      .mydialog {
+        width: 90%; 
+        height: 600px;
+        border: 1px dotted black;  
+        overflow-y: auto;
+      }
+      .dialog_image img{
+        width: 90%;
+        height: auto;
+      }
+      .title {
+        padding-top: 15px;
+        font-size: 16px;
+      }
+       .span1{
+        font-weight: 600;
+        margin-right: 5px;  
+      }
+      .red {
+        color: red;
+      }
+
+
+      /*dialog*/
+      .info_shop p{
+        margin: 0px;
+      }
+      .col-md-1 {
+
+      }
+      .cthd-row {
+        border: solid 1px grey;
+      }
+      .a {
+        border-right: solid 1px grey;
+        height: 40px;
+        text-align: center;
+      }
+      .cthd {
+        padding: 0 10px;
+      }
     </style>
   </head>
   <body>
@@ -66,7 +133,7 @@
                 <li><a class="list-group-item user-management" href="#" ><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Quản lý chung</a>
                   <ul class="menu-usesmanagement" >
                     <li><a class="list-group-item users child" href="list_ncc.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách nhà cung cấp</a>
-                    <li><a class="list-group-item users child" href="listhoadon.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách hóa đơn</a>
+                    <li><a class="list-group-item users child" href="list_ncc.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách hóa đơn</a>
                     <li><a class="list-group-item users child" href="list_phieuchi.php" ><i class="fa fa-genderless fa-fw" aria-hidden="true"></i>&nbsp; Danh sách phiếu chi</a>
                   </ul>
                 </li>
@@ -76,45 +143,12 @@
           <div class="content col-xs-9 col-sm-9 col-lg-9">
             <div class="container">
               <div class="header-content">
-                <h2>Danh sách user</h2>
-                <a class="add-user" title="Add user" href="admin_adduser.php">
-                  <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
-                  Add user
-                </a>
+                <h2>Báo cáo tồn</h2>
               </div>
-              <div class="content-content">
-                <table>
-                  <tr>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>Daybirth</th>
-                    <th>Actions</th>
-                  </tr>
-              <?php
-                $dt -> select("SELECT * FROM user");
-                while( $r = $dt->fetch())
-                {
-                  $email = $r["email"];
-                  $name = $r["lastname"] . " " . $r["firstname"];
-                  $datebirth = $r["datebirth"];
-                  $iduser = $r["iduser"];
-              ?>
-                  <tr>
-                    <td><?=$email?></td>
-                    <td><?=$name?></td>
-                    <td><?=$datebirth?></td>
-                    <td>
-                      <li><a href="" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                      <li><a href="admin_edituser.php?id=<?=$r["iduser"]?>" title="Edit" class="edit" itemprop="<?=$r["iduser"]?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
-                      <li><a href="" title="Delete" class="remove" itemprop="<?=$r["iduser"]?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
-                    </td>
-                  </tr>
-              <?php
-                }
-              ?>
-                  
-                </table>
+              <div>
+                <h4 style="color: red">Chức năng chưa được hoàn thành</h4>
               </div>
+              
             </div>
           </div>
         </div>
@@ -126,20 +160,33 @@
       $(document).ready(function(){
         $(".remove").click(function(){
           var id_remove = $(this).attr("itemprop");
+          var get = $(this).attr("title");
           $.ajax({
-            url : "removeuser.php",
+            url : "removeproduct.php",
             type : 'post',
             dataType : 'text',
-            data : {
+            data : {  
                 "id_remove"    : id_remove
             },
-            success : function() {
-              alert("Xóa User thành công");
-              window.location.replace("../cart.php");
+            success : function(result) {
             }
-          });
+          }); 
         });
       }); 
+
+      function showdialog(sohd){
+        document.getElementById("mydialog" + sohd).show();
+      }
+      
+      function closedialog(sohd){
+        document.getElementById("mydialog" + sohd).close();
+      }
+
+      function sortby(){
+          var month = $(".month").val();  
+          var year = $(".year").val(); 
+          window.location.replace("baocaodoanhthu.php?month=" + month + "&year=" + year );
+      }
     </script>
   </body>
 </html>
