@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2018 at 10:51 AM
+-- Generation Time: Nov 11, 2018 at 04:02 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `IDAdmin` int(10) NOT NULL,
+  `idadmin` int(10) NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`IDAdmin`, `email`, `password`, `name`) VALUES
+INSERT INTO `admin` (`idadmin`, `email`, `password`, `name`) VALUES
 (1, 'admin@gmail.com', 'admin', 'admin'),
 (2, 'hoat1097@gmail.com', '123', 'Trần Thiện Hòa'),
 (3, 'khoa01997@gmail.com', '123', 'Huỳnh Văn Khoa'),
@@ -51,21 +51,21 @@ INSERT INTO `admin` (`IDAdmin`, `email`, `password`, `name`) VALUES
 -- Table structure for table `bangtin`
 --
 
-CREATE TABLE `news` (
-  `IDNews` int(10) NOT NULL,
-  `IDGroupNews` int(10) NOT NULL,
-  `title` longtext NOT NULL,
-  `describes` longtext NOT NULL,
-  `imageNews` longtext NOT NULL,
-  `content` longtext NOT NULL,
-  `timePost` datetime NOT NULL
+CREATE TABLE `bangtin` (
+  `idtin` int(10) NOT NULL,
+  `idnhom` int(10) NOT NULL,
+  `tieude` longtext NOT NULL,
+  `trichdan` longtext NOT NULL,
+  `anhtrichdan` longtext NOT NULL,
+  `noidung` longtext NOT NULL,
+  `ngaydang` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bangtin`
 --
 
-INSERT INTO `news` (`IDNews`, `IDGroupNews`, `title`, `describes`, `imageNews`, `content`, `timePost`) VALUES
+INSERT INTO `bangtin` (`idtin`, `idnhom`, `tieude`, `trichdan`, `anhtrichdan`, `noidung`, `ngaydang`) VALUES
 (1, 1, 'Điểm danh những xu hướng thời trang hot nhất năm 2017', 'Không biết những trào lưu được lòng tín đồ thời trang Việt nhất trong năm 2017 là gì mời các bạn cùng điểm danh với chúng tôi nhé!\r\n', 'images/news/xuHuong2017.jpg', 'Không biết những trào lưu được lòng tín đồ thời trang Việt nhất trong năm 2017 là gì mời các bạn cùng điểm danh với chúng tôi nhé!\r\nÁo thun logo: Vài năm trước, những mẫu áo thun graphic trở thành xu hướng độc đáo, thì năm 2017, T-shirt đơn giản in logo lại nhận được sự yêu thích từ các bạn trẻ Việt và thế giới. Sự thoải mái, năng động của item này đến từ phom dáng suông, chất liệu cotton cùng hình ảnh logo thiết kế sành điệu.\r\nXu hướng xếp pli: Mang phong cách hoài cổ và nữ tính, qua mấy mùa thời trang, những chiếc váy xếp ly vẫn đang là xu hướng \'hot\' và được nhiều sao Việt yêu thích.\r\nTrong mùa xuân hè 2017, những đường xếp li được các nhà thiết kế trên khắp thế giới biết tấu mới lạ khi đan xen với nhau trên nền chất liệu vải rủ, nhẹ hay lấp lánh ánh kim và rất được lòng các tín đồ thời trang.\r\nHọa tiết kẻ sọc: Không khó để bắt gặp hình ảnh của loại họa tiết trẻ trung này trong mỗi buổi tiệc sang trọng của giới giải trí hay \'cặp kè\' cùng các người đẹp trên mọi tuyến phố mùa hè 2017. Các người đẹp thậm chí chấp nhận bị \'đụng hàng\' bởi sức hút trẻ trung, thanh lịch của trang phục kẻ sọc quả thật rất khó chối từ.\r\nÁo khoác kẻ ô: Những mẫu blazer họa tiết kẻ ô trở thành xu hướng thời trang nổi bật trong năm 2017 với sự biến tấu mạnh mẽ cùng phom dáng cứng cáp. Từ nhà mốt Alexander Wang, Stella McCartney cho đến Calvin Klein cũng đều thể hiện chất riêng nhằm mang đến hình ảnh người phụ nữ cá tính, quyền lực trong xã hội ngày nay.\r\nShort jean nửa mông: Là cô nàng yêu thích sự nóng bỏng và sexy tất nhiên bạn không thể nào bỏ lỡ item cứ mặc vào là hot hòn họt này được. Đúng vậy, chiếc quần được nhắc tới là short jean nửa mông, giúp các cô gái khoe vòng 3 nửa kín nửa hở với vẻ sexy đạt tới cực điểm. Món đồ không chỉ thách thức thị giác người nhìn mà nó còn thể hiện sự bản lĩnh của người mặc. Vậy nên, các bạn gái phải cân nhắc thật kỹ trước khi định diện chúng ra đường nhé.\r\nMũ nồi: Đây là xu hướng phụ kiện nổi bật nhất trong năm 2017. Sau nhiều mùa bị lãng quên, item này quay trở lại với sự xuất hiện trong show diễn thu đông của nhà mốt Dior. Mũ nồi mang kiểu dáng mềm, hình tròn, phẳng được thiết kế bằng vải dệt, len, cotton. Phụ kiện xuất hiện vào thế kỷ 19 từ giới quân nhân Pháp và Tây Ban Nha. Về sau, chiếc mũ này đã trở thành item được yêu thích từ nhiều tầng lớp khác nhau trên thế giới.\r\nHọa tiết kẻ ngang là một trong những xu hướng hot dường như chưa bao giờ lỗi mốt và tiếp tục trở thành xu hướng được yêu thích năm 2017. Trang phục kẻ sọc ngang có thể dễ dàng giúp bạn gái cân bằng cơ thể. Mặc dù chúng ta đã biết rằng các đường sọc dọc tạo chiều dài trong khi các đường sọc ngang tạo chiều rộng, tuy nhiên bạn có vóc dáng như thế nào vẫn có thể mặc để tạo ra sự cân bằng. Hơn thế, những kiểu áo thun kẻ sọc ngang đơn giản cũng dễ dàng mix với nhiều trang phục với nhau như quần jeans, quần short, chân váy...\r\nSơmi trắng dạng váy: Những chiếc sơ mi trắng đơn giản nhưng luôn ẩn chứa sức quyến rũ mãnh liệt, mê hoặc hoàn toàn mọi phong cách của phái đẹp. Váy sơmi vẫn mang dáng vẻ của một chiếc áo với hàng cúc chạy dọc thông thường, nhưng phần thân được kéo dài tạo thành hình váy suông, váy maxi... Chính bởi sự kết hợp độc đáo đó, cho nên mẫu trang phục này rất dễ mặc trong nhiều trường hợp, với nhiều phong cách khác nhau và đã trở thành xu hướng được yêu thích. Từ việc nền nã chỉn chu khi đi làm mỗi ngày cho đến cá tính phóng khoáng mỗi buổi tụ tập bạn bè, chiếc váy này đã trở thành lựa chọn đầu bảng của nhiều cô nàng ngay trong lần thử đồ đầu tiên. \r\nHoạ tiết hoa lá: Thu đông 2017 là khoảng thời gian lên ngôi của họa tiết hoa lá. Không chỉ xuất hiện trên áo khoác, sơ mi mà chúng còn biến tấu qua những mẫu chân váy trẻ trung hay phom dáng maxi nữ tính. Trào lưu này mang đến sức hút khi thể hiện được vẻ nhẹ nhàng, sành điệu của người phụ nữ. Các tín đồ thời trang đã phá cách hơn khi kết hợp trang phục hoa lá đồng điệu cùng những mẫu phụ kiện màu sắc như túi xách hay giày cao gót đinh tán. \r\nTúi cói:Năm nay, các nhà mốt xa xỉ đều đồng loạt trình làng các thiết kế túi xách cói khác nhau. Sự đa dạng về mẫu mã từ kiểu dáng hộp, túi picnic hay thậm chí túi tròn đều tạo nên vẻ bắt mắt, nhẹ nhàng cho phái nữ trong những chuyến du lịch.\r\nÁo khoác độn vai:Những chiếc khoác cầu vai cứng cáp trở nên phổ biến và gây mê hoặc giới mộ điệu trong năm 2017. Xu hướng này được yêu thích khi mang tinh thần hoài cổ gợi nhớ về thập niên 1880 - thời kỳ hoàng kim của vẻ đẹp mạnh mẽ. Trang phục này xuất hiện rất nhiều trong những bức ảnh street style của giới mộ điệu khắp nơi trên thế giới.\r\nTrên đây là những trào lưu được lòng tín đồ thời trang Việt nhất trong năm 2017 và bạn đã sưu tập cho mình hết thảy những phong cách ấy chưa. Nếu chưa thì hãy tiếp tục bổ sung vào tủ đồ của mình nhé vì những xu hướng thời trang trên đây vẫn đang được yêu thích và chưa có dấu hiệu hạ nhiệt đâu nhé.', '2017-12-17 13:00:00'),
 (2, 1, 'Thời tiết có mưa lạnh đến thế nào, thì chỉ cần chiếc áo này thôi là đủ ấm', 'Đúng là chẳng có gì ấm áp và phù hợp hơn với tiết trời mưa rét những ngày này ngoài chiếc áo phao to sụ.', 'images/news/thoiTietMuaLanh.jpg', 'Miền Bắc đang bước vào những ngày rét đậm với nhiệt độ xuống thấp đột ngột, ai ra đường cũng phải chuẩn bị cho mình những trang phục ấm áp nhất. Ngay lúc này những chiếc áo khoác dày dặn, có khả năng giữ ấm nhưng vẫn đảm bảo tính thời trang trở thành mối quan tâm hàng đầu của mọi cô gái. Chẳng có gì ấm áp và giúp bạn tránh gió tốt hơn những chiếc áo phao. Đừng vội chán ghét chúng bởi vẻ ngoài to sụ và kiểu dáng đơn điệu. Hãy thỏa sức sáng tạo cùng chúng, phối với skinny jeans, chân váy bó sát và những chiếc áo len, áo phông trẻ trung. Chắc chắn, bạn sẽ thấy ngạc nhiên bởi hóa ra chiếc áo cứng nhắc này cũng... thú vị phết đấy.\r\nNhững ngày trời lạnh thế này, áo phao trở thành món đồ chắn gió giữ ấm hiệu quả nhất. Lựa chọn những gam màu trung tính với sắc độ sáng nhẹ nhàng giúp tổng thể hài hòa và tinh tế hơn. Thiết kế áo phao màu trắng đơn giản mix cùng quần skinny trắng xuyệt tông, bộ canh thêm ấm áp và nền nã khi có sự góp mặt của áo len cao cổ màu ghi sáng.\r\nĐến công sở với một set đồ đơn giản nhưng luôn tinh tế, thanh lịch và quan trọng là luôn giữ ấm tối đa cho cơ thể. Một set layer quen thuộc với áo len trơn màu và sơmi trằng bẻ cổ ra ngoài, thêm áo phao đen sur ton với quần âu, set đồ trung tính rất dễ ứng dụng trong những ngày nhiệt độ lạnh tăng cường như hiện tại.\r\nNgay cả khi trời lất phất mưa thì cùng chẳng hề hấn gì, bởi áo phao khác hẳn áo khoác dạ, chất liệu của phao luôn sạch sẽ và chống thấm nước nên bạn hoàn toàn yên tâm khi diện. Trước kiểu thời tiết âm u như hiện tại, khéo chọn một thiết kế áo có sắc màu một chút kết hợp cùng áo len và skinny, đừng quên thắt thêm khăn quàng giữ ấm phần cổ, bạn có ngay một set đồ tiện dụng và cực kỳ tinh tế trong ngày đại hàn.\r\nÁo phao dày dặn, to sụ thế này nhưng vẫn có nhiều kiểu dáng cho các nàng lựa chọn. Áo phao dáng lửng sẽ rất hợp với những cô nàng trẻ trung năng động.\r\nDiện một chiếc áo phao ấm áp như thế này, bạn chỉ cần mặc bên trong một chiếc áo len mỏng cùng quần jeans là đã sẵn sàng một set đồ chắn gió hiệu quả.\r\nCô nàng nữ tính điệu đà nếu muốn diện váy trong những ngày trời chuyển lạnh thì vẫn cứ yên tâm vì chỉ cần khác ngoài với áo phao to sụ là đã đủ ấm áp rồi. Áo phao tuy vẻ ngoài có phân to dày và hơi thô nhưng nó lại có khả năng kết hợp với đue kiểu trang phục có trong tủ đồ của bạn đấy.\r\nMột nàng công sở chỉn chu đương nhiên sẽ có yêu cầu cao hơn cho set đồ của mình. Khi đó những thiết kế áo phao dáng dài sẽ là lựa chọn tối ưu, vốn dĩ kiểu dáng áo đã giúp các nàng ghi điểm với vẻ ngoài tinh tế, gọn gàng, nay lại kết hợp xuỵet tông cùng áo len mỏng và boots da lại càng cho ra một set đồ hài hòa và thanh lịch hơn cả.\r\nNhững thiết kế áo phao dáng dài sẽ không còn nặng nề hay cồng kềnh nữa khi bạn khéo léo lựa chọn những set đồ đi kèm với nó. Bạn có thể mix đồ năng động với áo len trơn màu nổi cùng quần jeans và boots để dạo phố thật năng động và phong cách.\r\nLựa chọn màu sắc sóng đôi cùng nhau chính là cách để các nàng tránh việc bị dáng áo phao to rộng \"nuốt chửng\" vóc dáng. Các nàng có thể chọn áo mặc trong xuyệt tông cùng áo phao, hoặc lựa chọn những gam màu khác sắc độ nhưng xếp vào cùng bảng màu trầm nền nã để bộ đồ có sự liên mạch và liên quan đến nhau.\r\nCape', '2017-12-17 13:01:01'),
 (3, 1, 'Với cách mix đồ Giáng sinh \"cute lạc lối\" này, cần gì có người yêu, chỉ cần hội bạn thân là đủ rồi!', 'Bạn đã có ý tưởng gì cho trang phục diện đi chơi đêm Noel cùng hội bạn thân chưa? Nếu chưa thì đây sẽ là những gợi ý hữu ích dành cho bạn, hãy nhanh tay tag ngay hội chị em để cùng thực hiện nhé!', 'images/news/mixDoGiangSinh.jpg', '\r\nGiáng sinh luôn là khoảng thời gian tuyệt vời để các bạn trẻ được “xúng xính” những bộ cánh thật đẹp, cùng hội bạn thân dạo phố hoặc tham gia những buổi tiệc quây quần cùng gia đình. Dưới đây những gợi ý chọn trang phục lí tưởng nhất cho dịp Noel nổi bật mà không bị sến sẩm.\r\n<center><img src=\'images/news/mixDoGiangSinh/1.jpg\' width=\'600\'></center>\r\nVới gam màu đặc trưng của ngày lễ Giáng sinh như đỏ đậm kết hợp với những họa tiết kẻ sọc - hoa văn lộng lẫy này giúp bạn “biến hóa” linh hoạt trong phong cách thời trang trẻ trung, năng động. Bạn có thể chọn cách mix đồ đơn giản như chân váy + áo len, chúng vừa xinh xắn vừa khỏe khoắn, năng động là những gì bạn có thể thấy ở set đồ này.\r\n<center><img src=\'images/news/mixDoGiangSinh/2.jpg\' width=\'600\'></center>\r\nSử dụng rất nhiều màu nóng và lạnh xen kẽ, thế nhưng tổng thể vẫn rất hài hòa với cách phối thống nhất bởi một tông màu đỏ chủ đạo và tất cả còn lại là điểm nhấn nhằm tôn vinh cả set đồ.\r\n<center><img src=\'images/news/mixDoGiangSinh/3.jpg\' width=\'600\'></center>\r\nPhụ kiện như mũ beret, băng đô chính là những thứ không thể thiếu mỗi khi diện đồ nhiều màu sắc nhé các cô nàng, và nhớ hãy chọn phụ kiện đơn sắc để tránh làm rối tổng thể.\r\n<center><img src=\'images/news/mixDoGiangSinh/4.jpg\' width=\'600\'></center>\r\nSet đồ cá tính và ấn tượng với 3 gam màu đen - trắng - đỏ nổi bật. Đây là 1 minh chứng cho việc, không cần phải lộng lẫy hay diêm dúa mới có thể tạo nên 1 set đồ đậm chất Giáng sinh.\r\n<center><img src=\'images/news/mixDoGiangSinh/5.jpg\' width=\'600\'></center>\r\nXanh lá là lựa chọn hoàn hảo để thể hiện sức sống, sự tươi trẻ. Chính vì thế, các thương hiệu thời trang nổi tiếng không bỏ qua màu xanh lá trong BST của mình, đặc biệt trong mùa Giáng sinh này, người ta nói rằng xanh lá là 1 trong top các sắc màu hot nhất.\r\n<center><img src=\'images/news/mixDoGiangSinh/6.jpg\' width=\'600\'></center>\r\nVới trang phục sắc màu xanh lá, các bạn có thể diện cả cây xanh lá hoặc mix & match tùy thích, sắc màu này rất dễ kết hợp, đặc biệt là rất nổi bật khi mix cùng sắc màu đối lập như trắng.\r\n<center><img src=\'images/news/mixDoGiangSinh/7.jpg\' width=\'600\'></center>\r\nNếu muốn diện cả cây xanh mà không nhàm chán, bạn hãy chọn điểm nhấn cho mình bằng họa tiết nhé! Chẳng hạn như chiếc áo babydoll cùng với kẻ sọc trắng sẽ giúp cho bộ trang phục của bạn thêm sinh động và trẻ trung hơn rất nhiều.\r\n<center><img src=\'images/news/mixDoGiangSinh/8.jpg\' width=\'600\'></center>\r\n<center><img src=\'images/news/mixDoGiangSinh/9.jpg\' width=\'600\'></center>\r\nNếu không thích những gam màu sáng như màu đỏ và xanh lá, bạn có thể chọn giải pháp an toàn hơn khi kết hợp gam màu trắng và đen trong cùng một set đồ. Hãy thử tưởng tượng rằng, bạn cùng nhóm mình đi bộ trong cùng một tone màu, cùng diện những trang phục như thế này, chắc chắn mọi người không thể nào rời mắt khỏi nhóm của bạn đâu nhé!\r\n<center><img src=\'images/news/mixDoGiangSinh/10.jpg\' width=\'600\'></center>\r\nNhững set đồ matchy-matchy kẻ caro mang tone trắng đen không hề lạc hậu chút nào mà ngược lại còn rất tươi tắn và trẻ trung như thế này. Và bây giờ chỉ cần tạo dáng nữa thôi là đã có thể sống ảo được rồi!\r\n<center><img src=\'images/news/mixDoGiangSinh/11.jpg\' width=\'600\'></center>\r\nSet đồ dành cho những bạn gái thích sự năng động: chân váy đen xòe và áo sơ mi, thêm một đôi giày đen sẽ giúp diện mạo của bạn thêm trẻ trung, cá tính.\r\n<center><img src=\'images/news/mixDoGiangSinh/12.jpg\' width=\'600\'></center>\r\nĐêm Noel không tránh khỏi những cơn gió lạnh, bạn có thể chọn cho mình một chiếc áo khoác có màu trùng với chân váy hoặc quần legging. Chẳng hạn như áo khoác đen và chân váy đen hoặc áo khoác màu ghi, trắng kết hợp cùng legging đen. Bạn không nên quên chọn cho mình một đôi giày đồng màu với quần hoặc áo hoặc váy nữa nhé!\r\n<br><i>Noel này cần gì cần gì có người yêu nhỉ? Chỉ cần có hội bạn thân này là đủ rồi. Hãy cùng nhau tận hưởng những khoảnh khắc tuyệt vời ngày Giáng sinh và tạo ra những bức ảnh dễ thương qua cách mix đồ ton sur ton này nhé!</i><br>\r\n<br><b>Quyn Quyn</b><br>', '2017-12-17 14:00:00');
@@ -77,13 +77,41 @@ INSERT INTO `news` (`IDNews`, `IDGroupNews`, `title`, `describes`, `imageNews`, 
 --
 
 CREATE TABLE `cart` (
-  `IDCart` int(10) NOT NULL,
-  `IDProduct` int(10) NOT NULL,
-  `colorChoose` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `sizeChoose` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(10) NOT NULL,
+  `product_id` int(10) NOT NULL,
+  `color_choose` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `size_choose` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `amount` int(10) NOT NULL,
-  `sumPrice` int(10) NOT NULL
+  `sum_price` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `color_choose`, `size_choose`, `amount`, `sum_price`) VALUES
+(0, 17, 'Xanh', 'l', 3, 1800000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitietphieuchi`
+--
+
+CREATE TABLE `chitietphieuchi` (
+  `maPhieuChi` int(10) NOT NULL,
+  `maSanPham` int(10) NOT NULL,
+  `soLuong` int(10) NOT NULL,
+  `thanhTien` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ghiChu` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chitietphieuchi`
+--
+
+INSERT INTO `chitietphieuchi` (`maPhieuChi`, `maSanPham`, `soLuong`, `thanhTien`, `ghiChu`) VALUES
+(1, 13, 1, '2800000', '');
 
 -- --------------------------------------------------------
 
@@ -92,18 +120,18 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `comment` (
-  `IDComment` int(10) NOT NULL,
-  `IDUser` int(10) NOT NULL,
-  `content` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `timeComment` datetime NOT NULL,
-  `IDProduct` int(10) NOT NULL
+  `idcmt` int(10) NOT NULL,
+  `iduser` int(10) NOT NULL,
+  `comment` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `datecmt` datetime NOT NULL,
+  `idproduct` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `comment`
 --
 
-INSERT INTO `comment` (`IDComment`, `IDUser`, `content`, `timeComment`, `IDProduct`) VALUES
+INSERT INTO `comment` (`idcmt`, `iduser`, `comment`, `datecmt`, `idproduct`) VALUES
 (1, 1, 'Đẹp quá!', '2017-12-22 20:00:00', 1),
 (2, 2, 'Tuyệt vời!', '2017-12-22 20:34:00', 1),
 (3, 1, 'Thanks ad ^^', '2017-12-26 01:13:59', 1),
@@ -111,7 +139,9 @@ INSERT INTO `comment` (`IDComment`, `IDUser`, `content`, `timeComment`, `IDProdu
 (0, 1, 'alo', '2017-12-29 23:53:14', 1),
 (0, 1, 'het mat roi', '2017-12-29 23:53:58', 3),
 (0, 1, '', '2018-05-27 19:24:27', 2),
-(0, 1, 'gggg', '2018-06-04 12:21:52', 6);
+(0, 1, 'gggg', '2018-06-04 12:21:52', 6),
+(0, 1, 'đâs', '2018-06-16 10:24:19', 23),
+(0, 1, 'hello. sản phẩm này đẹp mà bền nữa. Xin liên hệ đên 01957790513', '2018-06-16 10:25:21', 13);
 
 -- --------------------------------------------------------
 
@@ -120,35 +150,41 @@ INSERT INTO `comment` (`IDComment`, `IDUser`, `content`, `timeComment`, `IDProdu
 --
 
 CREATE TABLE `cthd` (
-  `IDBill int(11) NOT NULL,
-  `IDProduct` int(11) NOT NULL,
-  `AmountProduct` int(11) NOT NULL,
-  `colorChoose`` varchar(100) CHARACTER SET utf8 COChoose`` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `sumPLLATE utf8_unicode_ci NOT NULL,
-  `sizerice` varchar(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `sohd` int(11) NOT NULL,
+  `idsanpham` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `mau` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `size` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sum_price` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cthd`
 --
 
-INSERT INTO `cthd` (`IDBill`, `IDProduct`, `AmountProduct`, `colorChoose`, `sizeChoose`, `sumPrice`) VALUES
-(0, 4, 4, 'Đen', 's', '1196000'),
-(2, 11, 3, 'Xanh chấm bi', 'xl', '750000'),
-(0, 14, 1, 'Đen', 's', '600000'),
-(2, 5, 2, 'Đỏ', 'xl', '398000'),
-(2, 6, 1, 'Xanh', 's', '350000'),
-(2, 12, 2, 'Xanh', 'm', '5600000'),
-(3, 3, 2, 'Tím', 's', '398000'),
-(3, 5, 1, 'Đỏ', 's', '199000'),
-(3, 10, 1, 'Đỏ', 's', '350000'),
-(4, 7, 1, 'Hồng', 's', '129000'),
-(4, 9, 1, 'Xanh', 'xl', '150000'),
-(4, 10, 1, 'Đỏ', 's', '350000'),
-(4, 12, 2, 'Xanh', 'xl', '5600000'),
-(4, 14, 1, 'Đen', 'xl', '600000'),
-(5, 6, 2, 'Xanh', 'l', '700000'),
-(5, 11, 3, 'Xanh chấm bi', 's', '750000');
+INSERT INTO `cthd` (`id`, `sohd`, `idsanpham`, `soluong`, `mau`, `size`, `sum_price`) VALUES
+(0, 0, 4, 4, 'Đen', 's', '1196000'),
+(2, 0, 11, 3, 'Xanh chấm bi', 'xl', '750000'),
+(1, 0, 14, 1, 'Đen', 's', '600000'),
+(6, 2, 5, 2, 'Đỏ', 'xl', '398000'),
+(5, 2, 6, 1, 'Xanh', 's', '350000'),
+(4, 2, 12, 2, 'Xanh', 'm', '5600000'),
+(7, 3, 3, 2, 'Tím', 's', '398000'),
+(8, 3, 5, 1, 'Đỏ', 's', '199000'),
+(9, 3, 10, 1, 'Đỏ', 's', '350000'),
+(14, 4, 7, 1, 'Hồng', 's', '129000'),
+(13, 4, 9, 1, 'Xanh', 'xl', '150000'),
+(12, 4, 10, 1, 'Đỏ', 's', '350000'),
+(10, 4, 12, 2, 'Xanh', 'xl', '5600000'),
+(11, 4, 14, 1, 'Đen', 'xl', '600000'),
+(16, 5, 6, 2, 'Xanh', 'l', '700000'),
+(15, 5, 11, 3, 'Xanh chấm bi', 's', '750000'),
+(19, 6, 6, 1, 'Xanh', 's', '350000'),
+(17, 6, 7, 1, 'Hồng', 's', '129000'),
+(18, 6, 10, 4, 'Đỏ', 'xl', '1400000'),
+(20, 7, 3, 2, 'Tím', 's', '398000'),
+(21, 7, 4, 2, 'Đen', 'xl', '598000');
 
 -- --------------------------------------------------------
 
@@ -156,28 +192,30 @@ INSERT INTO `cthd` (`IDBill`, `IDProduct`, `AmountProduct`, `colorChoose`, `size
 -- Table structure for table `hoadon`
 --
 
-CREATE TABLE `bill` (
-  `IDBill` int(11) NOT NULL,
-  `timeCreate` datetime NOT NULL,
-  `IDAdmin` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `nameUser` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `phoneNumber` varchar(100) NOT NULL,
-  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `moneyShip` varchar(100) NOT NULL,
+CREATE TABLE `hoadon` (
+  `sohd` int(11) NOT NULL,
+  `ngay` datetime NOT NULL,
+  `nhanvien` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `khachhang` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sodienthoai` varchar(100) NOT NULL,
+  `diachi` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `tienship` varchar(100) NOT NULL,
   `VAT` varchar(100) NOT NULL DEFAULT '0.1',
-  `sumPrice`` varchar(100) NOT NULL
+  `giatri` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hoadon`
 --
 
-INSERT INTO `hoadon` (`IDBill`, `timeCreate`, `IDAdmin`, `nameUser`, `phoneNumber`, `address`, `moneyShip`, `VAT`, `sumPrice`) VALUES
+INSERT INTO `hoadon` (`sohd`, `ngay`, `nhanvien`, `khachhang`, `sodienthoai`, `diachi`, `tienship`, `VAT`, `giatri`) VALUES
 (0, '2018-06-02 12:38:42', 'admin', 'Trần Thiện Hòa', '01657790513', 'Quận 9, tp HCM', '40000', '0.1', '2546000'),
 (2, '2018-06-04 11:31:01', 'admin', 'Huỳnh Văn Khoa', '0192839202', 'Tân Bình', '40000', '0.1', '6348000'),
-(3, '2018-06-04 15:40:41', 'admin', 'Lê Hoàng Vỹ Vỹ', '0192839421', 'Suối Tiên, Quận 9, TP.HCM', '40000', '0.1', '947000'),
+(3, '2018-02-04 15:40:41', 'admin', 'Lê Hoàng Vỹ Vỹ', '0192839421', 'Suối Tiên, Quận 9, TP.HCM', '40000', '0.1', '947000'),
 (4, '2018-06-04 15:44:34', 'admin', 'Trường CNTT', '02800119923', 'Trường đại học công nghệ thông tin', '40000', '0.1', '6829000'),
-(5, '2018-06-04 15:46:19', 'admin', 'Đoàn Văn Châu', '010313', '231, Nguyễn Du', '40000', '0.1', '1450000');
+(5, '2018-03-04 15:46:19', 'admin', 'Đoàn Văn Châu', '010313', '231, Nguyễn Du', '40000', '0.1', '1450000'),
+(6, '2018-06-16 14:13:13', 'admin', 'Huỳnh Văn Khoa', '019283901', 'Trường HUTECH', '40000', '0.1', '1879000'),
+(7, '2018-06-16 15:09:39', 'admin', 'Khách hàng', '01988998293', 'Trường công nghệ thông tin', '40000', '0.1', '996000');
 
 -- --------------------------------------------------------
 
@@ -186,15 +224,15 @@ INSERT INTO `hoadon` (`IDBill`, `timeCreate`, `IDAdmin`, `nameUser`, `phoneNumbe
 --
 
 CREATE TABLE `image` (
-  `IDProduct` int(10) NOT NULL,
-  `imageLink` varchar(5000) NOT NULL
+  `id` int(10) NOT NULL,
+  `image_link` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `image`
 --
 
-INSERT INTO `image` (`IDProduct`, `imageLink`) VALUES
+INSERT INTO `image` (`id`, `image_link`) VALUES
 (1, 'images/product/thoi-trang-nu/xanh-1-0636086650350562651.jpg'),
 (2, 'images/product/thoi-trang-nu/trang-1-0636054082543242809-num1.jpg,images/product/thoi-trang-nu/trang-1-0636054082543242809-num2.jpg,images/product/thoi-trang-nu/trang-1-0636054082543242809-num3.jpg,images/product/thoi-trang-nu/trang-1-0636054082543242809-num4.jpg'),
 (3, 'images/product/thoi-trang-nu/tim-1-0636010025286033752-num1.jpg,images/product/thoi-trang-nu/tim-1-0636010025286033752-num2.jpg,images/product/thoi-trang-nu/tim-1-0636010025286033752-num3.jpg,images/product/thoi-trang-nu/tim-1-0636010025286033752-num4.jpg'),
@@ -210,7 +248,16 @@ INSERT INTO `image` (`IDProduct`, `imageLink`) VALUES
 (13, 'images/product/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127-num1.jpg,\r\nimages/product/thoi-trang-nam/vest-xam-ke-soc-an-tuong-127-num2.jpg'),
 (14, 'images/product/thoi-trang-nam/quan-au-mau-den-ke-soc-117-num1.jpg,images/product/thoi-trang-nam/quan-au-mau-den-ke-soc-117-num2.jpg,images/product/thoi-trang-nam/quan-au-mau-den-ke-soc-117-num3.jpg,images/product/thoi-trang-nam/quan-au-mau-den-ke-soc-117-num4.jpg'),
 (15, 'images/product/thoi-trang-nam/so-mi-trang-cham-den-nho-tinh-te-321-num1.jpg,images/product/thoi-trang-nam/so-mi-trang-cham-den-nho-tinh-te-321-num2.jpg,images/product/thoi-trang-nam/so-mi-trang-cham-den-nho-tinh-te-321-num3.jpg'),
-(16, 'images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316-num1.jpg,images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316-num2.jpg,images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316-num1.jpg');
+(16, 'images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316-num1.jpg,images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316-num2.jpg,images/product/thoi-trang-nam/so-mi-xam-cham-bi-chim-316-num1.jpg'),
+(17, 'images/product/thoi-trang-nam/so-mi-xanh-tim-hoa-tiet-tron-306.jpg'),
+(18, 'images/product/phu-kien/that-lung-da-khoa-tron-cham-khac-noi-226.png'),
+(19, 'images/product/phu-kien/that-lung-da-khoa-van-ma-vang-230-ff0c1375-f337-4d21-b8b8-bb2e91787170.png'),
+(20, 'images/product/phu-kien/2016-Top-10-Brand-Carnival-Automatical-Mechanical.jpg'),
+(21, 'images/product/phu-kien/giay-da-tay-nam.jpg'),
+(22, 'images/product/phu-kien/images.jpg'),
+(23, 'images/product/phu-kien/giay-cao-got-ho-mui-de-vuong-nu-xinh-1m4G3-OIk1B3.jpg'),
+(24, 'images/product/phu-kien/tui-xach-nu-svn.jpg'),
+(25, 'images/product/phu-kien/vi-nu-da-that-nucelle-070363-11-1-jpeg.jpg');
 
 -- --------------------------------------------------------
 
@@ -218,19 +265,19 @@ INSERT INTO `image` (`IDProduct`, `imageLink`) VALUES
 -- Table structure for table `nhacungcap`
 --
 
-CREATE TABLE `Supplier` (
-  `IDSupplier` int(11) NOT NULL,
+CREATE TABLE `nhacungcap` (
+  `id` int(11) NOT NULL,
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `kind` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `sumDebt` varchar(100) NOT NULL DEFAULT '0'
+  `loai` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `diachi` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sonodu` varchar(100) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `nhacungcap`
 --
 
-INSERT INTO `Supplier` (`IDSupplier`, `name`, `kind`, `address`, `sumDebt`) VALUES
+INSERT INTO `nhacungcap` (`id`, `name`, `loai`, `diachi`, `sonodu`) VALUES
 (3, 'Công ti dịch vụ Trần Thiện Hòa', 'NCC', 'B133, Tăng Nhơn Phú B, Quận 9, TP.HCM', '100000000'),
 (4, 'Công ti phân phối miền Nam', 'KH', 'KCX Linh Trung, quận Thủ Đức, TP.HCM', '12300000'),
 (5, 'Công ty may mặc thời trang Huỳnh Khoa', 'NCC', '23 Đồng Nai', '34000000'),
@@ -244,16 +291,16 @@ INSERT INTO `Supplier` (`IDSupplier`, `name`, `kind`, `address`, `sumDebt`) VALU
 -- Table structure for table `nhomtin`
 --
 
-CREATE TABLE `groupnews` (
-  `IDGroupNews` int(10) NOT NULL,
-  `name` varchar(100) NOT NULL
+CREATE TABLE `nhomtin` (
+  `idnhom` int(10) NOT NULL,
+  `tennhom` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `nhomtin`
 --
 
-INSERT INTO `groupnews` (`IDGroupNews`, `name`) VALUES
+INSERT INTO `nhomtin` (`idnhom`, `tennhom`) VALUES
 (1, 'Thời trang'),
 (2, 'Sống khỏe'),
 (3, 'Girl'),
@@ -265,24 +312,25 @@ INSERT INTO `groupnews` (`IDGroupNews`, `name`) VALUES
 -- Table structure for table `phieuchi`
 --
 
-CREATE TABLE `paymentvoucher` (
-  `IDTransaction` varchar(100) NOT NULL,
-  `timeTransaction` datetime NOT NULL,
-  `IDSupplier` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `NameTransaction` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `value` varchar(100) NOT NULL
+CREATE TABLE `phieuchi` (
+  `stt` int(11) NOT NULL,
+  `magd` varchar(100) NOT NULL,
+  `ngay` datetime NOT NULL,
+  `tencuahang` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `tengiaodich` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `giatri` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `phieuchi`
 --
 
-INSERT INTO `paymentvoucher` (`IDTransaction`, `timeTransaction`, `IDSupplier`, `NameTransaction`, `value`) VALUES
-('GD.001', '2018-06-30 01:00:00', 'Công ty thời trang shopfashion', 'Mua hàng', '54000000'),
-('GD.002', '2018-06-30 01:59:00', 'Công ty TNHH Adidas', 'Nhập hàng', '14000000'),
-('GD.003', '2018-06-28 02:23:20', 'Công ty TNHH PT2000', 'Nhập quần', '20000000'),
-('GD.004', '2018-06-22 08:23:27', 'Công ty thời trang shopfashion', 'Nhập hàng', '2100000'),
-('GD.005', '2018-06-22 10:25:00', 'Công ty TNHH Adidas', 'Nhập hàng', '10000000');
+INSERT INTO `phieuchi` (`stt`, `magd`, `ngay`, `tencuahang`, `tengiaodich`, `giatri`) VALUES
+(1, 'GD.001', '2018-06-30 01:00:00', 'Công ty thời trang shopfashion', 'Mua hàng', '54000000'),
+(2, 'GD.002', '2018-06-30 01:59:00', 'Công ty TNHH Adidas', 'Nhập hàng', '14000000'),
+(3, 'GD.003', '2018-06-28 02:23:20', 'Công ty TNHH PT2000', 'Nhập quần', '20000000'),
+(4, 'GD.004', '2018-06-22 08:23:27', 'Công ty thời trang shopfashion', 'Nhập hàng', '2100000'),
+(5, 'GD.005', '2018-06-22 10:25:00', 'Công ty TNHH Adidas', 'Nhập hàng', '10000000');
 
 -- --------------------------------------------------------
 
@@ -291,7 +339,7 @@ INSERT INTO `paymentvoucher` (`IDTransaction`, `timeTransaction`, `IDSupplier`, 
 --
 
 CREATE TABLE `product` (
-  `IDProduct` int(10) NOT NULL,
+  `id` int(10) NOT NULL,
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `brand` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `color` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -304,14 +352,14 @@ CREATE TABLE `product` (
   `image_id` int(10) NOT NULL,
   `image_link` varchar(100) NOT NULL,
   `date_input` date NOT NULL DEFAULT '2018-06-30',
-  `IDSupplier` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `supplier` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`IDProduct`, `name`, `brand`, `color`, `price`, `status`, `amount`, `sale`, `descrition`, `category_id`, `image_id`, `image_link`, `date_input`, `IDSupplier`) VALUES
+INSERT INTO `product` (`id`, `name`, `brand`, `color`, `price`, `status`, `amount`, `sale`, `descrition`, `category_id`, `image_id`, `image_link`, `date_input`, `supplier`) VALUES
 (1, 'Đầm lenin 4 túi thương hiệu Khánh Linh - Màu xanh', 'TWIN', 'Xanh', 0, 1, 2, 70, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 1, 'images/product/thoi-trang-nu/xanh-1-0636086650350562651.jpg', '2018-06-30', ''),
 (2, 'Đầm Đuôi Cá Form Suông Màu Trắng TP61', 'The fashion', 'Trắng,Xanh', 315000, 0, 0, 10, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 2, 'images/product/thoi-trang-nu/trang-1-0636054082543242809.jpg', '2018-06-30', ''),
 (3, 'Đầm dây Hàn Quốc hoa tím đính nút', 'Spandex', 'Tím', 199000, 1, 0, 0, 'Cùng với những thiết kế tinh tế mang đến vẻ ngoài trẻ trung, duyên dáng và hiện đại cho các bạn gái mỗi khi xuống phố. Chất liệu vải thông thoáng, thấm hút mồ hôi tạo cảm giác dễ chịu cho người mặc. Hãy nhanh tay mua ngay để nhận được những giá trị hấp dẫn bạn nhé!', 4, 3, 'images/product/thoi-trang-nu/tim-1-0636010025286033752.jpg', '2018-06-30', ''),
@@ -398,7 +446,7 @@ INSERT INTO `reply` (`idrep`, `iduser`, `reply`, `daterep`, `idcmt`) VALUES
 --
 
 CREATE TABLE `user` (
-  `IDUser` int(10) NOT NULL,
+  `iduser` int(10) NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `firstname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -411,7 +459,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`IDUser`, `email`, `password`, `firstname`, `lastname`, `lastlogin`, `datebirth`) VALUES
+INSERT INTO `user` (`iduser`, `email`, `password`, `firstname`, `lastname`, `lastlogin`, `datebirth`) VALUES
 (1, 'abc@gmail.com', 'abc', 'Văn Linh', 'Phạm', '2018-06-14', '2000-06-13'),
 (2, 'chitrai@gmail.com', 'chitai', 'Trung Kiên', 'Trần', '2018-06-30', '1998-06-27'),
 (3, 'tuduyen@gmail.com', 'tuduyen', 'Nguyễn', 'Tú Duyên', '2018-06-14', '1990-06-19'),
@@ -430,40 +478,104 @@ INSERT INTO `user` (`IDUser`, `email`, `password`, `firstname`, `lastname`, `las
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`IDdmin`);
+  ADD PRIMARY KEY (`idadmin`);
 
 --
 -- Indexes for table `bangtin`
 --
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`IDNews`);
+ALTER TABLE `bangtin`
+  ADD PRIMARY KEY (`idtin`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`IDCart`),
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `chitietphieuchi`
+--
+ALTER TABLE `chitietphieuchi`
+  ADD PRIMARY KEY (`maPhieuChi`,`maSanPham`);
 
 --
 -- Indexes for table `cthd`
 --
 ALTER TABLE `cthd`
-  ADD PRIMARY KEY (`IDBill`,`IDProduct`) USING BTREE;
+  ADD PRIMARY KEY (`sohd`,`idsanpham`,`id`) USING BTREE;
 
 --
 -- Indexes for table `hoadon`
 --
-ALTER TABLE `bill`
-  ADD PRIMARY KEY (`IDBill`);
+ALTER TABLE `hoadon`
+  ADD PRIMARY KEY (`sohd`);
 
 --
 -- Indexes for table `image`
 --
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nhacungcap`
 --
+ALTER TABLE `nhacungcap`
+  ADD PRIMARY KEY (`name`);
 
+--
+-- Indexes for table `nhomtin`
+--
+ALTER TABLE `nhomtin`
+  ADD PRIMARY KEY (`idnhom`);
+
+--
+-- Indexes for table `phieuchi`
+--
+ALTER TABLE `phieuchi`
+  ADD PRIMARY KEY (`magd`),
+  ADD KEY `acb` (`tencuahang`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_category`
+--
+ALTER TABLE `product_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD PRIMARY KEY (`idrep`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`iduser`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+
+--
+-- Constraints for table `phieuchi`
+--
+ALTER TABLE `phieuchi`
+  ADD CONSTRAINT `acb` FOREIGN KEY (`tencuahang`) REFERENCES `nhacungcap` (`name`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

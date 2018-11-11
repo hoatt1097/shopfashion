@@ -15,7 +15,9 @@
     <link rel="stylesheet" type="text/css" href="admin_adduser.css">
     <link rel="stylesheet" type="text/css" href="common.css">
     <style type="text/css" media="screen">
-      
+      .btncancel:hover{
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -77,7 +79,7 @@
               <div class="content-content">
                 <form action="#" id="adduser">
                   <label>Email</label>
-                  <input type="text" id="firstname" name="firstname">
+                  <input type="text" id="email" name="email">
 
                   <label>Fisrtname</label>
                   <input type="text" id="firstname" name="firstname">
@@ -86,16 +88,16 @@
                   <input type="text" id="lastname" name="lastname">
 
                   <label>Password</label>
-                  <input type="password" id="oldpassword" name="oldpassword">
+                  <input type="password" id=password" name="password">
 
                   <label>Re-password</label>  
-                  <input type="password" id="newpassword" name="newpassword">
+                  <input type="password" id="repassword" name="repassword">
 
                   <label>Ngày sinh</label>
-                   <input type="text" id="username" name="username">
+                   <input type="text" id="ngaysinh" name="ngaysinh">
                   <div class="clearfix"></div>
                   <div class="row add_cancel" style="text-align: right;">
-                    <input type="submit" value="Add" id="btnadd">
+                    <span class="btn" value="Add" id="btnadd">  Add </span>
                     <button class="btncancel">Cancel</button>
                   </div>
                 </form>
@@ -113,6 +115,32 @@
         $(".btncancel").click(function(){
           window.location.replace("admin_users.php");
         });
+
+        $("#btnadd").click(function(){
+          var email = $("#email").val();
+          var firstname = $("#firstname").val();
+          var lastname = $("#lastname").val();
+          var password = $("#password").val();
+          var ngaysinh = $("#ngaysinh").val();
+          
+            $.ajax({
+            url : "themuser.php",
+            type : 'post',
+            dataType : 'text',
+            data : {
+                "email"    : email,
+                "firstname"    : firstname,
+                "lastname"    : lastname,
+                "password"    : password,
+                "ngaysinh"    : ngaysinh,
+            },
+            success : function(result) {
+              alert("Them thanh cong");
+            }
+          });
+          
+        });
+
 
       }); 
     </script>

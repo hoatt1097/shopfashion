@@ -87,6 +87,7 @@
                     <th>Tên cửa hàng</th>
                     <th>Tên giao dịch</th>
                     <th>Giá trị</th>
+                    <th>Xem</th>
                   </tr>
               <?php
                 $dt -> select("SELECT * FROM phieuchi");
@@ -102,6 +103,7 @@
                   $symbol_thousand = '.';
                   $decimal_place = 0;
                   $giatri = number_format($r["giatri"], $decimal_place, '', $symbol_thousand).$symbol; 
+                  $mydialog = "mydialog".$stt;
               ?>
                   <tr>
                     <td><?=$stt?></td>
@@ -110,7 +112,20 @@
                     <td><?=$tencuahang?></td>
                     <td><?=$tengiaodich?></td>
                     <td><?=$giatri?></td>
+                    <td style="text-align: center;">
+                      <li onclick = "showdialog(<?=$stt?>)" class="showdialog"><a title="Chi tiết hóa đơn"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                    </td>
                   </tr>
+                <div>
+                    <dialog id="<?="$mydialog"?>" class="mydialog" style="top:1px;">
+                        <button onclick = "closedialog(<?=$stt?>)" style="float:right">Close</button>
+                        <div class="info_shop">
+                          <b>Shop thời trang ShopFashion</b>
+                          <p>Trường đại học Công Nghệ Thông Tin</p>
+                          <p>Điện thoại: 0165.779.0513</p>
+                        </div>
+                    </dialog>
+                </div>
               <?php
                 }
               ?>
@@ -128,6 +143,13 @@
       $(document).ready(function(){
         
       }); 
+      function showdialog(magd){
+        document.getElementById("mydialog" + magd).show();
+      }
+      
+      function closedialog(magd){
+        document.getElementById("mydialog" + magd).close();
+      }
     </script>
   </body>
 </html>

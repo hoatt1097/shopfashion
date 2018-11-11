@@ -77,16 +77,16 @@
               <div class="content-content">
                 <form action="#" id="adduser">
                   <label>Email</label>
-                  <input type="text" id="firstname" name="firstname">
+                  <input type="text" id="email" name="email">
 
                   <label>Full name</label>
-                  <input type="text" id="lastname" name="lastname">
+                  <input type="text" id="fullname" name="fullname">
 
                   <label>Password</label>
-                  <input type="password" id="oldpassword" name="oldpassword">
+                  <input type="password" id="password" name="password">
 
                   <label>Re-password</label>  
-                  <input type="password" id="newpassword" name="newpassword">
+                  <input type="password" id="repassword" name="repassword">
 
                   <div class="clearfix"></div>
                   <div class="row add_cancel" style="text-align: right;">
@@ -107,6 +107,27 @@
         $("#adduser")[0].reset();
         $(".btncancel").click(function(){
           window.location.replace("admin_users.php");
+        });
+
+        $("#btn-btnadd").click(function(){
+          var email = $("#email").val();
+          var name = $("#fullname").val();
+          var password = $("#password").val();
+          
+            $.ajax({
+            url : "themadmin.php",
+            type : 'post',
+            dataType : 'text',
+            data : {
+                "name"    : name,
+                "phone"    : email,
+                "password"    : password,
+            },
+            success : function() {
+              alert("Them thanh con");
+            }
+          });
+          
         });
 
       }); 

@@ -1,4 +1,4 @@
-<?php 
+  <?php 
   include 'database.php';
   $dt = new Database;
 ?>
@@ -114,10 +114,10 @@
             <a href="" title="" itemprop="4">Váy đầm</a>
           </li>
           <li>
-            <a href="#" title="" itemprop="6">Áo khoác nữ</a>
+            <a href="" title="" itemprop="6">Áo khoác nữ</a>
           </li>
           <li>
-            <a href="#" title="" itemprop="5">Đồ mặc nhà</a>
+            <a href="" title="" itemprop="5">Đồ mặc nhà</a>
           </li>
         </ul>
         <div class="row">
@@ -324,6 +324,7 @@
                     $price = "Liên hệ mua hàng";
                   }
                   $link = $r["image_link"];  
+                  $image_id = $r["image_id"];
                   $sale = $r["sale"];
                   if( $k < 8)
                   {
